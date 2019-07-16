@@ -1,8 +1,9 @@
+# License
 By downloading or installing or using the Virgo template (from now on "Template"), you consent to the terms and conditions of this license on behalf of yourself and the company on whose behalf you will use the Template provided under this license.
 
 The use of the Template is permitted provided that the following conditions are met:
 
-##Permissions:
+## Permissions:
 
 - ✅ Commercial use - you can use the Template for personal, private, commercial and non-commercial purposes without attribution.
 - ✅ Modification - you can modify the source code of the Template.
@@ -10,7 +11,7 @@ The use of the Template is permitted provided that the following conditions are 
 
 *A theme is a website template that anyone can download and use to "plug-in" their own content into to create a website.
 
-##Limitations:
+## Limitations:
 
 - ❌ Themes, Website builders and Plugins - you cannot use the Template to create your own themes, templates, website builder and plugins offered for sale or for free.
 - ❌ Distribution of modified version - you cannot make minor modifications and distribute the Template on its own, with or without attribution, for sale or for free. A minor modification is a minor change in the code (e.g., an adaptation of the Template to another framework).
