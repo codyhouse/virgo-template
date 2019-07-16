@@ -1,0 +1,57 @@
+/* -------------------------------- 
+
+File#: _1_faq
+Title: Frequent Questions
+Descr: A ready-to-use template for your site FAQ section.
+
+-------------------------------- */
+
+:root {
+  --faq-counter-size: 1.2em;
+  --faq-counter-text-scale: 0.6; // counter font-size scale factor 
+}
+
+.faq {}
+
+.faq__item {
+  .text-component p {
+    font-size: var(--text-sm);
+    color: var(--color-contrast-medium);
+  }
+}
+
+// --counter
+.faq--counter {
+  .faq__item {
+    counter-increment: faq; // used to set the counter content
+  }
+
+  .faq__title {
+    position: relative;
+    padding-left: calc(var(--faq-counter-size) + var(--space-xxs));
+  
+    &::before { // counter
+      content: counter(faq);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: calc(1em * var(--faq-counter-text-scale));
+      height: calc(var(--faq-counter-size)/var(--faq-counter-text-scale));
+      width: calc(var(--faq-counter-size)/var(--faq-counter-text-scale));
+      line-height: calc(var(--faq-counter-size)/var(--faq-counter-text-scale));
+      text-align: center;
+      background-color: var(--color-contrast-lower);
+      color: var(--color-contrast-medium);
+      border-radius: 50%;
+    }
+  
+    @include breakpoint(lg) {
+      padding-left: 0;
+  
+      &::before {
+        transform: translateX(-100%);
+        left: -8px;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+// --------------------------------
+
+// (START) Global Editor code https://codyhouse.co/ds/globals/forms
+
+// --------------------------------
+
+:root{
+  --form-control-padding-x: var(--space-sm);
+  --form-control-padding-y: var(--space-xs);
+  --form-control-radius: 0.2em;
+}
+
+.form-control {
+  background-color: var(--color-contrast-lower);
+  border: 2px solid var(--color-contrast-low);
+
+  &::-webkit-input-placeholder {
+    color: var(--color-contrast-medium);
+  }
+
+  &::-moz-placeholder {
+    color: var(--color-contrast-medium);
+  }
+
+  &:-ms-input-placeholder {
+    color: var(--color-contrast-medium);
+  }
+
+  &:-moz-placeholder {
+    color: var(--color-contrast-medium);
+  }
+
+  &:focus {
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-primary);
+    --color-shadow: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2);
+    box-shadow: 0px 0px 0px 2px var(--color-shadow);
+    outline: none;
+  }
+}
+
+.form-control[disabled], .form-control[readonly] {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.form-control[aria-invalid="true"] {
+  border: 2px solid var(--color-error);
+
+  &:focus {
+    --color-shadow: hsla(var(--color-error-h), var(--color-error-s), var(--color-error-l), 0.2);
+    box-shadow: 0px 0px 0px 2px var(--color-shadow);
+  }
+}
+
+.form-legend {
+  color: var(--color-contrast-higher);
+  font-size: var(--text-md);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.form-label {
+  color: var(--color-contrast-medium);
+  font-family: var(--font-secondary);
+  font-size: var(--text-sm);
+}
+
+// --------------------------------
+
+// (END) Global Editor Code
+
+// --------------------------------

@@ -1,0 +1,79 @@
+/* -------------------------------- 
+
+File#: _1_newsletter
+Title: Newsletter 
+Descr: Newsletter form template
+
+-------------------------------- */
+
+.newsletter {}
+
+.newsletter__description {
+  line-height: 1.4;
+}
+
+.newsletter__form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: var(--space-xxs);
+}
+
+.newsletter__feedback {
+  font-size: var(--text-sm);
+  padding: var(--space-xs);
+  border-radius: var(--radius-md);
+  margin-top: var(--space-sm);
+  // hide
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+
+  &::before {
+    content: '';
+    @include triangle(up, 10px, currentColor);
+    position: absolute;
+    top: 0;
+    left: 1em;
+    transform: translateY(-100%);
+  }
+}
+
+.newsletter__feedback--is-visible {
+  // show
+  position: relative;
+  clip: auto;
+  clip-path: none;
+}
+
+.newsletter__feedback--success {
+  background-color: alpha(var(--color-success), 0.2);
+
+  &::before {
+    color: alpha(var(--color-success), 0.2); // triangle color
+  }
+}
+
+.newsletter__feedback--error {
+  background-color: alpha(var(--color-error), 0.2);
+
+  &::before {
+    color: alpha(var(--color-error), 0.2); // triangle color
+  }
+}
+
+.newsletter__feedback--warning {
+  background-color: alpha(var(--color-warning), 0.2);
+
+  &::before {
+    color: alpha(var(--color-warning), 0.2); // triangle color
+  }
+}
+
+.newsletter__small {
+  line-height: 1.4;
+  color: var(--color-contrast-medium);
+
+  a {
+    color: var(--color-contrast-high);
+  }
+}

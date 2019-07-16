@@ -1,0 +1,205 @@
+/* -------------------------------- 
+
+File#: _1_main-header
+Title: Main Header
+Descr: Accessible website navigation
+
+-------------------------------- */
+
+:root {
+  --main-header-height: 50px;
+  --main-header-height-md: 70px;
+}
+
+.main-header {
+  position: relative;
+  background-color: var(--color-bg);
+  z-index: var(--zindex-header);
+}
+
+.main-header__layout {
+  padding: var(--space-sm) 0;
+}
+
+// logo
+.main-header__logo {
+  a, svg, img {
+    display: block;
+  }
+}
+
+// nav
+.main-header__nav {
+  margin-top: var(--space-sm);
+  font-size: 1.25em; // controls the font-size of all elements (sm)
+}
+
+.main-header__nav-label { // menu label
+  color: var(--color-contrast-medium);
+  margin-bottom: var(--space-xs);
+}
+
+.main-header__nav-item { // nav list item
+  margin-bottom: var(--space-xs);
+}
+
+.main-header__nav-link { // link within list item
+  color: var(--color-contrast-higher);
+
+  &[aria-current] { // style of selected link
+    color: var(--color-primary);
+  }
+}
+
+.main-header__nav-divider { // element used to separate nav items
+  height: 1px;
+  width: 100%;
+  background-color: var(--color-contrast-low);
+}
+
+// menu trigger
+.main-header__nav-trigger { // menu button
+  display: none; // hidden if js = disabled
+}
+
+// menu icon
+.main-header__nav-trigger-icon {
+  position: relative;
+  display: block;
+  height: 2px;
+  width: 1em;
+  background-color: currentColor;
+  margin-right: var(--space-xxs);
+  transition: 0.2s;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: inherit;
+    height: inherit;
+    background-color: currentColor;
+    transition: 0.2s;
+  }
+
+  &::before {
+    transform: translateY(-5px);
+  }
+
+  &::after {
+    transform: translateY(5px);
+  }
+}
+
+.main-header__nav-trigger[aria-expanded="true"] .main-header__nav-trigger-icon {
+  background-color: transparent;
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.js { // if js = enabled
+  .main-header, .main-header__layout {
+    height: var(--main-header-height);
+  }
+
+  .main-header__layout {
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-header__nav {
+    margin-top: 0;
+    position: absolute;
+    top: var(--main-header-height);
+    left: 0;
+    width: 100%;
+    background-color: var(--color-bg);
+    box-shadow: var(--shadow-md);
+    padding: var(--component-padding);
+    display: none;
+  }
+
+  .main-header__nav--is-visible {
+    display: block;
+  }
+
+  .main-header__nav-trigger {
+    display: inline-flex; // show btn
+  }
+}
+
+@include breakpoint(md) {
+  .main-header, .main-header__layout {
+    height: var(--main-header-height-md);
+  }
+
+  .main-header__layout {
+    padding: 0;
+    display: table; // flex fallback
+    width: 100%; // flex fallback
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-header__logo {
+    display: table-cell; // flex fallback
+    vertical-align: middle; // flex fallback
+  }
+
+  .main-header__nav {
+    float: right; // flex fallback
+    margin-top: 0;
+    font-size: 0.875em; // controls the font-size of all elements (md)
+  }
+
+  .main-header__nav-label { // hide label
+    position: absolute;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+  }
+
+  .main-header__nav-list {
+    display: flex;
+    align-items: center;
+  }
+
+  .main-header__nav-item {
+    display: inline-block; // flex fallback
+    margin-bottom: 0;
+    margin-left: var(--space-md);
+  }
+
+  .main-header__nav-divider {
+    height: 1em;
+    width: 1px;
+  }
+
+  .js {
+    .main-header, .main-header__layout {
+      height: var(--main-header-height-md);
+    }
+
+    .main-header__nav {
+      padding: 0;
+      background-color: transparent;
+      position: static;
+      width: auto;
+      box-shadow: none;
+      display: block;
+    }
+
+    .main-header__nav-trigger {
+      display: none;
+    }
+  }
+}

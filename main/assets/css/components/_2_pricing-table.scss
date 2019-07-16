@@ -1,0 +1,101 @@
+/* -------------------------------- 
+
+File#: _2_pricing-table
+Title: Pricing Table
+Descr: A table used to compare prices and features of different products
+
+-------------------------------- */
+
+.p-table__item {
+  background-color: var(--color-contrast-lower);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+}
+
+.p-table__item--popular {
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-primary);
+}
+
+.p-table__badge {
+  font-size: var(--text-sm);
+  background-color: var(--color-contrast-high);
+  color: var(--color-bg);
+  padding: var(--space-xxxs) var(--space-xxs);
+  @include fontSmooth;
+  vertical-align: middle;
+  border-radius: var(--radius-md);
+}
+
+.p-table__price {
+  span { // amount
+    font-size: var(--text-xxxl);
+    font-weight: bold;
+  }
+
+  i { // month/year
+    color: var(--color-contrast-medium);
+  }
+}
+
+.p-table__features {
+  li {
+    margin-bottom: var(--space-xs);
+  }
+}
+
+// --has-switch
+.p-table__switch {
+  display: none;
+}
+
+.js {
+  .p-table--has-switch {
+    .p-table__price-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .p-table__price {
+      transition: transform 0.3s, opacity 0.3s;
+      transition-timing-function: var(--ease-out);
+
+      &[data-transition-delay="2nd"] {
+        transition-delay: 0.1s;
+      }
+
+      &[data-transition-delay="3rd"] {
+        transition-delay: 0.2s;
+      }
+    }
+  
+    .p-table__price--month {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+  
+    .p-table__price--year {
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(100%);
+    }
+  }
+
+  .p-table--yearly {
+    .p-table__price--month {
+      pointer-events: none;
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+
+    .p-table__price--year {
+      pointer-events: auto;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

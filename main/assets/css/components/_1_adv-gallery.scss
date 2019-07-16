@@ -1,0 +1,126 @@
+/* -------------------------------- 
+
+File#: _1_adv-gallery
+Title: Advanced Gallery
+Descr: Advanced image gallery template
+
+-------------------------------- */
+
+.adv-gallery {}
+
+.adv-gallery__img-wrapper img {
+  width: 100%;
+  display: block;
+}
+
+.adv-gallery__label {
+  background-color: var(--color-contrast-lower);
+  padding: var(--space-md);
+}
+
+// fallback for browsers not supporting CSS Grid
+.adv-gallery__grid {
+  > * {
+    margin-bottom: var(--space-md);
+  }
+
+  @include breakpoint(md) {
+    > :nth-child(1), > :nth-child(2), > :nth-child(3) {
+      width: 32%;
+      float: left;
+    }
+
+    > :nth-child(1), > :nth-child(2) {
+      margin-right: 2%;
+    }
+
+    > :nth-child(4) {
+      clear: both;
+    }
+  }
+}
+
+// if CSS Grid = supported
+@supports (grid-area: auto) {
+  .adv-gallery__grid {
+    display: grid;
+    grid-gap: var(--space-md);
+
+    > * { // fallback reset
+      margin: 0 !important;
+      width: auto !important;
+      float: none !important;
+    }
+  }
+
+  @include breakpoint(md) {
+    .adv-gallery__grid {
+      grid-template-columns: repeat(12, 1fr);
+  
+      > :nth-child(1) {
+        grid-column: span 5;
+      }
+  
+      > :nth-child(2) {
+        grid-column: span 7;
+      }
+  
+      > :nth-child(3) {
+        grid-column: span 9;
+      }
+  
+      > :nth-child(4) {
+        grid-column: span 3;
+      }
+    }
+  }
+
+  @include breakpoint(xl) {
+    .adv-gallery__grid {
+      grid-gap: var(--space-sm);
+      grid-template-rows: repeat(12, 50px);
+  
+      > :nth-child(1) {
+        grid-column: 1 / 4;
+        grid-row: 1 / 7;
+      }
+  
+      > :nth-child(2) {
+        grid-column: 1 / 4;
+        grid-row: 7 / -1;
+      }
+  
+      > :nth-child(3) {
+        grid-column: 4 / 11;
+        grid-row: 1 / -1;
+      }
+  
+      > :nth-child(4) {
+        grid-column: 11 / 13;
+        grid-row: 1 / -1;
+      }
+    }
+
+    .adv-gallery__img-wrapper img {
+      object-fit: cover;
+      height: 100%;
+    }
+
+    .adv-gallery__label {
+      display: flex;
+
+      p {
+        margin-top: auto;
+  
+        &::before { // line
+          content: '';
+          display: block;
+          height: 80px;
+          width: 1px;
+          background-color: var(--color-contrast-high);
+          margin-bottom: var(--space-sm);
+        }
+      }
+    }
+  }
+}

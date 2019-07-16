@@ -1,0 +1,97 @@
+/* -------------------------------- 
+
+File#: _1_btns
+Title: Buttons (Group)
+Descr: Group of connected buttons
+
+-------------------------------- */
+
+:root {
+  --btns-radius: 0.25em;
+}
+
+.btns {
+  display: inline-block; // flex fallback
+  display: inline-flex;
+  border-radius: var(--btns-radius);
+  background-color: var(--color-contrast-lower);
+
+  > * {
+    display: inline-block; // flex fallback
+  }
+
+  > *:first-child, *:first-child .btns__btn {
+    border-radius: var(--btns-radius) 0 0 var(--btns-radius);
+  }
+
+  > *:last-child, *:last-child .btns__btn {
+    border-radius: 0 var(--btns-radius) var(--btns-radius) 0;
+  }
+}
+
+// single button
+.btns__btn { 
+  @include reset;
+  display: block; // fallback
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: var(--space-xs) var(--space-sm);
+
+  &:focus {
+    z-index: 1;
+  }
+}
+
+.btns__btn--selected {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  @include fontSmooth;
+}
+
+.btns--radio, .btns--checkbox {
+  > * {
+    position: relative;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    /* hide native buttons */
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+  }
+
+  input[type="radio"] + label,
+  input[type="checkbox"] + label {
+    user-select: none;
+  }
+
+  input[type="radio"]:focus + label,
+  input[type="checkbox"]:focus + label {
+    --color-shadow: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2); // fix iOS 12 bug
+    box-shadow: 0 0 0 3px var(--color-shadow);
+    z-index: 1;
+  }
+
+  input[type="radio"]:checked + label,
+  input[type="checkbox"]:checked + label {
+    /* checked state */
+    @extend .btns__btn--selected;
+  }
+}
+
+.btns__btn--icon {
+  padding: var(--space-xs);
+
+  .icon {
+    display: block;
+    color: inherit;
+  }
+}

@@ -1,0 +1,44 @@
+/* -------------------------------- 
+
+File#: _1_reading-progressbar
+Title: Reading Progress Bar
+Descr: A bar indicator displaying the current reading progress
+
+-------------------------------- */ 
+
+.reading-progressbar {
+  position: fixed;
+  z-index: var(--zindex-fixed-element);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  color: var(--color-primary); // fill color
+  pointer-events: none;
+  display: none;
+}
+
+.reading-progressbar--is-active { // if JS = enabled && content is scrollable
+  display: block;
+}
+
+.reading-progressbar::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+.reading-progressbar::-webkit-progress-value {
+  background-color: currentColor;
+}
+
+.reading-progressbar::-moz-progress-bar {
+  background-color: currentColor;
+}
+
+.reading-progressbar__fallback {
+  // fallback for brawsers not supporting the <progress> element
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background-color: currentColor;
+}

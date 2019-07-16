@@ -1,0 +1,123 @@
+/* -------------------------------- 
+
+File#: _1_feature
+Title: Feature
+Descr: Content group containing text + media (img, video, iframe, inline SVG)
+
+-------------------------------- */
+
+.feature {}
+.feature__item {}
+
+// media
+.feature__item--media {
+  display: flex;
+  align-items: center;
+
+  figure {
+    width: 100%;
+  }
+
+  video, img, svg {
+    display: block;
+  }
+  
+  video, img {
+    width: 100%;
+    height: auto;
+  }
+
+  @supports (display: grid) {
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.feature__label {
+  color: var(--color-contrast-medium);
+  font-size: var(--text-sm);
+}
+
+// --invert -> invert order of feature items at specific breakpoints
+@include breakpoint(sm) {
+  .feature--invert\@sm {
+    .feature__grid > *:first-child {
+      order: 2;
+    }
+
+    .feature__grid > *:last-child {
+      order: 1;
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .feature--invert\@md {
+    .feature__grid > *:first-child {
+      order: 2;
+    }
+
+    .feature__grid > *:last-child {
+      order: 1;
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .feature--invert\@lg {
+    .feature__grid > *:first-child {
+      order: 2;
+    }
+
+    .feature__grid > *:last-child {
+      order: 1;
+    }
+  }
+}
+
+// auto-invert features in a grid
+.feature-group {}
+
+@include breakpoint(sm) {
+  .feature-group--auto-invert\@sm {
+    .feature:nth-child(2n) {
+      .feature__grid > *:first-child {
+        order: 2;
+      }
+  
+      .feature__grid > *:last-child {
+        order: 1;
+      }
+    }
+  }
+}
+
+@include breakpoint(md) {
+  .feature-group--auto-invert\@md {
+    .feature:nth-child(2n) {
+      .feature__grid > *:first-child {
+        order: 2;
+      }
+  
+      .feature__grid > *:last-child {
+        order: 1;
+      }
+    }
+  }
+}
+
+@include breakpoint(lg) {
+  .feature-group--auto-invert\@lg {
+    .feature:nth-child(2n) {
+      .feature__grid > *:first-child {
+        order: 2;
+      }
+  
+      .feature__grid > *:last-child {
+        order: 1;
+      }
+    }
+  }
+}

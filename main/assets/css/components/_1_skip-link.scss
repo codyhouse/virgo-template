@@ -1,0 +1,38 @@
+/* -------------------------------- 
+
+File#: _1_skip-link
+Title: Skip Link
+Descr: Accessibility feature that allows users to jump to the main content of the page
+
+-------------------------------- */
+
+.skip-link {
+  position: absolute;
+  z-index: var(--zindex-fixed-element);
+  top: 0;
+  left: 0;
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-lg);
+  @include fontSmooth;
+
+  // hide
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+
+  &:focus, &.skip-link--focus {
+    // show
+    clip: auto;
+    clip-path: none;
+    --color-outline: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2);
+    outline: 3px solid var(--color-outline);
+  }
+}
+
+// optional - enable smooth scrolling
+@media screen and (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+}

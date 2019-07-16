@@ -1,0 +1,41 @@
+/* -------------------------------- 
+
+File#: _1_socials
+Title: Socials
+Descr: Section with links to social media accounts
+
+-------------------------------- */
+
+.socials__btns {
+  li {
+    display: inline-block; // flex fallback
+  }
+
+  a {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    display: block; // flex fallback
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-contrast-high);
+    color: var(--color-bg);
+    transition: background-color .2s, color .2s;
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+
+      .icon {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .icon {
+    font-size: 1.25em; // icon size
+    transition: transform .2s var(--ease-out);
+  }
+}

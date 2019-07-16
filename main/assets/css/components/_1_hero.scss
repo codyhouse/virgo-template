@@ -1,0 +1,50 @@
+/* -------------------------------- 
+
+File#: _1_hero
+Title: Hero
+Descr: A full-width callout section
+
+-------------------------------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg);
+  min-height: 380px;
+  // if bg = img
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  @include breakpoint(md) {
+    min-height: 540px;
+  }
+}
+
+.hero__content {}
+
+.hero__label {
+  color: alpha(var(--color-contrast-high), 0.6);
+  font-size: var(--text-sm);
+}
+
+// --overlay-layer
+.hero--overlay-layer {
+  position: relative;
+
+  .hero__content {
+    position: relative;
+    z-index: 2;
+  }
+
+  &::after { // add a layer in between the img/video background and the content
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: alpha(var(--color-bg), 0.65);
+    z-index: 1;
+  }
+}

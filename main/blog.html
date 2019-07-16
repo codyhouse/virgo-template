@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <script>
+    if('CSS' in window && CSS.supports('color', 'var(--color-var)')) {
+      document.write('<link rel="stylesheet" href="assets/css/style.css">');
+    } else {
+      document.write('<link rel="stylesheet" href="assets/css/style-fallback.css">');
+    }
+  </script>
+  <noscript>
+    <link rel="stylesheet" href="assets/css/style-fallback.css">
+  </noscript>
+  <title>Blog | Virgo Template by CodyHouse</title>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="main-header js-main-header">
+    <div class="container max-width-lg">
+      <div class="main-header__layout">
+        <div class="main-header__logo">
+          <a href="#0">
+            <svg width="130" height="32" viewBox="0 0 130 32"><title>Go to homepage</title><circle fill="var(--color-primary)" cx="16" cy="16" r="16"/><rect fill="var(--color-contrast-higher)" x="41" y="11" width="89" height="10"/></svg>
+          </a>
+        </div>
+
+        <button class="btn btn--subtle main-header__nav-trigger js-main-header__nav-trigger" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-header-nav">
+          <i class="main-header__nav-trigger-icon" aria-hidden="true"></i>
+          <span>Menu</span>
+        </button>
+
+        <nav class="main-header__nav js-main-header__nav" id="main-header-nav" aria-labelledby="main-header-nav-label" role="navigation">
+          <div id="main-header-nav-label" class="main-header__nav-label">Main menu</div>
+          <ul class="main-header__nav-list">
+            <li class="main-header__nav-item"><a href="index.html" class="main-header__nav-link">Home</a></li>
+            <li class="main-header__nav-item"><a href="features.html" class="main-header__nav-link">Features</a></li>
+            <li class="main-header__nav-item"><a href="pricing.html" class="main-header__nav-link">Pricing</a></li>
+            <li class="main-header__nav-item"><a href="blog.html" class="main-header__nav-link" aria-current="page">Blog</a></li>
+            <li class="main-header__nav-item"><a href="blog-article.html" class="main-header__nav-link">Article</a></li>
+            <li class="main-header__nav-item"><a href="contact.html" class="main-header__nav-link">Contact</a></li>
+            <li class="main-header__nav-item main-header__nav-divider" aria-hidden="true"></li>
+            <li class="main-header__nav-item"><a href="#0" class="btn btn--primary">Download</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="feature padding-top-lg margin-bottom-lg">
+      <div class="container max-width-adaptive-lg">
+        <div class="feature__grid grid grid-gap-md items-center">
+          <div class="col-6@md">
+            <div class="feature__item">
+              <div class="feature__label margin-bottom-xxs">This is a Label</div>
+      
+              <div class="text-component">
+                <h1>Lorem ipsum dolor sit.</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, rem neque doloribus impedit explicabo minus laborum cupiditate atque esse consectetur.</p>
+              </div>
+        
+              <div class="margin-top-sm">
+                <a href="blog-article.html" class="btn btn--dark">Read More</a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-6@md">
+            <div class="feature__item feature__item--media">
+              <figure>
+                <svg width="620" height="420" viewBox="0 0 620 420" preserveAspectRatio="xMinYMin slice">
+                  <rect width="620" height="420" fill="var(--color-contrast-lower)"/>
+                  <path d="M216 272L333 155L403.2 272H216Z" fill="var(--color-contrast-low)"/>
+                  <path d="M239.8 178.8C252.723 178.8 263.2 168.323 263.2 155.4C263.2 142.477 252.723 132 239.8 132C226.877 132 216.4 142.477 216.4 155.4C216.4 168.323 226.877 178.8 239.8 178.8Z" fill="var(--color-contrast-low)"/>
+                </svg>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section data-theme="secondary" class="padding-y-xl">
+      <div class="container max-width-adaptive-lg">
+        <div class="margin-bottom-lg">
+          <h1 class="text-center">Latest Articles.</h1>
+        </div>
+
+        <ul class="grid grid-gap-md">
+          <li class="col-6@sm col-3@xl">
+            <div data-theme="default" class="card card--is-link">
+              <a class="card__link" href="blog-article.html" aria-label="Description of the link">
+                <figure class="card__img">
+                  <img src="assets/img/blog-01.jpg" alt="Card preview img">
+                  <div class="card__link-icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 32 32"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><path d="M21,5s-4.333-1.667-7,1L6,14c-2.667,2.667-1,7-1,7"></path><path d="M27,11s1.667,4.333-1,7l-8,8c-2.667,2.667-7,1-7,1"></path> <line x1="12" y1="20" x2="4" y2="28"></line><line x1="28" y1="4" x2="20" y2="12"></line></g></svg>
+                  </div>
+                </figure>
+              
+                <div class="card__content">
+                  <div class="text-component">
+                    <h4>Title of the Card</h4>
+                    <p class="text-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="col-6@sm col-3@xl">
+            <div data-theme="default" class="card card--is-link">
+              <a class="card__link" href="blog-article.html" aria-label="Description of the link">
+                <figure class="card__img">
+                  <img src="assets/img/blog-01.jpg" alt="Card preview img">
+                  <div class="card__link-icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 32 32"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><path d="M21,5s-4.333-1.667-7,1L6,14c-2.667,2.667-1,7-1,7"></path><path d="M27,11s1.667,4.333-1,7l-8,8c-2.667,2.667-7,1-7,1"></path> <line x1="12" y1="20" x2="4" y2="28"></line><line x1="28" y1="4" x2="20" y2="12"></line></g></svg>
+                  </div>
+                </figure>
+              
+                <div class="card__content">
+                  <div class="text-component">
+                    <h4>Title of the Card</h4>
+                    <p class="text-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="col-6@sm col-3@xl">
+            <div data-theme="default" class="card card--is-link">
+              <a class="card__link" href="blog-article.html" aria-label="Description of the link">
+                <figure class="card__img">
+                  <img src="assets/img/blog-01.jpg" alt="Card preview img">
+                  <div class="card__link-icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 32 32"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><path d="M21,5s-4.333-1.667-7,1L6,14c-2.667,2.667-1,7-1,7"></path><path d="M27,11s1.667,4.333-1,7l-8,8c-2.667,2.667-7,1-7,1"></path> <line x1="12" y1="20" x2="4" y2="28"></line><line x1="28" y1="4" x2="20" y2="12"></line></g></svg>
+                  </div>
+                </figure>
+              
+                <div class="card__content">
+                  <div class="text-component">
+                    <h4>Title of the Card</h4>
+                    <p class="text-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="col-6@sm col-3@xl">
+            <div data-theme="default" class="card card--is-link">
+              <a class="card__link" href="blog-article.html" aria-label="Description of the link">
+                <figure class="card__img">
+                  <img src="assets/img/blog-01.jpg" alt="Card preview img">
+                  <div class="card__link-icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 32 32"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><path d="M21,5s-4.333-1.667-7,1L6,14c-2.667,2.667-1,7-1,7"></path><path d="M27,11s1.667,4.333-1,7l-8,8c-2.667,2.667-7,1-7,1"></path> <line x1="12" y1="20" x2="4" y2="28"></line><line x1="28" y1="4" x2="20" y2="12"></line></g></svg>
+                  </div>
+                </figure>
+              
+                <div class="card__content">
+                  <div class="text-component">
+                    <h4>Title of the Card</h4>
+                    <p class="text-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="col-6@sm col-3@xl">
+            <div data-theme="default" class="card card--is-link">
+              <a class="card__link" href="blog-article.html" aria-label="Description of the link">
+                <figure class="card__img">
+                  <img src="assets/img/blog-01.jpg" alt="Card preview img">
+                  <div class="card__link-icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 32 32"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><path d="M21,5s-4.333-1.667-7,1L6,14c-2.667,2.667-1,7-1,7"></path><path d="M27,11s1.667,4.333-1,7l-8,8c-2.667,2.667-7,1-7,1"></path> <line x1="12" y1="20" x2="4" y2="28"></line><line x1="28" y1="4" x2="20" y2="12"></line></g></svg>
+                  </div>
+                </figure>
+              
+                <div class="card__content">
+                  <div class="text-component">
+                    <h4>Title of the Card</h4>
+                    <p class="text-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="col-6@sm col-3@xl">
+            <div data-theme="default" class="card card--is-link">
+              <a class="card__link" href="blog-article.html" aria-label="Description of the link">
+                <figure class="card__img">
+                  <img src="assets/img/blog-01.jpg" alt="Card preview img">
+                  <div class="card__link-icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 32 32"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><path d="M21,5s-4.333-1.667-7,1L6,14c-2.667,2.667-1,7-1,7"></path><path d="M27,11s1.667,4.333-1,7l-8,8c-2.667,2.667-7,1-7,1"></path> <line x1="12" y1="20" x2="4" y2="28"></line><line x1="28" y1="4" x2="20" y2="12"></line></g></svg>
+                  </div>
+                </figure>
+              
+                <div class="card__content">
+                  <div class="text-component">
+                    <h4>Title of the Card</h4>
+                    <p class="text-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="col-6@sm col-3@xl">
+            <div data-theme="default" class="card card--is-link">
+              <a class="card__link" href="blog-article.html" aria-label="Description of the link">
+                <figure class="card__img">
+                  <img src="assets/img/blog-01.jpg" alt="Card preview img">
+                  <div class="card__link-icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 32 32"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><path d="M21,5s-4.333-1.667-7,1L6,14c-2.667,2.667-1,7-1,7"></path><path d="M27,11s1.667,4.333-1,7l-8,8c-2.667,2.667-7,1-7,1"></path> <line x1="12" y1="20" x2="4" y2="28"></line><line x1="28" y1="4" x2="20" y2="12"></line></g></svg>
+                  </div>
+                </figure>
+              
+                <div class="card__content">
+                  <div class="text-component">
+                    <h4>Title of the Card</h4>
+                    <p class="text-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+
+          <li class="col-6@sm col-3@xl">
+            <div data-theme="default" class="card card--is-link">
+              <a class="card__link" href="blog-article.html" aria-label="Description of the link">
+                <figure class="card__img">
+                  <img src="assets/img/blog-01.jpg" alt="Card preview img">
+                  <div class="card__link-icon" aria-hidden="true">
+                    <svg class="icon" viewBox="0 0 32 32"><g stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" fill="none" stroke-miterlimit="10"><path d="M21,5s-4.333-1.667-7,1L6,14c-2.667,2.667-1,7-1,7"></path><path d="M27,11s1.667,4.333-1,7l-8,8c-2.667,2.667-7,1-7,1"></path> <line x1="12" y1="20" x2="4" y2="28"></line><line x1="28" y1="4" x2="20" y2="12"></line></g></svg>
+                  </div>
+                </figure>
+              
+                <div class="card__content">
+                  <div class="text-component">
+                    <h4>Title of the Card</h4>
+                    <p class="text-sm color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, suscipit.</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="text-center margin-top-lg">
+          <a href="#0" class="btn btn--dark">Browse All Articles</a>
+        </div>
+      </div>
+    </section>
+
+    <section data-theme="dark" class="socials text-center padding-y-xl">
+      <div class="container max-width-md">
+        <div class="margin-bottom-lg">
+          <h1>Follow us.</h1>
+        </div>
+    
+        <ul class="socials__btns flex flex-center flex-gap-sm flex-wrap">
+          <li>
+            <a href="#0">
+              <svg class="icon" viewBox="0 0 32 32"><title>Follow us on Twitter</title><g><path d="M32,6.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.7,3.8,24,3,22.2,3 c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,10.8,5.5,8.2,2.2,4.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5 c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1C2.9,27.9,6.4,29,10.1,29c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C30,8.5,31.1,7.4,32,6.1z"></path></g></svg>
+            </a>
+          </li>
+    
+          <li>
+            <a href="#0">
+              <svg class="icon" viewBox="0 0 32 32"><title>Follow us on Facebook</title><path d="M32,16A16,16,0,1,0,13.5,31.806V20.625H9.438V16H13.5V12.475c0-4.01,2.389-6.225,6.043-6.225a24.644,24.644,0,0,1,3.582.312V10.5H21.107A2.312,2.312,0,0,0,18.5,13v3h4.438l-.71,4.625H18.5V31.806A16,16,0,0,0,32,16Z"></path></svg>
+            </a>
+          </li>
+    
+          <li>
+            <a href="#0">
+              <svg class="icon" viewBox="0 0 32 32"><title>Follow us on Youtube</title><path d="M31.7,9.6c0,0-0.3-2.2-1.3-3.2c-1.2-1.3-2.6-1.3-3.2-1.4C22.7,4.7,16,4.7,16,4.7h0c0,0-6.7,0-11.2,0.3 c-0.6,0.1-2,0.1-3.2,1.4c-1,1-1.3,3.2-1.3,3.2S0,12.2,0,14.8v2.4c0,2.6,0.3,5.2,0.3,5.2s0.3,2.2,1.3,3.2c1.2,1.3,2.8,1.2,3.5,1.4 C7.7,27.2,16,27.3,16,27.3s6.7,0,11.2-0.3c0.6-0.1,2-0.1,3.2-1.4c1-1,1.3-3.2,1.3-3.2s0.3-2.6,0.3-5.2v-2.4 C32,12.2,31.7,9.6,31.7,9.6z M12.7,20.2l0-9l8.6,4.5L12.7,20.2z"></path></svg>
+            </a>
+          </li>
+    
+          <li>
+            <a href="#0">
+              <svg class="icon" viewBox="0 0 32 32"><title>Join our Slack channel</title><rect x="17" y="1" width="6" height="14" rx="3"></rect><rect x="1" y="9" width="14" height="6" rx="3"></rect><rect x="17" y="17" width="14" height="6" rx="3"></rect><rect x="9" y="17" width="6" height="14" rx="3"></rect><path d="M12,1a3,3,0,0,0,0,6h3V4A3,3,0,0,0,12,1Z"></path><path d="M1,20a3,3,0,0,0,6,0V17H4A3,3,0,0,0,1,20Z"></path><path d="M31,12a3,3,0,0,0-6,0v3h3A3,3,0,0,0,31,12Z"></path><path d="M20,31a3,3,0,0,0,0-6H17v3A3,3,0,0,0,20,31Z"></path></svg>
+            </a>
+          </li>
+    
+          <li>
+            <a href="#0">
+              <svg class="icon" viewBox="0 0 32 32"><title>Follow us on Instagram</title><path d="M16,3.7c4,0,4.479.015,6.061.087a6.426,6.426,0,0,1,4.51,1.639,6.426,6.426,0,0,1,1.639,4.51C28.282,11.521,28.3,12,28.3,16s-.015,4.479-.087,6.061a6.426,6.426,0,0,1-1.639,4.51,6.425,6.425,0,0,1-4.51,1.639c-1.582.072-2.056.087-6.061.087s-4.479-.015-6.061-.087a6.426,6.426,0,0,1-4.51-1.639,6.425,6.425,0,0,1-1.639-4.51C3.718,20.479,3.7,20.005,3.7,16s.015-4.479.087-6.061a6.426,6.426,0,0,1,1.639-4.51A6.426,6.426,0,0,1,9.939,3.79C11.521,3.718,12,3.7,16,3.7M16,1c-4.073,0-4.584.017-6.185.09a8.974,8.974,0,0,0-6.3,2.427,8.971,8.971,0,0,0-2.427,6.3C1.017,11.416,1,11.927,1,16s.017,4.584.09,6.185a8.974,8.974,0,0,0,2.427,6.3,8.971,8.971,0,0,0,6.3,2.427c1.6.073,2.112.09,6.185.09s4.584-.017,6.185-.09a8.974,8.974,0,0,0,6.3-2.427,8.971,8.971,0,0,0,2.427-6.3c.073-1.6.09-2.112.09-6.185s-.017-4.584-.09-6.185a8.974,8.974,0,0,0-2.427-6.3,8.971,8.971,0,0,0-6.3-2.427C20.584,1.017,20.073,1,16,1Z"></path><path d="M16,8.3A7.7,7.7,0,1,0,23.7,16,7.7,7.7,0,0,0,16,8.3ZM16,21a5,5,0,1,1,5-5A5,5,0,0,1,16,21Z"></path><circle cx="24.007" cy="7.993" r="1.8"></circle></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer padding-y-lg">
+    <div class="container max-width-lg">
+      <div class="main-footer__content">
+        <div class="main-footer__logo">
+          <a href="#0">
+            <svg width="130" height="32" viewBox="0 0 130 32"><title>Go to homepage</title><circle fill="var(--color-primary)" cx="16" cy="16" r="16"/><rect fill="var(--color-contrast-higher)" x="41" y="11" width="89" height="10"/></svg>
+          </a>
+        </div>
+        
+        <nav class="main-footer__nav">
+          <ul class="main-footer__nav-list">
+            <li class="main-footer__nav-item">
+              <h4>Product</h4>
+              <div><a href="#0">Pricing</a></div>
+              <div><a href="#0">Teams</a></div>
+              <div><a href="#0">Updates</a></div>
+              <div><a href="#0">Features</a></div>
+              <div><a href="#0">Integrations</a></div>
+              <div><a href="#0">Support</a></div>
+            </li>
+  
+            <li class="main-footer__nav-item">
+              <h4>Developers</h4>
+              <div><a href="#0">Documentation</a></div>
+              <div><a href="#0">API reference</a></div>
+              <div><a href="#0">API status</a></div>
+              <div><a href="#0">Open source</a></div>
+            </li>
+  
+            <li class="main-footer__nav-item">
+              <h4>Resources</h4>
+              <div><a href="#0">Tutorials</a></div>
+              <div><a href="#0">Docs</a></div>
+              <div><a href="#0">Community</a></div>
+              <div><a href="#0">Case studies</a></div>
+              <div><a href="#0">Help center</a></div>
+            </li>
+  
+            <li class="main-footer__nav-item">
+              <h4>About</h4>
+              <div><a href="#0">Company</a></div>
+              <div><a href="#0">Customers</a></div>
+              <div><a href="#0">Careers</a></div>
+              <div><a href="#0">Education</a></div>
+              <div><a href="#0">Our story</a></div>
+              <div><a href="#0">Press kit</a></div>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    
+      <div class="main-footer__colophon">
+        <div class="main-footer__colophon-nav">
+          <span>&copy; myWebsite</span>
+          <a href="#0">Terms</a>
+          <a href="#0">Privacy</a>
+        </div>
+  
+        <div class="main-footer__socials">
+          <a href="#0">
+            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Twitter</title><g><path d="M16,3c-0.6,0.3-1.2,0.4-1.9,0.5c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2.1,0.8c-0.6-0.6-1.5-1-2.4-1 C9.3,1.5,7.8,3,7.8,4.8c0,0.3,0,0.5,0.1,0.7C5.2,5.4,2.7,4.1,1.1,2.1c-0.3,0.5-0.4,1-0.4,1.7c0,1.1,0.6,2.1,1.5,2.7 c-0.5,0-1-0.2-1.5-0.4c0,0,0,0,0,0c0,1.6,1.1,2.9,2.6,3.2C3,9.4,2.7,9.4,2.4,9.4c-0.2,0-0.4,0-0.6-0.1c0.4,1.3,1.6,2.3,3.1,2.3 c-1.1,0.9-2.5,1.4-4.1,1.4c-0.3,0-0.5,0-0.8,0c1.5,0.9,3.2,1.5,5,1.5c6,0,9.3-5,9.3-9.3c0-0.1,0-0.3,0-0.4C15,4.3,15.6,3.7,16,3z"></path></g></svg>
+          </a>
+  
+          <a href="#0">
+            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Youtube</title><g><path d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8 s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z M6,11V5l5,3L6,11z"></path></g></svg>
+          </a>
+  
+          <a href="#0">
+            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Github</title><g><path  d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6 C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5 c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1 c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8 c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2 c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"></path></g></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="assets/js/scripts.js"></script>
+</body>
+</html>
