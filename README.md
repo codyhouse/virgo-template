@@ -7,7 +7,7 @@ This template was created by copying and pasting 25 components, distributed acro
 
 <img src="https://raw.githubusercontent.com/CodyHouse/virgo-template/master/main/assets/img/virgo-preview.gif" alt="Virgo template preview" width="1060">
 
-##CodyHouse Design System
+## CodyHouse Design System
 First time you hear about the CodyHouse Design System? Here are a few links to get started:
 
 - ⚙️ CodyHouse Framework, a lightweight (8KB minified and gzipped) front-end framework for building bespoke interfaces ([Learn more](https://codyhouse.co/ds/docs/framework) or [download it on Github](https://github.com/CodyHouse/codyhouse-framework))
@@ -51,7 +51,7 @@ npm run gulp watch
 
 The first command will install the modules the framework requires for compiling SCSS into CSS; the second will launch your project on a development server.
 
-##License
+## License
 Check the license.md file of this repo.
 
 ## Image credits
