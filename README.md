@@ -5,6 +5,12 @@ This template was created by copying and pasting 42 components, distributed acro
 
 [View Demo](https://codyhouse.co/demo-templates/virgo/index.html)
 
+
+
+https://user-images.githubusercontent.com/5512545/142900965-b2566379-82ef-4d10-87af-d79711a39270.mp4
+
+
+
 ## CodyHouse UI
 First time you hear about CodyHouse UI? Here are a few links to get started:
 
