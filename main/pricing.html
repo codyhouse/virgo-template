@@ -4,105 +4,136 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
-  <script>
-    if('CSS' in window && CSS.supports('color', 'var(--color-var)')) {
-      document.write('<link rel="stylesheet" href="assets/css/style.css">');
-    } else {
-      document.write('<link rel="stylesheet" href="assets/css/style-fallback.css">');
-    }
-  </script>
-  <noscript>
-    <link rel="stylesheet" href="assets/css/style-fallback.css">
-  </noscript>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <!-- end google fonts -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
   <title>Pricing | Virgo Template by CodyHouse</title>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <header class="main-header js-main-header">
-    <div class="container max-width-lg">
-      <div class="main-header__layout">
-        <div class="main-header__logo">
-          <a href="#0">
-            <svg width="130" height="32" viewBox="0 0 130 32"><title>Go to homepage</title><circle fill="var(--color-primary)" cx="16" cy="16" r="16"/><rect fill="var(--color-contrast-higher)" x="41" y="11" width="89" height="10"/></svg>
+  <header class="f-header position-relative js-f-header">
+    <div class="f-header__mobile-content container max-width-lg">
+      <a href="index.html" class="f-header__logo">
+        <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" fill="var(--color-contrast-higher)"/><circle cx="15" cy="15" r="15" fill="var(--color-primary)"/></svg>
+      </a>
+  
+      <button class="reset anim-menu-btn js-anim-menu-btn f-header__nav-control js-tab-focus" aria-label="Toggle menu">
+        <i class="anim-menu-btn__icon anim-menu-btn__icon--close" aria-hidden="true"></i>
+      </button>
+    </div>
+  
+    <div class="f-header__nav" role="navigation">
+      <div class="f-header__nav-grid justify-between@md container max-width-lg">
+        <div class="f-header__nav-logo-wrapper flex-grow flex-basis-0">
+          <a href="index.html" class="f-header__logo">
+            <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" fill="var(--color-contrast-higher)"/><circle cx="15" cy="15" r="15" fill="var(--color-primary)"/></svg>
           </a>
         </div>
-
-        <button class="btn btn--subtle main-header__nav-trigger js-main-header__nav-trigger" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-header-nav">
-          <i class="main-header__nav-trigger-icon" aria-hidden="true"></i>
-          <span>Menu</span>
-        </button>
-
-        <nav class="main-header__nav js-main-header__nav" id="main-header-nav" aria-labelledby="main-header-nav-label" role="navigation">
-          <div id="main-header-nav-label" class="main-header__nav-label">Main menu</div>
-          <ul class="main-header__nav-list">
-            <li class="main-header__nav-item"><a href="index.html" class="main-header__nav-link">Home</a></li>
-            <li class="main-header__nav-item"><a href="features.html" class="main-header__nav-link">Features</a></li>
-            <li class="main-header__nav-item"><a href="pricing.html" class="main-header__nav-link" aria-current="page">Pricing</a></li>
-            <li class="main-header__nav-item"><a href="blog.html" class="main-header__nav-link">Blog</a></li>
-            <li class="main-header__nav-item"><a href="blog-article.html" class="main-header__nav-link">Article</a></li>
-            <li class="main-header__nav-item"><a href="contact.html" class="main-header__nav-link">Contact</a></li>
-            <li class="main-header__nav-item main-header__nav-divider" aria-hidden="true"></li>
-            <li class="main-header__nav-item"><a href="https://github.com/CodyHouse/virgo-template" class="btn btn--primary">Download</a></li>
-          </ul>
-        </nav>
+    
+        <ul class="f-header__list flex-grow flex-basis-0 justify-center@md">
+          <li class="f-header__item">
+            <a href="solutions.html" class="f-header__link">
+              <span>Solutions</span>
+              <svg class="f-header__dropdown-icon icon" aria-hidden="true" viewBox="0 0 12 12"><path d="M9.943,4.269A.5.5,0,0,0,9.5,4h-7a.5.5,0,0,0-.41.787l3.5,5a.5.5,0,0,0,.82,0l3.5-5A.5.5,0,0,0,9.943,4.269Z"/></svg>
+            </a>
+  
+            <ul class="f-header__dropdown">
+              <li><a href="#0" class="f-header__dropdown-link">Sub Nav Item One</a></li>
+              <li><a href="#0" class="f-header__dropdown-link">Sub Nav Item Two</a></li>
+              <li><a href="#0" class="f-header__dropdown-link">Sub Nav Item Three</a></li>
+            </ul>
+          </li>
+          <li class="f-header__item"><a href="pricing.html" class="f-header__link" aria-current="page">Pricing</a></li>
+          <li class="f-header__item"><a href="blog.html" class="f-header__link">Blog</a></li>
+          <li class="f-header__item"><a href="blog-article.html" class="f-header__link">Article</a></li>
+          <li class="f-header__item"><a href="contact.html" class="f-header__link">Contact</a></li>
+        </ul>
+    
+        <ul class="f-header__list flex-grow flex-basis-0 justify-end@md">
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Twitter">
+              <svg class="icon" viewBox="0 0 32 32"><g><path d="M32,6.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.7,3.8,24,3,22.2,3 c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,10.8,5.5,8.2,2.2,4.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5 c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1C2.9,27.9,6.4,29,10.1,29c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C30,8.5,31.1,7.4,32,6.1z"></path></g></svg>
+              <span class="margin-left-xxs">Follow us on Twitter</span>
+            </a>
+          </li>
+  
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Facebook">
+                <svg class="icon" viewBox="0 0 32 32"><path d="M32,16A16,16,0,1,0,13.5,31.806V20.625H9.438V16H13.5V12.475c0-4.01,2.389-6.225,6.043-6.225a24.644,24.644,0,0,1,3.582.312V10.5H21.107A2.312,2.312,0,0,0,18.5,13v3h4.438l-.71,4.625H18.5V31.806A16,16,0,0,0,32,16Z"></path></svg>
+              <span class="margin-left-xxs">Follow us on Facebook</span>
+            </a>
+          </li>
+  
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Youtube">
+              <svg class="icon" viewBox="0 0 32 32"><path d="M31.7,9.6c0,0-0.3-2.2-1.3-3.2c-1.2-1.3-2.6-1.3-3.2-1.4C22.7,4.7,16,4.7,16,4.7h0c0,0-6.7,0-11.2,0.3 c-0.6,0.1-2,0.1-3.2,1.4c-1,1-1.3,3.2-1.3,3.2S0,12.2,0,14.8v2.4c0,2.6,0.3,5.2,0.3,5.2s0.3,2.2,1.3,3.2c1.2,1.3,2.8,1.2,3.5,1.4 C7.7,27.2,16,27.3,16,27.3s6.7,0,11.2-0.3c0.6-0.1,2-0.1,3.2-1.4c1-1,1.3-3.2,1.3-3.2s0.3-2.6,0.3-5.2v-2.4 C32,12.2,31.7,9.6,31.7,9.6z M12.7,20.2l0-9l8.6,4.5L12.7,20.2z"></path></svg>
+              <span class="margin-left-xxs">Follow us on Youtube</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </header>
 
-  <main id="main-content">
-    <div class="text-component text-center padding-y-lg">
-      <h1>Our Prices.</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-    </div>
-
-    <div class="p-table p-table--has-switch js-p-table--has-switch margin-bottom-xl">
-      <div aria-hidden="true" class="flex justify-center margin-bottom-md js-p-table__switch">
-        <div class="btns btns--radio">
-          <div>
-            <input type="radio" name="radioPricingTable" id="radioPricingTable1" value="monthly" checked>
-            <label class="btns__btn" for="radioPricingTable1">Monthly</label>
-          </div>
-        
-          <div>
-            <input type="radio" name="radioPricingTable" id="radioPricingTable2" value="yearly">
-            <label class="btns__btn" for="radioPricingTable2">Yearly</label>
-          </div>
-        </div>
+  <section class="position-relative z-index-1 padding-y-xl">
+    <div class="container max-width-adaptive-lg">
+      <div class="text-component text-center margin-bottom-xl">
+        <h1>Our Prices</h1>
+        <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
       </div>
-    
-      <div class="container max-width-adaptive-lg">
-        <div class="grid grid-gap-sm">
+
+      <div class="p-table p-table--has-switch js-p-table--has-switch">
+        <div class="flex justify-center margin-bottom-md">
+      
+          <ul class="radio-switch js-p-table__switch">
+            <li class="radio-switch__item">
+              <input class="radio-switch__input sr-only" type="radio" name="p-table-switch-name" id="p-table-switch-1" value="monthly" checked>
+              <label class="radio-switch__label" for="p-table-switch-1">Monthly</label>
+            </li>
+      
+            <li class="radio-switch__item">
+              <input class="radio-switch__input sr-only" type="radio" name="p-table-switch-name" id="p-table-switch-2" value="yearly">
+              <label class="radio-switch__label" for="p-table-switch-2">Yearly</label>
+              <div aria-hidden="true" class="radio-switch__marker"></div>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="grid gap-sm">
           <div class="p-table__item col-4@md">
             <div class="margin-bottom-xxs">
               <h4 class="p-table__title">Free</h4>
             </div>
-    
+      
             <div class="p-table__price-wrapper margin-bottom-sm">
               <div class="p-table__price p-table__price--month"><span>$0</span> <i>/ month</i></div>
               <div class="p-table__price p-table__price--year"><span>$0</span> <i>/ year</i></div>
             </div>
-    
+      
             <ul class="p-table__features margin-bottom-md">
               <li>1x user</li>
               <li>Free 15/days trial</li>
               <li>Access to all features</li>
               <li>1 project</li>
             </ul>
-    
+      
             <div class="margin-top-auto"><a href="#0" class="btn btn--subtle btn--md width-100%">Sign up</a></div>
           </div>
-    
+      
           <div class="p-table__item p-table__item--popular col-4@md">
             <div class="flex justify-between items-center margin-bottom-xxs">
               <h4 class="p-table__title">Pro</h4>
               <span class="p-table__badge">Popular</span>
             </div>
-    
+      
             <div class="p-table__price-wrapper margin-bottom-sm">
               <div class="p-table__price p-table__price--month" data-transition-delay="2nd"><span>$15</span> <i>/ month</i></div>
               <div class="p-table__price p-table__price--year" data-transition-delay="2nd"><span>$99</span> <i>/ year</i></div>
             </div>
-    
+      
             <ul class="p-table__features margin-bottom-md">
               <li>1x user</li>
               <li>Access to all features</li>
@@ -110,20 +141,20 @@
               <li>E-commerce integration</li>
               <li>Email support</li>
             </ul>
-    
+      
             <div class="margin-top-auto"><a href="#0" class="btn btn--primary btn--md width-100%">Sign up</a></div>
           </div>
-    
+      
           <div class="p-table__item col-4@md">
             <div class="margin-bottom-xxs">
               <h4 class="p-table__title">Enterprise</h4>
             </div>
-    
+      
             <div class="p-table__price-wrapper margin-bottom-sm">
               <div class="p-table__price p-table__price--month" data-transition-delay="3rd"><span>$99</span> <i>/ month</i></div>
               <div class="p-table__price p-table__price--year" data-transition-delay="3rd"><span>$699</span> <i>/ year</i></div>
             </div>
-    
+      
             <ul class="p-table__features margin-bottom-md">
               <li>10x users</li>
               <li>Access to all features</li>
@@ -132,178 +163,190 @@
               <li>24/7 support</li>
               <li>Full security</li>
             </ul>
-    
+      
             <div class="margin-top-auto"><a href="#0" class="btn btn--subtle btn--md width-100%">Sign up</a></div>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <section data-theme="soft" class="faq padding-y-xl margin-bottom-xl">
-      <div class="container max-width-adaptive-md">
-        <div class="margin-bottom-lg">
-          <h1 class="text-center">Questions &amp; Answers</h1>
-        </div>
-        
-        <ol class="grid grid-gap-lg">
-          <li class="faq__item col-6@md">
-            <div class="text-component">
-              <h4 class="faq__title">How can I download the invoice for my purchase?</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            </div>
-          </li>
-    
-          <li class="faq__item col-6@md">
-            <div class="text-component">
-              <h4 class="faq__title">How many devices can I use?</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quia iure quaerat possimus quasi? Enim, provident!</p>
-            </div>
-          </li>
-    
-          <li class="faq__item col-6@md">
-            <div class="text-component">
-              <h4 class="faq__title">What is the license of your resources?</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate explicabo est magnam nobis ea maiores soluta, repellendus iure temporibus fugiat.</p>
-            </div>
-          </li>
-    
-          <li class="faq__item col-6@md">
-            <div class="text-component">
-              <h4 class="faq__title">Do you have an affiliation system?</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sunt illo a eveniet quod voluptatum nesciunt doloremque sapiente inventore, impedit, rem sint.</p>
-            </div>
-          </li>
-    
-          <li class="faq__item col-6@md">
-            <div class="text-component">
-              <h4 class="faq__title">Can I suggest new app features?</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quibusdam libero quasi pariatur rerum explicabo. Suscipit libero voluptates repellendus dolorem sequi, quibusdam molestiae aliquid, soluta dignissimos mollitia asperiores.</p>
-            </div>
-          </li>
-    
-          <li class="faq__item col-6@md">
-            <div class="text-component">
-              <h4 class="faq__title">Can I suggest new components?</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, exercitationem rem. Nulla aut amet error vero nemo dignissimos tempore magnam, adipisci veniam, iusto asperiores ducimus, iure totam voluptatum cumque est quia delectus.</p>
-            </div>
-          </li>
-        </ol>
+  <section class="position-relative z-index-1 padding-y-xxl" data-theme="soft">
+    <div class="container max-width-adaptive-lg position-relative z-index-2">
+      <div class="margin-bottom-xl">
+        <h1 class="text-center">Questions &amp; Answers</h1>
       </div>
-    </section>
+      
+      <ol class="text-points  grid gap-lg">
+        <li class="text-points__item col-6@md">
+          <div class="text-component line-height-lg text-space-y-md">
+            <h3 class="text-points__title">How can I download the invoice for my purchase?</h3>
+            <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </li>
+  
+        <li class="text-points__item col-6@md">
+          <div class="text-component line-height-lg text-space-y-md">
+            <h3 class="text-points__title">How many devices can I use?</h3>
+            <p class="color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea quia iure quaerat possimus quasi? Enim, provident!</p>
+          </div>
+        </li>
+  
+        <li class="text-points__item col-6@md">
+          <div class="text-component line-height-lg text-space-y-md">
+            <h3 class="text-points__title">What is the license of your resources?</h3>
+            <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate explicabo est magnam nobis ea maiores soluta, repellendus iure temporibus fugiat.</p>
+          </div>
+        </li>
+  
+        <li class="text-points__item col-6@md">
+          <div class="text-component line-height-lg text-space-y-md">
+            <h3 class="text-points__title">Do you have an affiliation system?</h3>
+            <p class="color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi sunt illo a eveniet quod voluptatum nesciunt doloremque sapiente inventore, impedit, rem sint.</p>
+          </div>
+        </li>
+  
+        <li class="text-points__item col-6@md">
+          <div class="text-component line-height-lg text-space-y-md">
+            <h3 class="text-points__title">Can I suggest new app features?</h3>
+            <p class="color-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia quibusdam libero quasi pariatur rerum explicabo. Suscipit libero voluptates repellendus dolorem sequi, quibusdam molestiae aliquid, soluta dignissimos mollitia asperiores.</p>
+          </div>
+        </li>
+  
+        <li class="text-points__item col-6@md">
+          <div class="text-component line-height-lg text-space-y-md">
+            <h3 class="text-points__title">Can I suggest new app features?</h3>
+            <p class="color-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, exercitationem rem. Nulla aut amet error vero nemo dignissimos tempore magnam, adipisci veniam, iusto asperiores ducimus, iure totam voluptatum cumque est quia delectus.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
 
-    <section class="testimonials margin-bottom-xl">
-      <div class="container max-width-adaptive-lg">
-        <div class="margin-bottom-lg">
-          <h1 class="text-center">Hear it from our customers.</h1>
-        </div>
+    <figure class="bg-decoration z-index-1" aria-hidden="true">
+      <svg class="bg-decoration__svg color-contrast-lower" viewBox="0 0 1920 450" fill="none">
+        <rect opacity="0.5" x="1952.45" y="45.1172" width="175.38" height="1451.58"
+          transform="rotate(99.6416 1952.45 45.1172)" fill="url(#bg-decoration-v1-fx-6-linear-1)" />
+        <circle opacity="0.5" r="38" transform="matrix(-1 0 0 1 1583 171)" fill="url(#bg-decoration-v1-fx-6-radial-1)" />
+        <path opacity="0.5" d="M1338 187L1679.53 -0.113281L1416.47 -78.0066L1338 187Z" fill="url(#bg-decoration-v1-fx-6-linear-2)" />
+        <path opacity="0.5" d="M1683.59 291L1612.88 413.475L1709.47 387.593L1683.59 291Z" fill="url(#bg-decoration-v1-fx-6-linear-3)" />
+        <defs>
+          <linearGradient id="bg-decoration-v1-fx-6-linear-1" x1="2040.14" y1="45.1172" x2="2040.14" y2="1496.7"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" stop-opacity="0" />
+            <stop offset="1" stop-color="currentColor" />
+          </linearGradient>
+          <radialGradient id="bg-decoration-v1-fx-6-radial-1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="scale(38)">
+            <stop stop-color="var(--color-primary)" stop-opacity="0" />
+            <stop offset="1" stop-color="var(--color-primary)" />
+          </radialGradient>
+          <linearGradient id="bg-decoration-v1-fx-6-linear-2" x1="1640.29" y1="132.39" x2="1377.23" y2="54.4967"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-6-linear-3" x1="1599.94" y1="365.178" x2="1696.53" y2="339.296"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </figure>
+  </section>
+
+  <!-- notice banner -->
+  <div class="notice bottom-md js-notice">
+    <div class="notice__banner container max-width-adaptive-lg bg-light padding-sm radius-md inner-glow shadow-md">
+      <div class="flex justify-between items-center@md">
+        <p class="text-sm">✨ Virgo is a free HTML, CSS, JS template powered by CodyHouse UI. <a class="color-accent" href="https://codyhouse.co/template/virgo">Download →</a></p>
     
-        <div class="grid grid-gap-sm">
-          <div class="col-4@md">
-            <div class="testimonials__card text-center">
-              <svg class="testimonials__icon icon margin-x-auto" aria-hidden="true" width="64" height="64" viewBox="0 0 64 64"><polygon points="2 36 17 2 26 2 15 36 26 36 26 62 2 62 2 36"/><polygon points="38 36 53 2 62 2 51 36 62 36 62 62 38 62 38 36"/></svg>
-              <blockquote class="testimonials__quote"><mark>Lorem ipsum dolor sit amet consectetur adipisicing elit</mark>. Eligendi atque doloremque beatae! Doloremque perspiciatis aliquid repellat quasi praesentium, minima nobis assumenda ex?</blockquote>
-              <footer class="flex-column">
-                <figure class="testimonials__img margin-bottom-xxs" aria-hidden="true"><img class="avatar__img" src="assets/img/avatar-01.svg" alt="Emily Ewing"></figure>
-                <cite class="testimonials__cite"><strong>Emily Ewing</strong> <span>Designer at CompanyX</span></cite>
-              </footer>
-            </div>
-          </div>
-      
-          <div class="col-4@md">
-            <div class="testimonials__card text-center">
-              <svg class="testimonials__icon icon margin-x-auto" aria-hidden="true" width="64" height="64" viewBox="0 0 64 64"><polygon points="2 36 17 2 26 2 15 36 26 36 26 62 2 62 2 36"/><polygon points="38 36 53 2 62 2 51 36 62 36 62 62 38 62 38 36"/></svg>
-              <blockquote class="testimonials__quote"><mark>Lorem ipsum dolor sit amet</mark>, consectetur adipisicing elit. Consectetur, recusandae? Saepe, facere.</blockquote>
-              <footer class="flex-column">
-                <figure class="testimonials__img margin-bottom-xxs" aria-hidden="true"><img class="avatar__img" src="assets/img/avatar-02.svg" alt="James Powell"></figure>
-                <cite class="testimonials__cite"><strong>James Powell</strong> <span>Developer at CompanyY</span></cite>
-              </footer>
-            </div>
-          </div>
-      
-          <div class="col-4@md">
-            <div class="testimonials__card text-center">
-              <svg class="testimonials__icon icon margin-x-auto" aria-hidden="true" width="64" height="64" viewBox="0 0 64 64"><polygon points="2 36 17 2 26 2 15 36 26 36 26 62 2 62 2 36"/><polygon points="38 36 53 2 62 2 51 36 62 36 62 62 38 62 38 36"/></svg>
-              <blockquote class="testimonials__quote">Lorem ipsum dolor sit amet consectetur adipisicing elit. <mark>Suscipit provident numquam velit officiis impedit</mark>, molestiae adipisci architecto dolore expedita esse minima ut asperiores explicabo, aut iure exercitationem quam.</blockquote>
-              <footer class="flex-column">
-                <figure class="testimonials__img margin-bottom-xxs" aria-hidden="true"><img class="avatar__img" src="assets/img/avatar-03.svg" alt="Olivia Gribben"></figure>
-                <cite class="testimonials__cite"><strong>Olivia Gribben</strong> <span>CEO at CompanyZ</span></cite>
-              </footer>
-            </div>
-          </div>
-        </div>
+        <button class="reset notice__close-btn margin-left-sm js-notice__hide-control">
+          <svg class="icon" viewBox="0 0 16 16"><title>Close panel</title><g stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"><line x1="13.5" y1="2.5" x2="2.5" y2="13.5"></line><line x1="2.5" y1="2.5" x2="13.5" y2="13.5"></line></g></svg>
+        </button>
       </div>
-    </section>
-  </main>
+    </div>
+  </div>
 
-  <footer class="main-footer padding-y-lg">
+  <footer class="main-footer position-relative z-index-1 padding-top-xl">
     <div class="container max-width-lg">
-      <div class="main-footer__content">
-        <div class="main-footer__logo">
-          <a href="#0">
-            <svg width="130" height="32" viewBox="0 0 130 32"><title>Go to homepage</title><circle fill="var(--color-primary)" cx="16" cy="16" r="16"/><rect fill="var(--color-contrast-higher)" x="41" y="11" width="89" height="10"/></svg>
+      <div class="grid gap-lg">
+        <div class="col-3@lg order-2@lg text-right@lg">
+          <a class="main-footer__logo" href="#0">
+            <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" fill="var(--color-contrast-higher)"/><circle cx="15" cy="15" r="15" fill="var(--color-primary)"/></svg>
           </a>
         </div>
         
-        <nav class="main-footer__nav">
-          <ul class="main-footer__nav-list">
-            <li class="main-footer__nav-item">
-              <h4>Product</h4>
-              <div><a href="#0">Pricing</a></div>
-              <div><a href="#0">Teams</a></div>
-              <div><a href="#0">Updates</a></div>
-              <div><a href="#0">Features</a></div>
-              <div><a href="#0">Integrations</a></div>
-              <div><a href="#0">Support</a></div>
+        <nav class="col-9@lg order-1@lg">
+          <ul class="grid gap-lg">
+            <li class="col-6@xs col-3@md">
+              <h4 class="margin-bottom-sm">Product</h4>
+              <ul class="grid gap-xs">
+                <li><a href="#0" class="main-footer__link">Pricing</a></li>
+                <li><a href="#0" class="main-footer__link">Teams</a></li>
+                <li><a href="#0" class="main-footer__link">Updates</a></li>
+                <li><a href="#0" class="main-footer__link">Features</a></li>
+                <li><a href="#0" class="main-footer__link">Integrations</a></li>
+                <li><a href="#0" class="main-footer__link">Support</a></li>
+              </ul>
             </li>
   
-            <li class="main-footer__nav-item">
-              <h4>Developers</h4>
-              <div><a href="#0">Documentation</a></div>
-              <div><a href="#0">API reference</a></div>
-              <div><a href="#0">API status</a></div>
-              <div><a href="#0">Open source</a></div>
+            <li class="col-6@xs col-3@md">
+              <h4 class="margin-bottom-sm">Developers</h4>
+              <ul class="grid gap-xs">
+                <li><a href="#0" class="main-footer__link">Documentation</a></li>
+                <li><a href="#0" class="main-footer__link">API reference</a></li>
+                <li><a href="#0" class="main-footer__link">API status</a></li>
+                <li><a href="#0" class="main-footer__link">Open source</a></li>
+              </ul>
             </li>
   
-            <li class="main-footer__nav-item">
-              <h4>Resources</h4>
-              <div><a href="#0">Tutorials</a></div>
-              <div><a href="#0">Docs</a></div>
-              <div><a href="#0">Community</a></div>
-              <div><a href="#0">Case studies</a></div>
-              <div><a href="#0">Help center</a></div>
+            <li class="col-6@xs col-3@md">
+              <h4 class="margin-bottom-sm">Resources</h4>
+              <ul class="grid gap-xs">
+                <li><a href="#0" class="main-footer__link">Tutorials</a></li>
+                <li><a href="#0" class="main-footer__link">Docs</a></li>
+                <li><a href="#0" class="main-footer__link">Community</a></li>
+                <li><a href="#0" class="main-footer__link">Case studies</a></li>
+                <li><a href="#0" class="main-footer__link">Help center</a></li>
+              </ul>
             </li>
   
-            <li class="main-footer__nav-item">
-              <h4>About</h4>
-              <div><a href="#0">Company</a></div>
-              <div><a href="#0">Customers</a></div>
-              <div><a href="#0">Careers</a></div>
-              <div><a href="#0">Education</a></div>
-              <div><a href="#0">Our story</a></div>
-              <div><a href="#0">Press kit</a></div>
+            <li class="col-6@xs col-3@md">
+              <h4 class="margin-bottom-sm">About</h4>
+              <ul class="grid gap-xs">
+                <li><a href="#0" class="main-footer__link">Company</a></li>
+                <li><a href="#0" class="main-footer__link">Customers</a></li>
+                <li><a href="#0" class="main-footer__link">Careers</a></li>
+                <li><a href="#0" class="main-footer__link">Education</a></li>
+                <li><a href="#0" class="main-footer__link">Our story</a></li>
+                <li><a href="#0" class="main-footer__link">Press kit</a></li>
+              </ul>
             </li>
           </ul>
         </nav>
       </div>
     
-      <div class="main-footer__colophon">
-        <div class="main-footer__colophon-nav">
-          <span>&copy; myWebsite</span>
-          <a href="#0">Terms</a>
-          <a href="#0">Privacy</a>
+      <div class="flex flex-column border-top padding-y-xs margin-top-lg flex-row@md justify-between@md items-center@md">
+        <div class="margin-bottom-sm margin-bottom-0@md">
+          <div class="text-sm text-xs@md color-contrast-medium flex flex-wrap gap-xs">
+            <span>&copy; myWebsite</span>
+            <a href="#0" class="color-contrast-high">Terms</a>
+            <a href="#0" class="color-contrast-high">Privacy</a>
+          </div>
         </div>
   
-        <div class="main-footer__socials">
-          <a href="#0">
-            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Twitter</title><g><path d="M16,3c-0.6,0.3-1.2,0.4-1.9,0.5c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2.1,0.8c-0.6-0.6-1.5-1-2.4-1 C9.3,1.5,7.8,3,7.8,4.8c0,0.3,0,0.5,0.1,0.7C5.2,5.4,2.7,4.1,1.1,2.1c-0.3,0.5-0.4,1-0.4,1.7c0,1.1,0.6,2.1,1.5,2.7 c-0.5,0-1-0.2-1.5-0.4c0,0,0,0,0,0c0,1.6,1.1,2.9,2.6,3.2C3,9.4,2.7,9.4,2.4,9.4c-0.2,0-0.4,0-0.6-0.1c0.4,1.3,1.6,2.3,3.1,2.3 c-1.1,0.9-2.5,1.4-4.1,1.4c-0.3,0-0.5,0-0.8,0c1.5,0.9,3.2,1.5,5,1.5c6,0,9.3-5,9.3-9.3c0-0.1,0-0.3,0-0.4C15,4.3,15.6,3.7,16,3z"></path></g></svg>
+        <div class="flex items-center gap-xs">
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Twitter</title><g><path d="M16,3c-0.6,0.3-1.2,0.4-1.9,0.5c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2.1,0.8c-0.6-0.6-1.5-1-2.4-1 C9.3,1.5,7.8,3,7.8,4.8c0,0.3,0,0.5,0.1,0.7C5.2,5.4,2.7,4.1,1.1,2.1c-0.3,0.5-0.4,1-0.4,1.7c0,1.1,0.6,2.1,1.5,2.7 c-0.5,0-1-0.2-1.5-0.4c0,0,0,0,0,0c0,1.6,1.1,2.9,2.6,3.2C3,9.4,2.7,9.4,2.4,9.4c-0.2,0-0.4,0-0.6-0.1c0.4,1.3,1.6,2.3,3.1,2.3 c-1.1,0.9-2.5,1.4-4.1,1.4c-0.3,0-0.5,0-0.8,0c1.5,0.9,3.2,1.5,5,1.5c6,0,9.3-5,9.3-9.3c0-0.1,0-0.3,0-0.4C15,4.3,15.6,3.7,16,3z"></path></g></svg>
           </a>
   
-          <a href="#0">
-            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Youtube</title><g><path d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8 s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z M6,11V5l5,3L6,11z"></path></g></svg>
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Youtube</title><g><path d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8 s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z M6,11V5l5,3L6,11z"></path></g></svg>
           </a>
   
-          <a href="#0">
-            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Github</title><g><path  d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6 C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5 c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1 c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8 c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2 c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"></path></g></svg>
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Github</title><g><path  d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6 C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5 c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1 c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8 c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2 c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"></path></g></svg>
           </a>
         </div>
       </div>

@@ -1,0 +1,163 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_anim-menu-btn
+Title: Animated Menu Button
+Descr: A menu button w/ a morphing icon
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --anim-menu-btn-size: 48px;
+  --anim-menu-btn-transition-duration: .2s;
+  
+  // 🍔 icon
+  --anim-menu-btn-icon-size: 32px;
+  --anim-menu-btn-icon-stroke: 2px;
+}
+
+.anim-menu-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--anim-menu-btn-size);
+  height: var(--anim-menu-btn-size);
+}
+
+// icons
+.anim-menu-btn__icon {
+  position: relative;
+  display: block;
+  font-size: var(--anim-menu-btn-icon-size);
+  width: 1em;
+  height: var(--anim-menu-btn-icon-stroke);
+  color: inherit;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  transform: scale(1);
+  
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: inherit;
+    border-radius: inherit;
+  }
+}
+
+// menu to 'X' close
+.anim-menu-btn__icon--close {
+  background-size: 100% 100%;
+  will-change: transform, background-size;
+  transition-property: transform, background-size;
+  transition-duration: var(--anim-menu-btn-transition-duration, 0.2s);
+
+  .anim-menu-btn:active & {
+    transform: scale(0.9);
+  }
+
+  &::before, &::after {
+    will-change: inherit;
+    transition: inherit;
+  }
+
+  &::before { // line top
+    transform: translateY(-0.25em) rotate(0);
+  }
+
+  &::after { // line bottom
+    transform: translateY(0.25em) rotate(0);
+  }
+}
+
+.anim-menu-btn--state-b {
+  .anim-menu-btn__icon--close {
+    background-size: 0% 100%;
+
+    &::before {
+      transform: translateY(0) rotate(45deg);
+    }
+
+    &::after {
+      transform: translateY(0) rotate(-45deg);
+    }
+  }
+}
+
+// menu to arrow
+.anim-menu-btn__icon--arrow-left,
+.anim-menu-btn__icon--arrow-right,
+.anim-menu-btn__icon--arrow-up,
+.anim-menu-btn__icon--arrow-down {
+  border-radius: 50em;
+  will-change: transform;
+  transition-property: transform;
+  transition-duration: var(--anim-menu-btn-transition-duration, 0.2s);
+
+  .anim-menu-btn:active & {
+    transform: scale(0.9);
+  }
+
+  &::before, &::after {
+    transform-origin: calc(var(--anim-menu-btn-icon-stroke)/2) 50%;
+    will-change: transform, width;
+    transition-property: transform, width;
+    transition-duration: var(--anim-menu-btn-transition-duration, 0.2s);
+  }
+
+  &::before { // line top
+    transform: translateY(-0.25em) rotate(0);
+  }
+
+  &::after { // line bottom
+    transform: translateY(0.25em) rotate(0);
+  }
+}
+
+.anim-menu-btn__icon--arrow-right {
+  transform: rotate(180deg);
+
+  .anim-menu-btn:active & {
+    transform: rotate(180deg) scale(0.9);
+  }
+}
+
+.anim-menu-btn--state-b {
+  .anim-menu-btn__icon--arrow-left,
+  .anim-menu-btn__icon--arrow-right,
+  .anim-menu-btn__icon--arrow-up,
+  .anim-menu-btn__icon--arrow-down {
+    &::before, &::after {
+      width: 50%;
+    }
+
+    &::before {
+      transform: translateY(0) rotate(-45deg);
+    }
+
+    &::after {
+      transform: translateY(0) rotate(45deg);
+    }
+  }
+
+  &:active .anim-menu-btn__icon--arrow-up {
+    transform: rotate(90deg) scale(0.9);
+  }
+
+  .anim-menu-btn__icon--arrow-up {
+    transform: rotate(90deg);
+  }
+
+  &:active .anim-menu-btn__icon--arrow-down {
+    transform: rotate(-90deg) scale(0.9);
+  }
+
+  .anim-menu-btn__icon--arrow-down {
+    transform: rotate(-90deg);
+  }
+}

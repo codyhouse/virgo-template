@@ -1,0 +1,92 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_immersive-section-transition
+Title: Immersive Section Transition
+Descr: A media element that animates to a full-screen block, before transitioning to the next section of content
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.js {
+  .immerse-section-tr {
+    position: relative;
+    --immerse-section-tr-opacity: 0; // overlay layer opacity - modified using JS
+  }
+
+  .immerse-section-tr__media {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .immerse-section-tr--disabled .immerse-section-tr__media { // this class is added in JS if effect is deactivated 
+    position: relative;
+  }
+
+  .immerse-section-tr__figure { // asset to scale up
+    will-change: transform;
+    pointer-events: auto;
+    // make asset responsive
+    position: relative;
+    height: 0;
+    
+
+    > * {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .immerse-section-tr__figure--16-9 { // 16:9 aspect ratio
+    padding-bottom: 56.25%;
+  }
+
+  .immerse-section-tr__figure--3-4 { // 3:4 aspect ratio
+    padding-bottom: 133.33%;
+  }
+
+  .immerse-section-tr__content {
+    position: relative;
+    z-index: 3;
+    transform: translateZ(0); // fix z-index issue on Safari
+
+    &::after, // overlay layer
+    &::before { // section background
+      content: '';
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: var(--color-bg);
+      opacity: var(--immerse-section-tr-opacity, 0);
+      pointer-events: none;
+    }
+
+    &::before {
+      height: 100%;
+      z-index: -1;
+    }
+
+    &::after {
+      height: 100vh;
+      transform: translateY(-100%);
+    }
+  }
+
+  .immerse-section-tr--disabled .immerse-section-tr__content::before {
+    opacity: 1;
+  }
+}
+
+html:not(.js) .immerse-section-tr__content {
+  background-color: var(--color-bg);
+}

@@ -1,0 +1,308 @@
+@use '../base' as *;
+@use '_1_anim-menu-btn.scss' as *;
+@use '_1_search-input.scss' as *;
+
+/* -------------------------------- 
+
+File#: _2_flexi-header
+Title: Flexi Header
+Descr: Customizable header template
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --f-header-height: 50px;
+  --f-header-logo-width: 104px;
+
+  @include breakpoint(md) {
+    --f-header-height: 70px;
+  }
+}
+
+.f-header {
+  height: var(--f-header-height);
+  width: 100%;
+  z-index: var(--z-index-header, 3); 
+
+  &::before { /* used in JS to detect menu style */
+    display: none;
+    content: 'mobile';
+  }
+}
+
+.f-header--expanded {
+  /* class added when navigation is visible - small devices only */
+}
+
+.f-header__mobile-content { /* logo + menu button on small devices */
+  position: relative;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+}
+
+.f-header__logo {
+  display: block;
+  width: var(--f-header-logo-width);
+  flex-shrink: 0;
+  text-decoration: none;
+
+  svg, img {
+    display: block;
+  }
+}
+
+.f-header__nav-control { /* menu button */
+  --anim-menu-btn-size: 40px;
+  /* 🍔 icon */
+  --anim-menu-btn-icon-size: 28px;
+  --anim-menu-btn-icon-stroke: 2px;
+}
+
+.f-header__nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: calc(100vh - var(--f-header-offset, 0px));
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding: 0 0 var(--space-md);
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-md);
+  z-index: 1;
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-1em);
+
+  &::before { /* top header bg + border */
+    content: '';
+    display: block;
+    position: sticky;
+    top: 0;
+    height: var(--f-header-height);
+    background-color: inherit;
+    border-bottom: 1px solid var(--color-contrast-lower);
+  }
+}
+
+.f-header__nav--is-visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: visibility 0s, opacity .3s, transform .3s;
+}
+
+.f-header__nav-logo-wrapper {
+  display: none; /* hide logo nav on small devices */
+}
+
+.f-header__item {
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--color-contrast-lower);
+}
+
+.f-header__dropdown-icon {
+  --size: 16px;
+  flex-shrink: 0;
+  margin: 0 10px 0 auto;
+  display: none; /* hide on mobile if link */
+
+  .f-header__dropdown-control & {
+    display: block;
+  }
+}
+
+.f-header__link,
+.f-header__dropdown-control,
+.f-header__dropdown-link,
+.f-header__btn,
+.f-header__form-control {
+  font-size: var(--text-md);
+}
+
+.f-header__link,
+.f-header__dropdown-control,
+.f-header__dropdown-link {
+  display: flex;
+  align-items: center;
+  color: var(--color-contrast-high);
+  text-decoration: none;
+  padding: var(--space-xs) 0;
+  transition: .2s;
+
+  &:hover,
+  &[aria-current="page"] {
+    opacity: 0.7;
+  }
+}
+
+.f-header__btn,
+.f-header__form-control {
+  width: 100%;
+  margin: var(--space-xs) 0;
+}
+
+.f-header__dropdown-control {
+  width: 100%;
+}
+
+.f-header__dropdown { /* sub navigation */
+  padding-left: var(--space-md); /* offset sub nav */
+}
+
+.f-header__dropdown-control {
+  + .f-header__dropdown {
+    display: none;
+  }
+
+  &[aria-expanded="true"] + .f-header__dropdown {
+    display: block;
+  }
+}
+
+@include breakpoint(md) {
+  .f-header::before {
+    content: 'desktop';
+  }
+
+  .f-header__mobile-content {
+    display: none; /* hide logo + menu (mobile content) */
+  }
+
+  .f-header__nav {
+    /* reset */
+    position: static;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: none;
+    max-height: none;
+    overflow: visible;
+    overscroll-behavior: auto;
+    height: var(--f-header-height);
+
+    &::before { /* reset */
+      display: none;
+    }
+  }
+
+  .f-header__nav-logo-wrapper {
+    display: flex;
+  }
+
+  .f-header__nav-grid,
+  .f-header__list {
+    display: flex;
+    align-items: center;
+  }
+
+  .f-header__nav-grid {
+    height: 100%;
+  }
+
+  .f-header__item {
+    position: relative;
+    border-bottom: none;
+    margin-right: var(--space-xs); /* margin between nav items */
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .f-header__dropdown-icon {
+    --size: 12px;
+    display: block;
+    margin: 0 0 0 var(--space-xxxxs);
+  }
+
+  .f-header__link,
+  .f-header__dropdown-control,
+  .f-header__dropdown-link,
+  .f-header__btn,
+  .f-header__form-control {
+    font-size: 1.125rem;
+  }
+
+  .f-header__link {
+    padding: var(--space-xxxs) var(--space-xxs);
+  }
+
+  .f-header__link--icon {
+    span {
+      display: none; /* hide icon label */
+    }
+  }
+
+  .f-header__btn,
+  .f-header__form-control {
+    margin: 0; /* reset */
+  }
+
+  .f-header__dropdown {
+    position: absolute;
+    top: 100%;
+    width: 220px;
+    left: calc(50% - 110px);
+    padding: var(--space-xxxs) 0;
+    background-color: var(--color-bg-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--inner-glow), var(--shadow-md);
+    z-index: var(--z-index-popover, 5); 
+
+    /* hide */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s .2s, opacity .2s 0s;
+
+    .f-header__dropdown-control + & {
+      display: block; /* reset style */
+    }
+
+    .f-header__item:hover &,
+    .f-header__dropdown-control[aria-expanded="true"] + & {
+      visibility: visible;
+      opacity: 1;
+      transition: visibility .2s 0s, opacity .2s 0s;
+    }
+  }
+
+  .f-header__dropdown-link {
+    color: var(--color-contrast-high);
+    padding: var(--space-xs) var(--space-sm);
+    transition: .2s;
+
+    &:hover {
+      background-color: alpha(var(--color-contrast-higher), 0.075);
+      color: var(--color-contrast-higher);
+    }
+  }
+}
+
+html:not(.js) {
+  .f-header {
+    height: auto;
+  }
+  
+  .f-header__nav-control {
+    display: none;
+  }
+
+  .f-header__nav {
+    position: static;
+    padding: var(--space-xxs) 0 var(--space-md);
+    box-shadow: none;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

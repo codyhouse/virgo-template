@@ -1,4 +1,5 @@
 // File#: _1_sticky-hero
+// Usage: codyhouse.co/license
 (function() {
 	var StickyBackground = function(element) {
 		this.element = element;

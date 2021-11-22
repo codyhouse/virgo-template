@@ -1,0 +1,27 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_testimonial
+Title: Testimonial
+Descr: A testimonial quote 
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.testimonial {}
+
+.testimonial__block-wrapper {
+  position: relative;
+
+  blockquote {
+    position: relative;
+    z-index: 1;
+  }
+
+  .icon {
+    position: absolute;
+    top: -0.5em;
+    left: -0.5em;
+  }
+}

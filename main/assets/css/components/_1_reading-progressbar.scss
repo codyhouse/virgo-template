@@ -1,14 +1,17 @@
+@use '../base' as *;
+
 /* -------------------------------- 
 
 File#: _1_reading-progressbar
 Title: Reading Progress Bar
 Descr: A bar indicator displaying the current reading progress
+Usage: codyhouse.co/license
 
 -------------------------------- */ 
 
 .reading-progressbar {
   position: fixed;
-  z-index: var(--zindex-fixed-element);
+  z-index: var(--z-index-fixed-element, 10); 
   top: 0;
   left: 0;
   width: 100%;
@@ -16,6 +19,11 @@ Descr: A bar indicator displaying the current reading progress
   color: var(--color-primary); // fill color
   pointer-events: none;
   display: none;
+  transition: transform 0.2s;
+}
+
+.reading-progressbar--is-out {
+  transform: translateY(-100%);
 }
 
 .reading-progressbar--is-active { // if JS = enabled && content is scrollable

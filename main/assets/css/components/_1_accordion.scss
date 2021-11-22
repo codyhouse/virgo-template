@@ -1,115 +1,124 @@
+@use '../base' as *;
+
 /* -------------------------------- 
 
 File#: _1_accordion
 Title: Accordion
-Descr: Create stacked sections of content and allow the user to expand/collapse them 
+Descr: Create stacked sections of content and allow the user to expand/collapse them
+Usage: codyhouse.co/license
 
 -------------------------------- */ 
 
 :root {
+  // general
+  --accordion-border-width: 1px;
+  // icon
   --accordion-icon-size: 1em;
-  --accordion-icon-stroke-width: 2px;
+  --accordion-icon-stroke-width: 1.5px;
 }
 
 .accordion {}
 
 .accordion__item {
-  border: 0px solid var(--color-contrast-low);
-  border-bottom-width: 1px;
+  border-style: solid;
+  border-color: var(--color-contrast-lower);
+  border-bottom-width: var(--accordion-border-width);
 
   &:first-child {
-    border-top-width: 1px;
+    border-top-width: var(--accordion-border-width);
   }
 }
 
-.accordion__header {
-  @include reset;
-  padding: var(--space-sm) var(--component-padding);
+.accordion__header { // button
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: var(--color-contrast-higher);
-
-  &:hover {
-    color: var(--color-primary);
-  }
-
-  &:focus {
-    outline: 2px solid var(--color-primary);
-  }
-}
-
-.accordion__header-title {
-  font-size: var(--text-md);
   text-align: left;
+  cursor: pointer;
+
+  .icon {
+    --size: var(--accordion-icon-size);
+
+    .icon__group {
+      stroke-width: var(--accordion-icon-stroke-width);
+    }
+  }
 }
 
-.accordion__header-icon  {
-  float: right; //flex fallback
-  flex-shrink: 0;
-  margin-left: var(--space-sm);
-  display: none;
-}
-
-.accordion__header-icon i { // arrow icon
-  position: relative;
-  width: var(--accordion-icon-size);
-  height: var(--accordion-icon-size);
-  display: block;
-  will-change: transform;
-
-  &::before, &::after {
-    content:'';
-    position: absolute;
-    width: var(--accordion-icon-stroke-width);
-    height: 80%;
-    background: currentColor;
-    top: 0;
-    transform-origin: 50% 100%;
+.accordion__icon-arrow,
+.accordion__icon-arrow-v2,
+.accordion__icon-plus {
+  .icon__group {
     will-change: transform;
-    transition: transform 0.2s;
-  }
+    transform-origin: 8px 8px;
 
-  &::before {
-    left: 50%;
-    transform: rotate(-45deg);
-  }
-
-  &::after {
-    left: calc(50% - var(--accordion-icon-stroke-width)/2);
-    transform: rotate(45deg);
+    > * {
+      transform-origin: 8px 8px;
+    }
   }
 }
 
-.accordion__item--is-open > .accordion__header > .accordion__header-icon i {
-  &::before {
-    transform: translateY(-80%) rotate(-135deg);
-  }
+.accordion__icon-arrow,
+.accordion__icon-arrow-v2 {
+  .icon__group {
+    > * {
+      stroke-dasharray: 17;
+      transform: translateY(3px);
+    }
 
-  &::after {
-    transform: translateY(-80%) rotate(135deg);
+    > *:first-child {
+      stroke-dashoffset: 8.5;
+    }
+
+    > *:last-child {
+      stroke-dashoffset: 8.5;
+    }
   }
 }
 
-.accordion__header-icon .icon { // replace arrow with custom icon
-  width: var(--accordion-icon-size);
-  height: var(--accordion-icon-size);
-  color: inherit;
+.accordion__icon-plus {
+  .icon__group {
+    transform: rotate(-90deg);
+
+    > *:first-child {
+      transform: rotate(-90deg);
+    }
+  }
 }
 
-.accordion__panel-content {
-  padding: var(--space-xxxs) var(--component-padding) var(--component-padding);
+.accordion__item--is-open > .accordion__header {
+  > .accordion__icon-arrow .icon__group { // animated arrow icon
+    > *:first-child {
+      transform: translateY(-3px) rotate(-90deg);
+    }
+
+    > *:last-child {
+      transform: translateY(-3px) rotate(90deg);
+    }
+  }
+
+  > .accordion__icon-arrow-v2 .icon__group { // animated arrow icon v2
+    transform: rotate(-90deg);
+
+    > *:first-child, *:last-child {
+      stroke-dashoffset: 0;
+      transform: translateY(0px);
+    }
+  }
+
+  > .accordion__icon-plus .icon__group { // animated plus icon
+    transform: rotate(0);
+
+    > *:first-child {
+      transform: rotate(0);
+    }
+  }
 }
 
 .js {
-  .accordion__header-icon {
-    display: block;
-  }
-
   .accordion__panel {
     display: none;
-    overflow: hidden;
     will-change: height;
     transform: translateZ(0px);
   }
@@ -119,31 +128,34 @@ Descr: Create stacked sections of content and allow the user to expand/collapse 
   }
 }
 
-// --icon-plus -> switch to +/- icons
-.accordion--icon-plus {
-  .accordion__header-icon i {
-    height: var(--accordion-icon-stroke-width);
-    background-color: currentColor;
-
-    &::before {
-      display: none;
-    }
-
-    &::after {
-      left: 0;
-      width: 100%;
-      height: 100%;
-      transform-origin: 50% 50%;
-    }
-
-    &::after {
-      transform: rotate(-90deg);
-    }
+// animations
+.accordion[data-animation="on"] {
+  .accordion__item--is-open .accordion__panel > * {
+    animation: accordion-entry-animation .4s var(--ease-out);
   }
 
-  .accordion__item--is-open > .accordion__header > .accordion__header-icon i {
-    &::after {
-      transform: rotate(0deg);
+  .accordion__icon-arrow,
+  .accordion__icon-arrow-v2,
+  .accordion__icon-plus {
+    .icon__group {
+      transition: transform .3s var(--ease-out);
+
+      > * {
+        transition: transform .3s, stroke-dashoffset .3s;
+        transition-timing-function: var(--ease-out);
+      }
     }
+  }
+}
+
+@keyframes accordion-entry-animation {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }

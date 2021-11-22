@@ -1,12 +1,18 @@
+@use '../base' as *;
+
 /* -------------------------------- 
 
 File#: _1_sticky-hero
 Title: Sticky Hero
 Descr: A sticky hero section that reveals its content on scroll
+Usage: codyhouse.co/license
 
 -------------------------------- */
 
-.sticky-hero {}
+.sticky-hero {
+  position: relative;
+  z-index: 1;
+}
 
 .sticky-hero__media { // img or video
   position: relative; // fallback
@@ -16,11 +22,14 @@ Descr: A sticky hero section that reveals its content on scroll
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  transition: transform 0.5s var(--ease-in-out);
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transform: translateZ(0); // fix issue on iOS - content not visible on sticky element
+
+  transition: transform 0.5s var(--ease-in-out);
+
+  transform: translateZ(0); // fix issue on iOS
 }
 
 .sticky-hero--overlay-layer .sticky-hero__media::after { // overlay layer
@@ -36,7 +45,7 @@ Descr: A sticky hero section that reveals its content on scroll
 }
 
 .sticky-hero--media-is-fixed.sticky-hero--overlay-layer .sticky-hero__media::after {
-  opacity: 0.5;
+  opacity: 0.65;
 }
 
 .sticky-hero--media-is-fixed.sticky-hero--scale .sticky-hero__media {
@@ -67,9 +76,11 @@ Descr: A sticky hero section that reveals its content on scroll
 .sticky-hero__content {
   position: relative;
   z-index: 2;
+
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateZ(0); // fix issue on iOS - content not visible on sticky element
+  
+  transform: translateZ(0); // fix issue on iOS
 }

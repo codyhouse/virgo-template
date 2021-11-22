@@ -1,19 +1,22 @@
+@use '../base' as *;
+
 /* -------------------------------- 
 
 File#: _1_skip-link
 Title: Skip Link
 Descr: Accessibility feature that allows users to jump to the main content of the page
+Usage: codyhouse.co/license
 
 -------------------------------- */
 
 .skip-link {
   position: absolute;
-  z-index: var(--zindex-fixed-element);
+  z-index: var(--z-index-fixed-element, 10); 
   top: 0;
   left: 0;
   display: inline-block;
   padding: var(--space-sm) var(--space-md);
-  background-color: var(--color-bg);
+  background-color: var(--color-bg-light);
   box-shadow: var(--shadow-lg);
   @include fontSmooth;
 
@@ -25,8 +28,7 @@ Descr: Accessibility feature that allows users to jump to the main content of th
     // show
     clip: auto;
     clip-path: none;
-    --color-outline: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2);
-    outline: 3px solid var(--color-outline);
+    outline: 3px solid alpha(var(--color-primary), 0.2);
   }
 }
 

@@ -1,0 +1,24 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_google-maps
+Title: Google Maps
+Descr: Google Maps component
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.google-maps {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; // set 16:9 aspect ratio
+}
+
+.google-maps--ratio-4\:1 {
+  padding-bottom: 25%;
+}
+
+.google-maps--ratio-3\:1 {
+  padding-bottom: 33%;
+}

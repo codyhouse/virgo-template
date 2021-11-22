@@ -1,0 +1,171 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_3d-text-block
+Title: 3D Text Block
+Descr: A text block that rotates on hover
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --td-text-block-padding-x: var(--space-xxs);
+  --td-text-block-padding-y: var(--space-xxs);
+  --td-text-block-transition-duration: .5s;
+}
+
+.td-text-block {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  line-height: 1;
+  text-decoration: none;
+  @include fontSmooth;
+  perspective: 1000px;
+
+  &:focus {
+    outline: 2px solid alpha(var(--color-primary), 0.2);
+    outline-offset: 2px;
+  }
+}
+
+.td-text-block__wrapper {
+  pointer-events: none;
+  display: inline-block;
+  width: 100%;
+  transform-origin: 50% 50% calc(-0.5em - var(--td-text-block-padding-y));
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform var(--td-text-block-transition-duration) var(--ease-in-out);
+
+  .td-text-block:hover & {
+    transform: rotateX(90deg);
+  }
+}
+
+.td-text-block__front-text,
+.td-text-block__final-text {
+  display: inline-flex;
+  white-space: nowrap;
+  width: 100%;
+  padding: var(--td-text-block-padding-y) var(--td-text-block-padding-x);
+  backface-visibility: hidden;
+}
+
+.td-text-block__front-text {
+  position: relative;
+  z-index: 2;
+  color: var(--color-bg);
+  background-color: var(--color-contrast-higher);
+}
+
+.td-text-block__final-text {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  transform-origin: center top;
+  transform: rotateX(-90deg);
+}
+
+// --split-2
+.td-text-block--split-2 {
+  .td-text-block__wrapper:nth-child(1) {
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% 50% 0% 0%);
+    }
+  }
+
+  .td-text-block__wrapper:nth-child(2) {
+    position: absolute;
+    left: 0;
+    transition-delay: 0.1s;
+
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% 0% 0% 50%);
+    }
+  }
+}
+
+// --split-3
+.td-text-block--split-3 {
+  .td-text-block__wrapper:nth-child(1) {
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% calc(100%/3*2) 0% 0%);
+    }
+  }
+
+  .td-text-block__wrapper:nth-child(2),
+  .td-text-block__wrapper:nth-child(3) {
+    position: absolute;
+    left: 0;
+  }
+
+  .td-text-block__wrapper:nth-child(2) {
+    transition-delay: 0.1s;
+
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% calc(100%/3) 0% calc(100%/3));
+    }
+  }
+
+  .td-text-block__wrapper:nth-child(3) {
+    transition-delay: 0.2s;
+
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% 0% 0% calc(100%/3*2));
+    }
+  }
+}
+
+// --split-4
+.td-text-block--split-4 {
+  .td-text-block__wrapper:nth-child(1) {
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% calc(100%/4*3) 0% 0%);
+    }
+  }
+
+  .td-text-block__wrapper:nth-child(2),
+  .td-text-block__wrapper:nth-child(3),
+  .td-text-block__wrapper:nth-child(4) {
+    position: absolute;
+    left: 0;
+  }
+
+  .td-text-block__wrapper:nth-child(2) {
+    transition-delay: 0.1s;
+
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% calc(100%/4*2) 0% calc(100%/4));
+    }
+  }
+
+  .td-text-block__wrapper:nth-child(3) {
+    transition-delay: 0.2s;
+
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% calc(100%/4) 0% calc(100%/4*2));
+    }
+  }
+
+  .td-text-block__wrapper:nth-child(4) {
+    transition-delay: 0.3s;
+
+    .td-text-block__front-text,
+    .td-text-block__final-text {
+      clip-path: inset(0% 0% 0% calc(100%/4*3));
+    }
+  }
+}

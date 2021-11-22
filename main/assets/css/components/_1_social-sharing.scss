@@ -1,0 +1,42 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_social-sharing
+Title: Social Sharing
+Descr: Social sharing plugin
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.sharebar {}
+
+.sharebar__btn {
+  --size: 60px;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+
+  background: alpha(var(--color-contrast-higher), 0.1);
+  border-radius: 50%;
+
+  transition: .2s;
+
+  .icon {
+    --size: 24px;
+    display: block;
+    margin: auto;
+    color: var(--color-contrast-high);
+
+    transition: color .2s;
+  }
+
+  &:hover {
+    background-color: alpha(var(--color-contrast-higher), 0.075);
+    box-shadow: var(--shadow-sm);
+
+    .icon {
+      color: var(--color-contrast-higher);
+    }
+  }
+}

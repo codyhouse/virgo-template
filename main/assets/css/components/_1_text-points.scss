@@ -1,0 +1,94 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_text-points
+Title: Text Points
+Descr: A list of text components
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --text-points-bullet-size: 1.2em; // bullet (circle)
+  --text-points-bullet-text-scale: 0.6; // bullet font-size scale factor
+}
+
+.text-points {
+  --text-unit: 1em; // use Em units
+  font-size: 0.875em;
+}
+
+.text-points__item {
+  color: var(--color-contrast-medium);
+
+  .text-component {
+    --line-height-multiplier: 1.15; // see framework > _typography.scss
+  }
+}
+
+.text-points--counter,
+.text-points--letter,
+.text-points--icon {
+  .text-points__title {
+    position: relative;
+    padding-left: calc(var(--text-points-bullet-size) + var(--space-xxxs));
+  
+    &::before { // bullet
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: calc(1em * var(--text-points-bullet-text-scale));
+      height: calc(var(--text-points-bullet-size)/var(--text-points-bullet-text-scale));
+      width: calc(var(--text-points-bullet-size)/var(--text-points-bullet-text-scale));
+      line-height: calc(var(--text-points-bullet-size)/var(--text-points-bullet-text-scale));
+      font-weight: medium;
+      text-align: center;
+      background-color: var(--color-contrast-lower);
+      color: var(--color-contrast-medium);
+      border-radius: 50%;
+    }
+  
+    @include breakpoint(lg) {
+      padding-left: 0;
+  
+      &::before {
+        transform: translateX(-100%);
+        left: -8px;
+      }
+    }
+  }
+}
+
+// --counter -> bullet = number
+.text-points--counter {
+  .text-points__item {
+    counter-increment: text-points; // used to set the counter content
+  }
+
+  .text-points__title {
+    &::before {
+      content: counter(text-points);
+    }
+  }
+}
+
+// --letter -> bullet = letter
+.text-points--letter {
+  .text-points__title {
+    &::before {
+      content: '?';
+    }
+  }
+}
+
+// --icon -> bullet = icon
+.text-points--icon {
+  .text-points__title {
+    &::before {
+      content: '';
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm2.658,18.284c-.661.26-2.952,1.354-4.272.191a1.676,1.676,0,0,1-.59-1.318,15.978,15.978,0,0,1,.919-3.957,5.7,5.7,0,0,0,.231-1.313c0-.7-.266-.887-.987-.887a3.31,3.31,0,0,0-1.095.257l.195-.8a7.64,7.64,0,0,1,2.621-.71c1.269,0,2.2.633,2.2,1.837A5.585,5.585,0,0,1,13.7,12.96l-.73,2.582c-.151.522-.424,1.673,0,2.014a2.214,2.214,0,0,0,1.887-.071ZM13.452,8a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,13.452,8Z'/%3E%3C/svg%3E");
+      background: var(--color-contrast-lower); // icon color
+    }
+  }
+}

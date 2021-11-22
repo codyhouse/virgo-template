@@ -1,0 +1,98 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_list-v2
+Title: List v2
+Descr: Custom list component
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --list-v2-bullet-size: 40px;
+  --list-v2-bullet-font-size: 1rem;
+  --list-v2-bullet-margin-right: 1rem;
+  --list-v2-gap-y: var(--space-lg); /* list points gap */
+}
+
+.list-v2, .text-component .list-v2 {
+  padding-left: 0;
+  list-style: none;
+
+  > li:not(:last-child) {
+    margin-bottom: var(--list-v2-gap-y);
+  }
+}
+
+.list-v2__title {
+  padding-left: calc(var(--list-v2-bullet-size) + var(--list-v2-bullet-margin-right));
+}
+
+.list-v2__bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: var(--list-v2-bullet-size);
+  height: var(--list-v2-bullet-size);
+
+  margin-right: var(--list-v2-bullet-margin-right);
+  margin-left: calc(-1 * var(--list-v2-bullet-size) - var(--list-v2-bullet-margin-right));
+
+  vertical-align: middle;
+  position: relative;
+  top: -0.1em;
+}
+
+.list-v2__content {
+  margin-left: calc(var(--list-v2-bullet-size) + var(--list-v2-bullet-margin-right));
+}
+
+/* ordered list */
+.list-v2--ol, .text-component .list-v2--ol {  
+  counter-reset: list-items;
+
+  > li {
+    counter-increment: list-items;
+  }
+
+  .list-v2__bullet {
+    border-radius: 50%;
+    background-color: alpha(var(--color-primary), 0.2);
+
+    color: var(--color-primary);
+    font-size: var(--list-v2-bullet-font-size);
+    font-weight: 500;
+
+    &::before {
+      content: counter(list-items);
+    }
+  }
+}
+
+/* unordered list */
+.list-v2--ul, .text-component .list-v2--ul {
+  --list-v2-bullet-size: 10px;
+
+  .list-v2__bullet {
+    border-radius: 50%;
+    background-color: var(--color-primary);
+  }
+}
+
+/* icons */
+.list-v2--icons, .text-component .list-v2--icons {
+  --list-v2-bullet-size: 48px;
+
+  .list-v2__bullet {
+    border-radius: 50%;
+    background-color: alpha(var(--color-primary), 0.2);
+  }
+
+  .list-v2__icon {
+    --size: 24px;
+    color: var(--color-primary); /* icon color */
+  }
+}

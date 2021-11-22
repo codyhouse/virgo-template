@@ -1,112 +1,151 @@
+@use '../base' as *;
+
 /* -------------------------------- 
 
 File#: _1_radios-checkboxes
 Title: Radios and Checkboxes
 Descr: Custom radio and checkbox buttons
+Usage: codyhouse.co/license
 
 -------------------------------- */
 
 :root {
-  /* radios and checkboxes */
-  --checkbox-radio-size: 1em;
-  --checkbox-radio-translate-y: -0.1em; // edit to align buttons with labels
+  // radios and checkboxes
+  --checkbox-radio-size: 18px;
+  --checkbox-radio-gap: var(--space-xxs); // gap between button and label
+  --checkbox-radio-border-width: 1px;
+  --checkbox-radio-line-height: var(--body-line-height);
 
-  /* radio buttons */
+  // radio buttons
   --radio-marker-size: 8px;
 
-  /* checkboxes */
+  // checkboxes
   --checkbox-marker-size: 12px;
-  --checkbox-radius: 3px;
+  --checkbox-radius: 4px;
 }
 
-.radio-list--custom, .checkbox-list--custom {
-  input[type="radio"],
-  input[type="checkbox"] {
-    // hide native buttons
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    height: 0;
-    width: 0;
-    pointer-events: none;
-  }
+// hide native buttons
+.radio,
+.checkbox {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  margin-top: calc((1em * var(--checkbox-radio-line-height) - var(--checkbox-radio-size)) / 2);
+  opacity: 0;
+  height: var(--checkbox-radio-size);
+  width: var(--checkbox-radio-size);
+  pointer-events: none;
+}
 
-  input[type="radio"] + label,
-  input[type="checkbox"] + label {
-    display: inline-block;
-  }
-  
-  input[type="radio"] + label::before,
-  input[type="checkbox"] + label::before {
-    // custom buttons basic style
-    content: '';
-    display: inline-block;
-    vertical-align: middle;
-    flex-shrink: 0;
-    width: var(--checkbox-radio-size);
-    height: var(--checkbox-radio-size);
-    background-color: var(--color-bg);
-    border: 2px solid var(--color-contrast-low);
-    margin-right: var(--space-xxxs);
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    top: var(--checkbox-radio-translate-y);
-    transition: transform 0.2s;
-  }
-  
-  input[type="radio"] + label::before {
-    // radio button radius
-    border-radius: 50%;
-  }
-  
-  input[type="checkbox"] + label::before {
-    // checkbox button radius
-    border-radius: var(--checkbox-radius);
-  }
-  
-  input[type="radio"]:checked + label::before,
-  input[type="checkbox"]:checked + label::before {
-    // checked state
-    background-color: var(--color-primary);
-    box-shadow: none;
-    border-color: var(--color-primary);
-  }
-  
-  input[type="radio"]:active + label::before,
-  input[type="checkbox"]:active + label::before {
-    // active state
-    transform: scale(0.8);
-  }
-  
-  input[type="radio"]:checked:active + label::before,
-  input[type="checkbox"]:checked:active + label::before {
-    transform: none;
-    transition: none;
-  }
-  
-  input[type="radio"]:checked + label::before {
-    // radio button icon
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg class='nc-icon-wrapper' fill='%23ffffff'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23ffffff'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");
-    background-size: var(--radio-marker-size);
-  }
-  
-  input[type="checkbox"]:checked + label::before {
-    // checkbox button icon
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg class='nc-icon-wrapper' stroke-width='2' fill='%23ffffff' stroke='%23ffffff'%3E%3Cpolyline fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' points='1,9 5,13 15,3 ' data-cap='butt'%3E%3C/polyline%3E%3C/g%3E%3C/svg%3E");
-    background-size: var(--checkbox-marker-size);
-  }
+// label
+.radio + label,
+.checkbox + label { 
+  display: inline-block;
+  line-height: var(--checkbox-radio-line-height);
+  user-select: none;
+  cursor: pointer;
+  padding-left: calc(var(--checkbox-radio-size) + var(--checkbox-radio-gap));
+}
 
-  input[type="radio"]:checked:active + label::before,
-  input[type="checkbox"]:checked:active + label::before,
-  input[type="radio"]:focus + label::before,
-  input[type="checkbox"]:focus + label::before {
-    // focus state
-    border-color: var(--color-primary);
-    --color-shadow: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2); // fix iOS 12 bug
-    box-shadow: 0 0 0 3px var(--color-shadow);
-  }
+// custom inputs - basic style
+.radio + label::before,
+.checkbox + label::before { 
+  content: '';
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  top: -0.1em;
+  margin-left: calc(-1 * (var(--checkbox-radio-size) + var(--checkbox-radio-gap)));
+  flex-shrink: 0;
+  width: var(--checkbox-radio-size);
+  height: var(--checkbox-radio-size);
+  background-color: var(--color-bg);
+  border-width: var(--checkbox-radio-border-width);
+  border-color: alpha(var(--color-contrast-low), 0.65);
+  border-style: solid;
+  box-shadow: var(--shadow-xs);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: var(--checkbox-radio-gap);
+  transition: transform .2s, border .2s;
+}
+
+// :hover
+.radio:not(:checked):not(:focus) + label:hover::before,
+.checkbox:not(:checked):not(:focus) + label:hover::before {
+  border-color: alpha(var(--color-contrast-low), 1);
+}
+
+// radio only style
+.radio + label::before {
+  border-radius: 50%; 
+}
+
+// checkbox only style
+.checkbox + label::before {
+  border-radius: var(--checkbox-radius);
+}
+
+// :checked
+.radio:checked + label::before,
+.checkbox:checked + label::before {
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow-xs);
+  border-color: var(--color-primary);
+  transition: transform .2s;
+}
+
+// :active
+.radio:active + label::before,
+.checkbox:active + label::before {
+  transform: scale(0.8);
+  transition: transform .2s;
+}
+
+// :checked:active
+.radio:checked:active + label::before,
+.checkbox:checked:active + label::before {
+  transform: none;
+  transition: none;
+}
+
+// radio button icon
+.radio:checked + label::before {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cg class='nc-icon-wrapper' fill='%23ffffff'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23ffffff'%3E%3C/circle%3E%3C/g%3E%3C/svg%3E");
+  background-size: var(--radio-marker-size);
+}
+
+// checkbox button icon
+.checkbox:checked + label::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpolyline points='1 6.5 4 9.5 11 2.5' fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/svg%3E");
+  background-size: var(--checkbox-marker-size);
+}
+
+// :focus
+.radio:checked:active + label::before,
+.checkbox:checked:active + label::before,
+.radio:focus + label::before,
+.checkbox:focus + label::before {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px alpha(var(--color-primary), 0.2);
+}
+
+// --radio--bg, --checkbox--bg -> variation with background color
+.radio--bg + label, .checkbox--bg + label {
+  padding: var(--space-xxxxs) var(--space-xxxs);
+  padding-left: calc(var(--checkbox-radio-size) + var(--checkbox-radio-gap) + var(--space-xxxs));
+  border-radius: var(--radius-md);
+  transition: background .2s;
+}
+
+.radio--bg + label:hover, .checkbox--bg + label:hover {
+  background-color: alpha(var(--color-contrast-higher), 0.075);
+}
+
+.radio--bg:active + label,
+.checkbox--bg:active + label,
+.radio--bg:focus + label,
+.checkbox--bg:focus + label {
+  background-color: alpha(var(--color-primary), 0.1);
 }

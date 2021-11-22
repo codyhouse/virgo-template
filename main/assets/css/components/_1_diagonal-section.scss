@@ -1,0 +1,67 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_diagonal-section
+Title: Diagonal Section
+Descr: Section with diagonal edges
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --diagonal-section-offset: 50px;
+}
+
+.diagonal-section,
+.diagonal-section-top,
+.diagonal-section-bottom {
+  position: relative;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@supports (clip-path: inset(50%)) {
+  .diagonal-section, .diagonal-section-top.diagonal-section-bottom {
+    padding-top: calc(var(--diagonal-section-offset)/2);
+    padding-bottom: calc(var(--diagonal-section-offset)/2);
+    clip-path: polygon(0% 0%, 100% var(--diagonal-section-offset), 100% 100%, 0% calc(100% - var(--diagonal-section-offset)));
+  }
+
+  .diagonal-section--flip-x {
+    clip-path: polygon(0% var(--diagonal-section-offset), 100% 0%, 100% calc(100% - var(--diagonal-section-offset)), 0% 100%);
+  }
+
+  .diagonal-section-top {
+    padding-top: calc(var(--diagonal-section-offset)/2);
+    clip-path: polygon(0% 0%, 100% var(--diagonal-section-offset), 100% 100%, 0% 100%);
+
+  }
+
+  .diagonal-section-top--flip-x {
+    clip-path: polygon(0% var(--diagonal-section-offset), 100% 0%, 100% 100%, 0% 100%);
+
+    &.diagonal-section-bottom {
+      clip-path: polygon(0% var(--diagonal-section-offset), 100% 0%, 100% 100%, 0% calc(100% - var(--diagonal-section-offset)));
+    }
+  }
+
+  .diagonal-section-bottom {
+    padding-bottom: calc(var(--diagonal-section-offset)/2);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% calc(100% - var(--diagonal-section-offset)));
+  }
+
+  .diagonal-section-bottom--flip-x {
+    clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - var(--diagonal-section-offset)), 0% 100%);
+
+    &.diagonal-section-top {
+      clip-path: polygon(0% 0%, 100% var(--diagonal-section-offset), 100% calc(100% - var(--diagonal-section-offset)), 0% 100%);
+    }
+  }
+
+  .diagonal-section-top--flip-x.diagonal-section-bottom--flip-x {
+    clip-path: polygon(0% var(--diagonal-section-offset), 100% 0%, 100% calc(100% - var(--diagonal-section-offset)), 0% 100%);
+  }
+}

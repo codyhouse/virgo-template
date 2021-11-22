@@ -1,73 +1,55 @@
-// --------------------------------
-
-// (START) Global Editor code https://codyhouse.co/ds/globals/forms
+@use '../base' as *;
 
 // --------------------------------
 
-:root{
-  --form-control-padding-x: var(--space-sm);
-  --form-control-padding-y: var(--space-xs);
-  --form-control-radius: 0.2em;
+// (START) Global editor code https://codyhouse.co/ds/globals/forms
+
+// --------------------------------
+
+:root {
+  --form-control-font-size: 1em;
+  --form-control-padding-x: var(--space-xs);
+  --form-control-padding-y: var(--space-xxs);
+  --form-control-radius: var(--radius-md);
 }
 
 .form-control {
-  background-color: var(--color-contrast-lower);
-  border: 2px solid var(--color-contrast-low);
+  background: var(--color-bg-dark);
+  line-height: 1.2;
+  box-shadow: inset 0px 0px 0px 1px var(--color-contrast-lower);
+  transition: all 0.2s ease;
 
-  &::-webkit-input-placeholder {
-    color: var(--color-contrast-medium);
-  }
-
-  &::-moz-placeholder {
-    color: var(--color-contrast-medium);
-  }
-
-  &:-ms-input-placeholder {
-    color: var(--color-contrast-medium);
-  }
-
-  &:-moz-placeholder {
-    color: var(--color-contrast-medium);
+  &::placeholder {
+    opacity: 1;  
+    color: var(--color-contrast-low);
   }
 
   &:focus {
-    background-color: var(--color-bg);
-    border: 2px solid var(--color-primary);
-    --color-shadow: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2);
-    box-shadow: 0px 0px 0px 2px var(--color-shadow);
+    background: var(--color-bg);
+    box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0), 0px 0px 0px 2px var(--color-primary), var(--shadow-sm);
     outline: none;
   }
 }
 
-.form-control[disabled], .form-control[readonly] {
-  opacity: 0.8;
+.form-control--disabled, .form-control[disabled], .form-control[readonly] {
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
-.form-control[aria-invalid="true"] {
-  border: 2px solid var(--color-error);
+.form-control[aria-invalid="true"], .form-control.form-control--error {
+  box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0), 0px 0px 0px 2px var(--color-error);
 
   &:focus {
-    --color-shadow: hsla(var(--color-error-h), var(--color-error-s), var(--color-error-l), 0.2);
-    box-shadow: 0px 0px 0px 2px var(--color-shadow);
+    box-shadow: inset 0px 0px 0px 1px alpha(var(--color-contrast-lower), 0), 0px 0px 0px 2px var(--color-error), var(--shadow-sm);
   }
 }
 
-.form-legend {
-  color: var(--color-contrast-higher);
-  font-size: var(--text-md);
-  line-height: 1.2;
-  margin-bottom: var(--space-sm);
-}
+.form-legend {}
 
-.form-label {
-  color: var(--color-contrast-medium);
-  font-family: var(--font-secondary);
-  font-size: var(--text-sm);
-}
+.form-label {}
 
 // --------------------------------
 
-// (END) Global Editor Code
+// (END) Global editor code
 
 // --------------------------------

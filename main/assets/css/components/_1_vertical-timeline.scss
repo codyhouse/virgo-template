@@ -1,0 +1,201 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_vertical-timeline
+Title: Vertical Timeline
+Descr: A vertical timeline used to display a sequence of events/steps
+Usage: codyhouse.co/license
+
+-------------------------------- */
+:root {
+  --v-timeline-marker-size: 16px; // dot indicator size
+  --v-timeline-track-width: 2px; // vertical track (line) width
+  --v-timeline-triangle-size: 12px; // triangle indicator size
+  --v-timeline-sections-gap: var(--space-lg); // gap between sections (section = marker + item/s)
+  --v-timeline-items-gap: var(--space-sm); // gap between items (if there are more than one within same date)
+}
+
+.v-timeline {
+  position: relative;
+  padding: var(--space-lg) 0; // y padding
+
+  &::before { // track
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc((var(--v-timeline-marker-size) - var(--v-timeline-track-width))*0.5);
+    height: 100%;
+    width: var(--v-timeline-track-width);
+    background-color: alpha(var(--color-contrast-higher), 0.1);
+  }
+}
+
+.v-timeline__section {
+  position: relative;
+  display: flex;
+  
+  &:not(:last-of-type) {
+    margin-bottom: var(--v-timeline-sections-gap); 
+  }
+}
+
+.v-timeline__marker {
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+  height: var(--v-timeline-marker-size);
+  width: var(--v-timeline-marker-size);
+  border-radius: 50%;
+  margin-right: calc(var(--v-timeline-triangle-size) + var(--space-xxs));
+}
+
+.v-timeline__item {
+  position: relative;
+  top: calc(0.5 * var(--v-timeline-marker-size));
+  flex-grow: 1;
+
+  &::before { // triangle indicator
+    content: '';
+    position: absolute;
+    top: 0;
+    left: calc(-1 * var(--v-timeline-triangle-size) + 1px);
+    height: var(--v-timeline-triangle-size);
+    width: var(--v-timeline-triangle-size);
+    background-color: inherit;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: var(--v-timeline-items-gap); // gap between timeline items
+  }
+
+  &:not(:first-child) {
+    .v-timeline__date {
+      display: none; // hide date if not first item
+    }
+
+    &::before {
+      display: none; // hide triangle if not first item
+    }
+  }
+}
+
+.v-timeline__date-value { // date label
+  color: var(--color-contrast-medium);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@include breakpoint(md, "not all") { // style applied only before breakpoint 'md'
+  .v-timeline__item:first-child {
+    border-top-left-radius: 0;
+  }
+}
+
+@include breakpoint(md) { // edit timeline layout
+  .v-timeline::before { // track
+    left: calc(50% - var(--v-timeline-track-width)/2);
+  }
+
+  .v-timeline__section {
+    width: calc(50% + var(--v-timeline-marker-size)/2);
+    
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+
+      .v-timeline__marker {
+        margin-right: 0;
+        margin-left: calc(var(--v-timeline-triangle-size) + var(--space-xxs));
+      }
+
+      .v-timeline__item {
+        &::before { // push triangle to the right
+          left: auto;
+          right: calc(-1 * var(--v-timeline-triangle-size) + 1px);
+          transform: scaleX(-1);
+        }
+
+        &:first-child {
+          border-top-right-radius: 0;
+        }
+      }
+
+      .v-timeline__date {
+        right: calc(-2 * (var(--v-timeline-triangle-size) + var(--space-xxs)) - var(--v-timeline-marker-size));
+        transform: translateX(100%) translateY(-50%);
+      }
+    }
+
+    &:nth-child(even) {
+      margin-left: auto;
+
+      .v-timeline__item {
+        &:first-child {
+          border-top-left-radius: 0;
+        }
+      }
+
+      .v-timeline__date {
+        left: calc(-2 * (var(--v-timeline-triangle-size) + var(--space-xxs)) - var(--v-timeline-marker-size));
+        transform: translateX(-100%) translateY(-50%);
+      }
+    }
+  }
+
+  .v-timeline__section--is-hidden {
+    opacity: 0; // used in JS to hide section before the animation
+  }
+
+  .v-timeline__date {
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+
+  // animations
+  .js {
+    .v-timeline[data-animation="on"] {
+      .v-timeline__marker {
+        opacity: 0;
+        transform: scale(0.5);
+        transition: transform .6s var(--ease-out), opacity .6s;
+      }
+  
+      .v-timeline__item {
+        opacity: 0;
+        transition: transform .6s var(--ease-out), opacity .6s;
+      }
+  
+      .v-timeline__section {
+        &:nth-child(odd) .v-timeline__item {
+          transform: translateX(-50px);
+        }
+  
+        &:nth-child(even) .v-timeline__item {
+          transform: translateX(50px);
+        }
+      }
+  
+      .v-timeline__section--animate {
+        .v-timeline__item {
+          transform: translateX(0) !important;
+          opacity: 1;
+        }
+  
+        .v-timeline__marker {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// --icons
+.v-timeline--icons {
+  --v-timeline-marker-size: 3em;
+}

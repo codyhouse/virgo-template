@@ -1,24 +1,26 @@
+@use '../base' as *;
+
 /* -------------------------------- 
 
 File#: _1_adv-gallery
 Title: Advanced Gallery
 Descr: Advanced image gallery template
+Usage: codyhouse.co/license
 
 -------------------------------- */
 
-.adv-gallery {}
+.adv-gallery {
+  position: relative;
+  z-index: 1;
+}
 
-.adv-gallery__img-wrapper img {
+.adv-gallery__img {
   width: 100%;
   display: block;
+  object-fit: cover;
 }
 
-.adv-gallery__label {
-  background-color: var(--color-contrast-lower);
-  padding: var(--space-md);
-}
-
-// fallback for browsers not supporting CSS Grid
+// CSS Grid fallback
 .adv-gallery__grid {
   > * {
     margin-bottom: var(--space-md);
@@ -75,7 +77,7 @@ Descr: Advanced image gallery template
     }
   }
 
-  @include breakpoint(xl) {
+  @include breakpoint(lg) {
     .adv-gallery__grid {
       grid-gap: var(--space-sm);
       grid-template-rows: repeat(12, 50px);
@@ -101,26 +103,8 @@ Descr: Advanced image gallery template
       }
     }
 
-    .adv-gallery__img-wrapper img {
-      object-fit: cover;
+    .adv-gallery__img {
       height: 100%;
-    }
-
-    .adv-gallery__label {
-      display: flex;
-
-      p {
-        margin-top: auto;
-  
-        &::before { // line
-          content: '';
-          display: block;
-          height: 80px;
-          width: 1px;
-          background-color: var(--color-contrast-high);
-          margin-bottom: var(--space-sm);
-        }
-      }
     }
   }
 }

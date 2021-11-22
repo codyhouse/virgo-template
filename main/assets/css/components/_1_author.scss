@@ -1,0 +1,104 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_author
+Title: Author
+Descr: Author introduction card
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --author-img-size: 4em;
+}
+
+.author {
+  display: grid;
+  grid-template-columns: var(--author-img-size) 1fr;
+  grid-gap: var(--space-sm);
+}
+
+.author__img-wrapper { // img link
+  display: inline-block;
+  border-radius: 50%;
+  width: var(--author-img-size);
+  height: var(--author-img-size);
+  overflow: hidden;
+  transition: transform .3s var(--ease-out-back);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  img {
+    display: block;
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
+}
+
+.author__content {
+  a {
+    color: inherit;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+}
+
+// --meta -> show date + read time
+.author--meta {
+  --author-img-size: 3em;
+  align-items: center;
+  grid-gap: var(--space-xs);
+}
+
+// --minimal -> show only author name
+.author--minimal {
+  --author-img-size: 2.4em;
+  align-items: center;
+  grid-gap: var(--space-xxs);
+}
+
+// --featured -> expand author info
+.author--featured {
+  --author-img-size: 6em;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  text-align: center;
+
+  .author__img-wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.author__social { // social button
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  display: flex;
+
+  background-color: alpha(var(--color-contrast-higher), 0.1);
+  border-radius: 50%;
+  transition: .2s;
+
+  .icon {
+    --size: 16px;
+    display: block;
+    margin: auto;
+    color: var(--color-contrast-higher);
+    transition: color .2s;
+  }
+
+  &:hover {
+    background-color: alpha(var(--color-contrast-higher), 0.075);
+
+    .icon {
+      color: var(--color-primary);
+    }
+  }
+}

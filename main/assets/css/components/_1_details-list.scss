@@ -1,0 +1,63 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_details-list
+Title: Details List
+Descr: Pairs of related information displayed in a list
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+:root {
+  --details-list-border-width: 1px;
+  --details-list-border-opacity: 0.15;
+}
+
+.details-list {}
+
+.details-list--rows {
+  .details-list__item {
+    border-bottom: var(--details-list-border-width) solid alpha(var(--color-contrast-higher), var(--details-list-border-opacity));
+  
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.details-list--cols {
+  .details-list__item {
+    border-right: var(--details-list-border-width) solid alpha(var(--color-contrast-higher), var(--details-list-border-opacity));
+  
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+@each $breakpoint, $value in $breakpoints { 
+  @include breakpoint(#{$breakpoint}) {
+    .details-list--rows\@#{$breakpoint} {
+      .details-list__item {
+        border-right: 0;
+        border-bottom: var(--details-list-border-width) solid alpha(var(--color-contrast-higher), var(--details-list-border-opacity));
+      
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .details-list--cols\@#{$breakpoint} {
+      .details-list__item {
+        border-bottom: 0;
+        border-right: var(--details-list-border-width) solid alpha(var(--color-contrast-higher), var(--details-list-border-opacity));
+      
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+}

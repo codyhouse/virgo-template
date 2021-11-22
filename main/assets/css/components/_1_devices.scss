@@ -1,14 +1,17 @@
+@use '../base' as *;
+
 /* -------------------------------- 
 
 File#: _1_devices
 Title: Devices
 Descr: A collection of CSS tech devices
+Usage: codyhouse.co/license
 
 -------------------------------- */
 
 :root {
   // phone
-  --dev-phone-radius: 15%;
+  --dev-phone-radius: 14%;
   --dev-phone-img-ratio: 0.56; // width:height (e.g., 750:1334)
 
   // tablet
@@ -16,87 +19,96 @@ Descr: A collection of CSS tech devices
   --dev-tablet-img-ratio: 0.75; // width:height (e.g., 2048:2732)
 
   // browser
-  --dev-browser-radius: 2%;
+  --dev-browser-radius: 1.5%;
   --dev-browser-img-ratio: 1.6; // width:height (e.g., 1920:1200)
 
   // laptop
   --dev-laptop-radius: 3%;
   --dev-laptop-img-ratio: 1.6; // width:height (e.g., 1920:1200)
+
+  // desktop
+  --dev-desktop-radius: 3%;
+  --dev-desktop-img-ratio: 1.6; // width:height (e.g., 1920:1200)
 }
 
-// phone + tablet
-.dev-phone, .dev-tablet,
-.dev-phone__body, .dev-tablet__body {
+/* #region (Phone) */
+.dev-phone, .dev-phone__body {
   position: relative;
   width: 100%;
 }
 
-.dev-phone__body,
-.dev-tablet__body {
-  background-color: var(--color-bg);
-  border: 3px solid var(--color-contrast-low);
-  padding: 3%;
-  z-index: 2;
+.dev-phone {
+  z-index: 1;
 }
 
 .dev-phone__body {
+  background-color: var(--color-bg);
+
+  --phone-inner-shadow: inset 0 0 0.285em hsla(0, 0%, 0%, 0.15), inset 0 0 0.1em hsla(0, 0%, 0%, 0.035), inset 0 0 0.05em hsla(0, 0%, 0%, 0.005);
+  box-shadow: var(--phone-inner-shadow);
+
+  padding: 3%;
+  z-index: 2;
+
   border-top-left-radius: var(--dev-phone-radius) calc(var(--dev-phone-radius) * var(--dev-phone-img-ratio));
   border-top-right-radius: var(--dev-phone-radius) calc(var(--dev-phone-radius) * var(--dev-phone-img-ratio));
   border-bottom-right-radius: var(--dev-phone-radius) calc(var(--dev-phone-radius) * var(--dev-phone-img-ratio));
   border-bottom-left-radius: var(--dev-phone-radius) calc(var(--dev-phone-radius) * var(--dev-phone-img-ratio));
+
+  .dev-phone--dark & {
+    background-color: var(--color-black);
+    border: 3px solid #F34747;
+  }
 }
 
-.dev-tablet__body {
-  border-top-left-radius: var(--dev-tablet-radius) calc(var(--dev-tablet-radius) * var(--dev-tablet-img-ratio));
-  border-top-right-radius: var(--dev-tablet-radius) calc(var(--dev-tablet-radius) * var(--dev-tablet-img-ratio));
-  border-bottom-right-radius: var(--dev-tablet-radius) calc(var(--dev-tablet-radius) * var(--dev-tablet-img-ratio));
-  border-bottom-left-radius: var(--dev-tablet-radius) calc(var(--dev-tablet-radius) * var(--dev-tablet-img-ratio));
-}
-
-.dev-phone__media,
-.dev-tablet__media {
+.dev-phone__media {
   position: relative;
   overflow: hidden;
+
+  border-top-left-radius: calc(var(--dev-phone-radius) * 0.85) calc(var(--dev-phone-radius) * 0.85 * var(--dev-phone-img-ratio));
+  border-top-right-radius: calc(var(--dev-phone-radius) * 0.85) calc(var(--dev-phone-radius) * 0.85 * var(--dev-phone-img-ratio));
+  border-bottom-left-radius: calc(var(--dev-phone-radius) * 0.85) calc(var(--dev-phone-radius) * 0.85 * var(--dev-phone-img-ratio));
+  border-bottom-right-radius: calc(var(--dev-phone-radius) * 0.85) calc(var(--dev-phone-radius) * 0.85 * var(--dev-phone-img-ratio));
 
   img, svg, video {
     display: block;
     width: 100%;
     height: auto;
   }
-}
 
-.dev-phone__media {
-  border-top-left-radius: calc(var(--dev-phone-radius) * 0.8) calc(var(--dev-phone-radius) * 0.8 * var(--dev-phone-img-ratio));
-  border-top-right-radius: calc(var(--dev-phone-radius) * 0.8) calc(var(--dev-phone-radius) * 0.8 * var(--dev-phone-img-ratio));
-  border-bottom-left-radius: calc(var(--dev-phone-radius) * 0.8) calc(var(--dev-phone-radius) * 0.8 * var(--dev-phone-img-ratio));
-  border-bottom-right-radius: calc(var(--dev-phone-radius) * 0.8) calc(var(--dev-phone-radius) * 0.8 * var(--dev-phone-img-ratio));
-}
+  &::after { // image inner shadow
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, 0.075);
+    border-radius: inherit;
+    pointer-events: none;
+  }
 
-.dev-tablet__media {
-  border-top-left-radius: calc(var(--dev-tablet-radius) * 0.7) calc(var(--dev-tablet-radius) * 0.7 * var(--dev-tablet-img-ratio));
-  border-top-right-radius: calc(var(--dev-tablet-radius) * 0.7) calc(var(--dev-tablet-radius) * 0.7 * var(--dev-tablet-img-ratio));
-  border-bottom-left-radius: calc(var(--dev-tablet-radius) * 0.7) calc(var(--dev-tablet-radius) * 0.7 * var(--dev-tablet-img-ratio));
-  border-bottom-right-radius: calc(var(--dev-tablet-radius) * 0.7) calc(var(--dev-tablet-radius) * 0.7 * var(--dev-tablet-img-ratio));
+  .dev-phone--dark &::after {
+    display: none;
+  }
 }
 
 .dev-phone__notch {
   position: absolute;
+  z-index: 2;
   top: 0;
-  width: 56%;
-  right: 22%;
+  width: 50%;
+  right: 25%;
   height: 4%;
-  border-radius: 0 0 1em 1em;
-  background: var(--color-bg);
-}
+  border-radius: 0 0 0.85em 0.85em;
+  background-color: var(--color-bg);
+  border: 1px solid hsla(0, 0%, 0%, 0.1);
+  border-top-width: 0;
 
-.dev-phone__home-bar {
-  position: absolute;
-  bottom: 1%;
-  width: 40%;
-  left: 30%;
-  height: 1%;
-  border-radius: 50em;
-  background-color: rgba(#000, 0.2);
+  .dev-phone--dark & {
+    background-color: var(--color-black);
+    border-width: 0;
+  }
 }
 
 .dev-phone--landscape {
@@ -109,10 +121,10 @@ Descr: A collection of CSS tech devices
   }
 
   .dev-phone__media {
-    border-top-left-radius: calc(var(--dev-phone-radius) * 0.8 * var(--dev-phone-img-ratio)) calc(var(--dev-phone-radius) * 0.8);
-    border-top-right-radius: calc(var(--dev-phone-radius) * 0.8 * var(--dev-phone-img-ratio)) calc(var(--dev-phone-radius) * 0.8);
-    border-bottom-left-radius: calc(var(--dev-phone-radius) * 0.8 * var(--dev-phone-img-ratio)) calc(var(--dev-phone-radius) * 0.8);
-    border-bottom-right-radius: calc(var(--dev-phone-radius) * 0.8 * var(--dev-phone-img-ratio)) calc(var(--dev-phone-radius) * 0.8);
+    border-top-left-radius: calc(var(--dev-phone-radius) * 0.85 * var(--dev-phone-img-ratio)) calc(var(--dev-phone-radius) * 0.85);
+    border-top-right-radius: calc(var(--dev-phone-radius) * 0.85 * var(--dev-phone-img-ratio)) calc(var(--dev-phone-radius) * 0.85);
+    border-bottom-left-radius: calc(var(--dev-phone-radius) * 0.85 * var(--dev-phone-img-ratio)) calc(var(--dev-phone-radius) * 0.85);
+    border-bottom-right-radius: calc(var(--dev-phone-radius) * 0.85 * var(--dev-phone-img-ratio)) calc(var(--dev-phone-radius) * 0.85);
   }
 
   .dev-phone__notch {
@@ -120,14 +132,105 @@ Descr: A collection of CSS tech devices
     height: 56%;
     top: 22%;
     width: 4%;
-    border-radius: 1em 0 0 1em;
+    border-radius: 0.85em 0 0 0.85em;
+    border-right-width: 0px;
+    border-top-width: 1px;
+  }
+}
+
+.dev-phone--front-light { // set front light
+  .dev-phone__body {
+    box-shadow: var(--phone-inner-shadow), var(--shadow-lg);
+  }
+}
+
+.dev-phone--top-light { // set top light
+  .dev-phone__shadow {
+    position: absolute;
+    background-color: hsla(0, 0%, 0%, 0.1);
+    z-index: 1;
+    height: 1em;
+    width: 100%;
+    left: 0;
+    bottom: -0.5em;
+    border-radius: 100%;
+    filter: blur(5px);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      border-radius: inherit;
+    }
+
+    &::before {
+      top: 20%;
+      left: 10%;
+      width: 80%;
+      height: 40%;
+      background-color: hsla(0, 0%, 0%, 0.4);
+    }
+
+    &::after {
+      top: 20%;
+      left: 5%;
+      width: 90%;
+      height: 60%;
+      background-color: hsla(0, 0%, 0%, 0.15);
+    }
+  }
+}
+/* #endregion */
+
+/* #region (Tablet) */
+.dev-tablet, .dev-tablet__body {
+  position: relative;
+  width: 100%;
+}
+
+.dev-tablet {
+  z-index: 1;
+}
+
+.dev-tablet__body {
+  background-color: var(--color-bg);
+
+  --tablet-inner-shadow: inset 0 0 0.285em hsla(0, 0%, 0%, 0.15), inset 0 0 0.1em hsla(0, 0%, 0%, 0.035), inset 0 0 0.05em hsla(0, 0%, 0%, 0.005);
+  box-shadow: var(--tablet-inner-shadow);
+
+  padding: 3%;
+  z-index: 2;
+
+  border-top-left-radius: var(--dev-tablet-radius) calc(var(--dev-tablet-radius) * var(--dev-tablet-img-ratio));
+  border-top-right-radius: var(--dev-tablet-radius) calc(var(--dev-tablet-radius) * var(--dev-tablet-img-ratio));
+  border-bottom-right-radius: var(--dev-tablet-radius) calc(var(--dev-tablet-radius) * var(--dev-tablet-img-ratio));
+  border-bottom-left-radius: var(--dev-tablet-radius) calc(var(--dev-tablet-radius) * var(--dev-tablet-img-ratio));
+}
+
+.dev-tablet__media {
+  position: relative;
+  overflow: hidden;
+
+  border-top-left-radius: calc(var(--dev-tablet-radius) * 0.75) calc(var(--dev-tablet-radius) * 0.75 * var(--dev-tablet-img-ratio));
+  border-top-right-radius: calc(var(--dev-tablet-radius) * 0.75) calc(var(--dev-tablet-radius) * 0.75 * var(--dev-tablet-img-ratio));
+  border-bottom-left-radius: calc(var(--dev-tablet-radius) * 0.75) calc(var(--dev-tablet-radius) * 0.75 * var(--dev-tablet-img-ratio));
+  border-bottom-right-radius: calc(var(--dev-tablet-radius) * 0.75) calc(var(--dev-tablet-radius) * 0.75 * var(--dev-tablet-img-ratio));
+
+  img, svg, video {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
-  .dev-phone__home-bar {
-    left: 1%;
-    height: 40%;
-    bottom: 30%;
-    width: 1%;
+  &::after { // image inner shadow
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, 0%, 0.075);
+    border-radius: inherit;
+    pointer-events: none;
   }
 }
 
@@ -141,32 +244,23 @@ Descr: A collection of CSS tech devices
   }
 
   .dev-tablet__media {
-    border-top-left-radius: calc(var(--dev-tablet-radius) * 0.7 * var(--dev-tablet-img-ratio)) calc(var(--dev-tablet-radius) * 0.7);
-    border-top-right-radius: calc(var(--dev-tablet-radius) * 0.7 * var(--dev-tablet-img-ratio)) calc(var(--dev-tablet-radius) * 0.7);
-    border-bottom-left-radius: calc(var(--dev-tablet-radius) * 0.7 * var(--dev-tablet-img-ratio)) calc(var(--dev-tablet-radius) * 0.7);
-    border-bottom-right-radius: calc(var(--dev-tablet-radius) * 0.7 * var(--dev-tablet-img-ratio)) calc(var(--dev-tablet-radius) * 0.7);
+    border-top-left-radius: calc(var(--dev-tablet-radius) * 0.85 * var(--dev-tablet-img-ratio)) calc(var(--dev-tablet-radius) * 0.85);
+    border-top-right-radius: calc(var(--dev-tablet-radius) * 0.85 * var(--dev-tablet-img-ratio)) calc(var(--dev-tablet-radius) * 0.85);
+    border-bottom-left-radius: calc(var(--dev-tablet-radius) * 0.85 * var(--dev-tablet-img-ratio)) calc(var(--dev-tablet-radius) * 0.85);
+    border-bottom-right-radius: calc(var(--dev-tablet-radius) * 0.85 * var(--dev-tablet-img-ratio)) calc(var(--dev-tablet-radius) * 0.85);
   }
 }
 
-.dev-phone--light-front,
-.dev-tablet--light-front { // set front light
-  .dev-phone__body,
+.dev-tablet--front-light { // set front light
   .dev-tablet__body {
-    box-shadow: inset 0 0 5px rgba(#000, 0.1), var(--shadow-lg);
+    box-shadow: var(--tablet-inner-shadow), var(--shadow-lg);
   }
 }
 
-.dev-phone--light-top,
-.dev-tablet--light-top { // set top light
-  .dev-phone__body,
-  .dev-tablet__body {
-    box-shadow: inset 0 0 5px rgba(#000, 0.1);
-  }
-
-  .dev-phone__shadow,
+.dev-tablet--top-light { // set top light
   .dev-tablet__shadow {
     position: absolute;
-    background-color: rgba(#000, 0.15);
+    background-color: hsla(0, 0%, 0%, 0.1);
     z-index: 1;
     height: 1em;
     width: 100%;
@@ -174,20 +268,50 @@ Descr: A collection of CSS tech devices
     bottom: -0.5em;
     border-radius: 100%;
     filter: blur(5px);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      border-radius: inherit;
+    }
+
+    &::before {
+      top: 20%;
+      left: 10%;
+      width: 80%;
+      height: 40%;
+      background-color: hsla(0, 0%, 0%, 0.4);
+    }
+
+    &::after {
+      top: 20%;
+      left: 5%;
+      width: 90%;
+      height: 60%;
+      background-color: hsla(0, 0%, 0%, 0.15);
+    }
   }
 }
+/* #endregion */
 
-// browser
+/* #region (Browser) */
 .dev-browser,
 .dev-browser__body {
   position: relative;
   width: 100%;
 }
 
+.dev-browser {
+  z-index: 1;
+}
+
 .dev-browser__body {
-  background-color: var(--color-bg);
-  border: 3px solid var(--color-contrast-low);
+  background: var(--color-bg);
   padding: 2em 1.5% 1.5%;
+
+  --browser-inner-shadow: inset 0 0 0.285em hsla(0, 0%, 0%, 0.15), inset 0 0 0.1em hsla(0, 0%, 0%, 0.035), inset 0 0 0.05em hsla(0, 0%, 0%, 0.005);
+  box-shadow: var(--browser-inner-shadow);
+
   border-top-left-radius: var(--dev-browser-radius) calc(var(--dev-browser-radius) * var(--dev-browser-img-ratio));
   border-top-right-radius: var(--dev-browser-radius) calc(var(--dev-browser-radius) * var(--dev-browser-img-ratio));
   border-bottom-right-radius: var(--dev-browser-radius) calc(var(--dev-browser-radius) * var(--dev-browser-img-ratio));
@@ -196,6 +320,9 @@ Descr: A collection of CSS tech devices
 }
 
 .dev-browser__media {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+
   img, svg, video {
     display: block;
     width: 100%;
@@ -214,25 +341,21 @@ Descr: A collection of CSS tech devices
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: var(--color-contrast-low);
+    background-color: alpha(var(--color-contrast-higher), 0.2);
     margin-right: var(--space-xxs);
   }
 }
 
-.dev-browser--light-front { // set front light
+.dev-browser--front-light { // set front light
   .dev-browser__body {
-    box-shadow: inset 0 0 5px rgba(#000, 0.1), var(--shadow-lg);
+    box-shadow: var(--browser-inner-shadow), var(--shadow-lg);
   }
 }
 
-.dev-browser--light-top { // set top light
-  .dev-browser__body {
-    box-shadow: inset 0 0 5px rgba(#000, 0.1);
-  }
-
+.dev-browser--top-light { // set top light
   .dev-browser__shadow {
     position: absolute;
-    background-color: rgba(#000, 0.15);
+    background-color: hsla(0, 0%, 0%, 0.1);
     z-index: 1;
     height: 1em;
     width: 100%;
@@ -240,23 +363,47 @@ Descr: A collection of CSS tech devices
     bottom: -0.5em;
     border-radius: 100%;
     filter: blur(5px);
+
+    &::before, &::after {
+      content: '';
+      position: absolute;
+      border-radius: inherit;
+    }
+
+    &::before {
+      top: 20%;
+      left: 10%;
+      width: 80%;
+      height: 40%;
+      background-color: hsla(0, 0%, 0%, 0.4);
+    }
+
+    &::after {
+      top: 20%;
+      left: 5%;
+      width: 90%;
+      height: 60%;
+      background-color: hsla(0, 0%, 0%, 0.2);
+    }
   }
 }
+/* #endregion */
 
-// laptop
+/* #region (Laptop) */
 .dev-laptop {
   position: relative;
+  z-index: 1;
   width: 100%;
 }
 
 .dev-laptop__body {
   width: 85%;
   margin: 0 auto;
-  background-color: var(--color-bg);
+  background-color: var(--color-black);
   border: 3px solid var(--color-contrast-low);
   border-bottom-width: 0;
   padding: 3% 1.5% 1.5%;
-  box-shadow: inset 0 0 5px rgba(#000, 0.1);
+
   border-top-left-radius: var(--dev-laptop-radius) calc(var(--dev-laptop-radius) * var(--dev-laptop-img-ratio));
   border-top-right-radius: var(--dev-laptop-radius) calc(var(--dev-laptop-radius) * var(--dev-laptop-img-ratio));
   z-index: 2;
@@ -275,30 +422,135 @@ Descr: A collection of CSS tech devices
   width: 100%;
   height: 0;
   padding-bottom: 3%;
-  background-color: var(--color-contrast-low);
-  border-radius: 0 0 3em 3em;
+  background: linear-gradient(lightness(var(--color-contrast-low), 1.4), var(--color-contrast-low) 7% 55%, lightness(var(--color-contrast-low), 0.85) 55%, lightness(var(--color-contrast-low), 0.5));
+  border-bottom-left-radius: 10% 50%;
+  border-bottom-right-radius: 10% 50%;
   z-index: 2;
 
   &::after {
     content: '';
     position: absolute;
-    width: 100%;
-    height: 100%;
     top: 0;
-    left: 0;
-    background: linear-gradient(to top, rgba(#000, 0.25), transparent);
-    border-radius: inherit;
+    left: 40%;
+    width: 20%;
+    height: 35%;
+    border-radius: 0 0 1em 1em;
+    background-color: lightness(var(--color-contrast-low), 0.8);
+    box-shadow: inset 0 1px 3px hsla(0, 0%, 0%, 0.25);
   }
 }
 
 .dev-laptop__shadow {
   position: absolute;
-  background-color: rgba(#000, 0.15);
   z-index: 1;
   height: 1em;
-  width: 100%;
-  left: 0;
+  width: 94%;
+  left: 3%;
   bottom: -0.5em;
-  border-radius: 100%;
-  filter: blur(5px);
+  perspective: 400px;
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    top: 0;
+    left: 1%;
+    width: 98%;
+    height: 100%;
+    background-color: hsla(0, 0%, 0%, 0.25);
+    transform: rotateX(70deg);
+    filter: blur(5px);
+  }
+
+  &::after {
+    top: calc(44% - 1px);
+    left: 4%;
+    width: 92%;
+    height: 12%;
+    border-radius: 100%;
+    background-color: hsla(0, 0%, 0%, 0.8);
+    filter: blur(1px);
+  }
 }
+/* #endregion */
+
+/* #region (Desktop) */
+.dev-desktop {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.dev-desktop__body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--color-black);
+  border: 3px solid var(--color-contrast-low);
+  padding: 4%;
+
+  border-top-left-radius: var(--dev-desktop-radius) calc(var(--dev-desktop-radius) * var(--dev-desktop-img-ratio));
+  border-top-right-radius: var(--dev-desktop-radius) calc(var(--dev-desktop-radius) * var(--dev-desktop-img-ratio));
+  border-bottom-right-radius: var(--dev-desktop-radius) calc(var(--dev-desktop-radius) * var(--dev-desktop-img-ratio));
+  border-bottom-left-radius: var(--dev-desktop-radius) calc(var(--dev-desktop-radius) * var(--dev-desktop-img-ratio));
+}
+
+.dev-desktop__media {
+  img, svg, video {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.dev-desktop__base {
+  position: relative;
+  z-index: 1;
+  width: 33%;
+  margin: 0 auto;
+  height: 0;
+  padding-bottom: 15%;
+  perspective: 180px;
+}
+
+.dev-desktop__base-top {
+  position: absolute;
+  z-index: 3;
+  top: -1px;
+  left: 15%;
+  width: 70%;
+  height: 80%;
+  clip-path: polygon(3% 0%, 97% 0%, 100% 100%, 0% 100%);
+  background: linear-gradient(lightness(var(--color-contrast-low), 0.6), var(--color-contrast-low));
+}
+
+.dev-desktop__base-bottom {
+  position: absolute;
+  z-index: 2;
+  top: calc(80% - 2px);
+  left: 15%;
+  width: 70%;
+  height: 50%;
+  border-radius: 0 0 0.25em 0.25em;
+  transform-origin: center top;
+  transform: rotateX(80deg);
+  background-color: var(--color-contrast-low);
+  box-shadow: inset 0 -2px 0 hsla(0, 0%, 100%, 0.25);
+}
+
+.dev-desktop__shadow {
+  position: absolute;
+  z-index: 1;
+  top: calc(80% - 2px);
+  left: 17%;
+  width: 66%;
+  height: 50%;
+  border-radius: 0 0 0.25em 0.25em;
+  transform-origin: center top;
+  transform: rotateX(80deg);
+  box-shadow: 0 2px 2px hsla(0, 0%, 0%, 0.4), 0 4px 4px hsla(0, 0%, 0%, 0.15);
+}
+/* #endregion */

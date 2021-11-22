@@ -1,22 +1,27 @@
+@use '../base' as *;
+@use '_1_radio-switch.scss' as *;
+
 /* -------------------------------- 
 
 File#: _2_pricing-table
 Title: Pricing Table
 Descr: A table used to compare prices and features of different products
+Usage: codyhouse.co/license
 
 -------------------------------- */
 
 .p-table__item {
-  background-color: var(--color-contrast-lower);
-  border-radius: var(--radius-md);
+  background-color: var(--color-bg-dark);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--inner-glow);
   padding: var(--space-md);
   display: flex;
   flex-direction: column;
 }
 
 .p-table__item--popular {
-  background-color: var(--color-bg);
-  border: 2px solid var(--color-primary);
+  background-color: var(--color-bg-light);
+  box-shadow: 0 0 0 2px var(--color-primary), var(--shadow-md);
 }
 
 .p-table__badge {
@@ -36,7 +41,7 @@ Descr: A table used to compare prices and features of different products
   }
 
   i { // month/year
-    color: var(--color-contrast-medium);
+    color: var(--color-contrast-low);
   }
 }
 
@@ -59,6 +64,7 @@ Descr: A table used to compare prices and features of different products
     }
 
     .p-table__price {
+      will-change: transform;
       transition: transform 0.3s, opacity 0.3s;
       transition-timing-function: var(--ease-out);
 

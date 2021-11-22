@@ -1,0 +1,159 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_reveal-effects
+Title: Reveal Effects
+Descr: A collection of reveal effects targeting specific elements as they enter the viewport
+Usage: codyhouse.co/license
+
+-------------------------------- */
+:root {
+  --reveal-fx-duration: 0.6s;
+  --reveal-fx-timing-function: var(--ease-out);
+}
+
+.js {
+  .reveal-fx {
+    opacity: 0;
+    transition: opacity, transform var(--reveal-fx-timing-function);
+    transition-duration: var(--reveal-fx-duration);
+
+    &::before { // never visible - used to check MQ in JS
+      display: none;
+      content: 'reveal-fx';
+    }
+  }
+
+  .reveal-fx--translate, .reveal-fx--translate-up {
+    transform: translateY(50px);
+  }
+
+  .reveal-fx--translate-right {
+    transform: translateX(-50px);
+  }
+
+  .reveal-fx--translate-left {
+    transform: translateX(50px);
+  }
+
+  .reveal-fx--translate-down {
+    transform: translateY(-50px);
+  }
+
+  .reveal-fx--scale {
+    transform: scale(0.8);
+  }
+
+  .reveal-fx--scale-up {
+    transform: translateY(50px) scale(0.8);
+  }
+
+  .reveal-fx--scale-right {
+    transform: translateX(-50px) scale(0.8);
+  }
+
+  .reveal-fx--scale-left {
+    transform: translateX(50px) scale(0.8);
+  }
+
+  .reveal-fx--scale-down {
+    transform: translateY(-50px) scale(0.8);
+  }
+
+  .reveal-fx--rotate, .reveal-fx--rotate-down, .reveal-fx--rotate-right, .reveal-fx--rotate-left, .reveal-fx--rotate-up { // ⚠️ add class to parent
+    perspective: 1000px;
+
+    > * {
+      transition: transform var(--reveal-fx-duration) var(--reveal-fx-timing-function);
+      backface-visibility: hidden;
+    }
+  }
+
+  .reveal-fx--rotate, .reveal-fx--rotate-down {
+    > * {
+      transform-origin: top;
+      transform: rotateX(-45deg);
+    }
+  }
+
+  .reveal-fx--rotate-right {
+    > * {
+      transform-origin: left center;
+      transform: rotateY(45deg);
+    }
+  }
+
+  .reveal-fx--rotate-left {
+    > * {
+      transform-origin: right center;
+      transform: rotateY(-45deg);
+    }
+  }
+
+  .reveal-fx--rotate-up {
+    > * {
+      transform-origin: bottom;
+      transform: rotateX(45deg);
+    }
+  }
+
+  .reveal-fx--text-mask { // reveal sigle words/letter
+    overflow: hidden;
+
+    > * {
+      display: inline-block;
+      transform: translateY(100%);
+      transition: transform var(--reveal-fx-duration) var(--reveal-fx-timing-function);
+      will-change: transform;
+    }
+  }
+
+  [class*="reveal-fx--translate"], [class*="reveal-fx--scale"] {
+    will-change: opacity, transform;
+  }
+
+  .reveal-fx--text-mask > *, [class*="reveal-fx--rotate"]  > * {
+    will-change: transform;
+  }
+
+  // clip path effects
+  .reveal-fx--clip-x,
+  .reveal-fx--clip-y {
+    > * {
+      transition: opacity, clip-path var(--ease-out);
+      transition-duration: var(--reveal-fx-duration);
+    }
+  }
+
+  .reveal-fx--clip-x {
+    > * {
+      clip-path: polygon(10% 0%, 90% 0%, 90% 100%, 10% 100%);
+    }
+  }
+
+  .reveal-fx--clip-y {
+    > * {
+      clip-path: polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%);
+    }
+  }
+
+  .reveal-fx--is-visible { // reveal element when it enters the viewport
+    opacity: 1;
+      
+    &[class*="reveal-fx--translate"], 
+    &[class*="reveal-fx--scale"],
+    &[class*="reveal-fx--rotate"] > *,
+    &.reveal-fx--text-mask > * {
+      transform: translate(0); // reset all transformations
+    }
+
+    &.reveal-fx--clip-x,
+    &.reveal-fx--clip-y {
+      > * {
+        opacity: 1;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+    }
+  }
+}

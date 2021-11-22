@@ -1,0 +1,64 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_notice
+Title: Notice 
+Descr: Modeless notice banner, visible by default
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.notice {
+  position: fixed;
+  width: 100%;
+  pointer-events: none;
+  z-index: var(--z-index-fixed-element, 10); 
+}
+
+.notice__banner {
+  pointer-events: auto;
+}
+
+.notice__close-btn {
+  --size: 2em;
+  display: flex;
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background-color: alpha(var(--color-contrast-higher), 0.85);
+  color: var(--color-bg);
+  transition: .2s;
+
+  &:hover {
+    background-color: var(--color-contrast-higher);
+  }
+
+  .icon {
+    --size: 16px;
+  }
+}
+
+.notice--hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+	.notice {
+    transition: opacity .3s, visibility 0s .3s;
+  }
+
+  .notice__banner {
+    transition: transform .3s;
+  }
+
+  .notice--hide {
+    .notice__banner {
+      transform: translateY(20px);
+    }
+  }
+}

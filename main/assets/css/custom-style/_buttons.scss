@@ -1,90 +1,81 @@
-// --------------------------------
-
-// (START) Global Editor code https://codyhouse.co/ds/globals/colors
+@use '../base' as *;
 
 // --------------------------------
 
-:root{
+// (START) Global editor code https://codyhouse.co/ds/globals/buttons
+
+// --------------------------------
+
+:root {
   --btn-font-size: 1em;
-  --btn-font-size-sm: 0.8em;
-  --btn-font-size-md: 1.2em;
-  --btn-font-size-lg: 1.8em;
-  --btn-padding-x: var(--space-md);
-  --btn-padding-y: var(--space-xs);
-  --btn-radius: 0.2em;
+  --btn-padding-x: var(--space-sm);
+  --btn-padding-y: var(--space-xxs);
+  --btn-radius: var(--radius-md);
 }
 
 .btn {
+  background: var(--color-bg-dark);
+  color: var(--color-contrast-higher);
   cursor: pointer;
-  font-family: var(--font-secondary);
   text-decoration: none;
-  line-height: 1;
+  line-height: 1.2;
   @include fontSmooth;
-  --color-shadow-1: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.1);
-  --color-shadow-2: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.1);
-  box-shadow: 0px 1px 1px  var(--color-shadow-1), 0px 4px 10px  var(--color-shadow-2);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  will-change: transform;
+
+  &:focus {
+    box-shadow: 0px 0px 0px 2px alpha(var(--color-contrast-higher), 0.15);
+    outline: none;
+  }
 
   &:active {
     transform: translateY(2px);
-  }
-
-  &:hover {
-    --color-shadow-1: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.05);
-    --color-shadow-2: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.1);
-    box-shadow: 0px 1px 1px  var(--color-shadow-1), 0px 1px 4px  var(--color-shadow-2);
-  }
-
-  &:focus {
-    --color-shadow: hsla(var(--color-black-h), var(--color-black-s), var(--color-black-l), 0.2);
-    box-shadow: 0px 0px 0px 2px var(--color-shadow);
-    outline: none;
   }
 }
 
 // themes
 .btn--primary {
-  background-color: var(--color-primary);
+  background: var(--color-primary);
   color: var(--color-white);
-  --color-shadow-1: hsla(var(--color-primary-dark-h), var(--color-primary-dark-s), var(--color-primary-dark-l), 0.2);
-  --color-shadow-2: hsla(var(--color-primary-dark-h), var(--color-primary-dark-s), var(--color-primary-dark-l), 0.2);
-  box-shadow: 0px 1px 1px  var(--color-shadow-1), 0px 4px 10px  var(--color-shadow-2);
+  box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15), var(--shadow-xs);
 
   &:hover {
-    background-color: var(--color-primary-dark);
-    --color-shadow-1: hsla(var(--color-primary-dark-h), var(--color-primary-dark-s), var(--color-primary-dark-l), 0.15);
-    --color-shadow-2: hsla(var(--color-primary-dark-h), var(--color-primary-dark-s), var(--color-primary-dark-l), 0.15);
-    box-shadow: 0px 1px 1px  var(--color-shadow-1), 0px 1px 4px  var(--color-shadow-2);
+    background: var(--color-primary-light);
+    box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15), var(--shadow-sm);
   }
 
   &:focus {
-    --color-shadow: hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 0.2);
-    box-shadow: 0px 0px 0px 2px var(--color-shadow);
+    box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15), 0px 0px 0px 2px alpha(var(--color-primary), 0.2);
   }
 }
 
 .btn--subtle {
-  background-color: var(--color-contrast-lower);
+  background: var(--color-bg-light);
   color: var(--color-contrast-higher);
-}
-
-.btn--accent {
-  background-color: var(--color-accent);
-  color: var(--color-white);
-  --color-shadow-1: hsla(var(--color-accent-dark-h), var(--color-accent-dark-s), var(--color-accent-dark-l), 0.2);
-  --color-shadow-2: hsla(var(--color-accent-dark-h), var(--color-accent-dark-s), var(--color-accent-dark-l), 0.2);
-  box-shadow: 0px 1px 1px  var(--color-shadow-1), 0px 4px 10px  var(--color-shadow-2);
+  box-shadow: inset 0px 0px 0px 1px var(--color-contrast-lower), var(--shadow-xs);
 
   &:hover {
-    background-color: var(--color-accent-dark);
-    --color-shadow-1: hsla(var(--color-accent-dark-h), var(--color-accent-dark-s), var(--color-accent-dark-l), 0.15);
-    --color-shadow-2: hsla(var(--color-accent-dark-h), var(--color-accent-dark-s), var(--color-accent-dark-l), 0.15);
-    box-shadow: 0px 1px 1px  var(--color-shadow-1), 0px 1px 4px  var(--color-shadow-2);
+    background: var(--color-bg-lighter);
+    box-shadow: inset 0px 0px 0px 1px var(--color-contrast-lower), var(--shadow-sm);
   }
 
   &:focus {
-    --color-shadow: hsla(var(--color-accent-h), var(--color-accent-s), var(--color-accent-l), 0.2);
-    box-shadow: 0px 0px 0px 2px var(--color-shadow);
+    box-shadow: inset 0px 0px 0px 1px var(--color-contrast-lower), 0px 0px 0px 2px alpha(var(--color-contrast-higher), 0.05);
+  }
+}
+
+.btn--accent {
+  background: var(--color-accent);
+  color: var(--color-white);
+  box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15), var(--shadow-xs);
+
+  &:hover {
+    background: var(--color-accent-light);
+    box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15), var(--shadow-sm);
+  }
+
+  &:focus {
+    box-shadow: inset 0px 1px 0px alpha(var(--color-white), 0.15), 0px 0px 0px 2px alpha(var(--color-accent), 0.2);
   }
 }
 
@@ -99,26 +90,26 @@
 }
 
 // feedback
-.btn--disabled {
+.btn--disabled, .btn[disabled], .btn[readonly] {
   opacity: 0.6;
   cursor: not-allowed;
-  box-shadow: none;
 }
 
 // size
 .btn--sm {
+  font-size: 0.8em;
 }
 
 .btn--md {
+  font-size: 1.2em;
 }
 
 .btn--lg {
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 1.4em;
 }
 
 // --------------------------------
 
-// (END) Global Editor Code
+// (END) Global editor code
 
 // --------------------------------

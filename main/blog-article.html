@@ -4,74 +4,109 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
-  <script>
-    if('CSS' in window && CSS.supports('color', 'var(--color-var)')) {
-      document.write('<link rel="stylesheet" href="assets/css/style.css">');
-    } else {
-      document.write('<link rel="stylesheet" href="assets/css/style-fallback.css">');
-    }
-  </script>
-  <noscript>
-    <link rel="stylesheet" href="assets/css/style-fallback.css">
-  </noscript>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <!-- end google fonts -->
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
   <title>Blog Article | Virgo Template by CodyHouse</title>
 </head>
 <body>
-  <progress aria-hidden="true" class="reset reading-progressbar reading-progressbar--is-hidden js-reading-progressbar" max="100" value="0">
-    <div class="reading-progressbar__fallback js-reading-progressbar__fallback"></div>
-  </progress>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <header class="main-header js-main-header">
-    <div class="container max-width-lg">
-      <div class="main-header__layout">
-        <div class="main-header__logo">
-          <a href="#0">
-            <svg width="130" height="32" viewBox="0 0 130 32"><title>Go to homepage</title><circle fill="var(--color-primary)" cx="16" cy="16" r="16"/><rect fill="var(--color-contrast-higher)" x="41" y="11" width="89" height="10"/></svg>
+  <header class="f-header position-relative js-f-header">
+    <div class="f-header__mobile-content container max-width-lg">
+      <a href="index.html" class="f-header__logo">
+        <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" fill="var(--color-contrast-higher)"/><circle cx="15" cy="15" r="15" fill="var(--color-primary)"/></svg>
+      </a>
+  
+      <button class="reset anim-menu-btn js-anim-menu-btn f-header__nav-control js-tab-focus" aria-label="Toggle menu">
+        <i class="anim-menu-btn__icon anim-menu-btn__icon--close" aria-hidden="true"></i>
+      </button>
+    </div>
+  
+    <div class="f-header__nav" role="navigation">
+      <div class="f-header__nav-grid justify-between@md container max-width-lg">
+        <div class="f-header__nav-logo-wrapper flex-grow flex-basis-0">
+          <a href="index.html" class="f-header__logo">
+            <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" fill="var(--color-contrast-higher)"/><circle cx="15" cy="15" r="15" fill="var(--color-primary)"/></svg>
           </a>
         </div>
-
-        <button class="btn btn--subtle main-header__nav-trigger js-main-header__nav-trigger" aria-label="Toggle menu" aria-expanded="false" aria-controls="main-header-nav">
-          <i class="main-header__nav-trigger-icon" aria-hidden="true"></i>
-          <span>Menu</span>
-        </button>
-
-        <nav class="main-header__nav js-main-header__nav" id="main-header-nav" aria-labelledby="main-header-nav-label" role="navigation">
-          <div id="main-header-nav-label" class="main-header__nav-label">Main menu</div>
-          <ul class="main-header__nav-list">
-            <li class="main-header__nav-item"><a href="index.html" class="main-header__nav-link">Home</a></li>
-            <li class="main-header__nav-item"><a href="features.html" class="main-header__nav-link">Features</a></li>
-            <li class="main-header__nav-item"><a href="pricing.html" class="main-header__nav-link">Pricing</a></li>
-            <li class="main-header__nav-item"><a href="blog.html" class="main-header__nav-link">Blog</a></li>
-            <li class="main-header__nav-item"><a href="blog-article.html" class="main-header__nav-link" aria-current="page">Article</a></li>
-            <li class="main-header__nav-item"><a href="contact.html" class="main-header__nav-link">Contact</a></li>
-            <li class="main-header__nav-item main-header__nav-divider" aria-hidden="true"></li>
-            <li class="main-header__nav-item"><a href="https://github.com/CodyHouse/virgo-template" class="btn btn--primary">Download</a></li>
-          </ul>
-        </nav>
+    
+        <ul class="f-header__list flex-grow flex-basis-0 justify-center@md">
+          <li class="f-header__item">
+            <a href="solutions.html" class="f-header__link">
+              <span>Solutions</span>
+              <svg class="f-header__dropdown-icon icon" aria-hidden="true" viewBox="0 0 12 12"><path d="M9.943,4.269A.5.5,0,0,0,9.5,4h-7a.5.5,0,0,0-.41.787l3.5,5a.5.5,0,0,0,.82,0l3.5-5A.5.5,0,0,0,9.943,4.269Z"/></svg>
+            </a>
+  
+            <ul class="f-header__dropdown">
+              <li><a href="#0" class="f-header__dropdown-link">Sub Nav Item One</a></li>
+              <li><a href="#0" class="f-header__dropdown-link">Sub Nav Item Two</a></li>
+              <li><a href="#0" class="f-header__dropdown-link">Sub Nav Item Three</a></li>
+            </ul>
+          </li>
+          <li class="f-header__item"><a href="pricing.html" class="f-header__link">Pricing</a></li>
+          <li class="f-header__item"><a href="blog.html" class="f-header__link">Blog</a></li>
+          <li class="f-header__item"><a href="blog-article.html" class="f-header__link" aria-current="page">Article</a></li>
+          <li class="f-header__item"><a href="contact.html" class="f-header__link">Contact</a></li>
+        </ul>
+    
+        <ul class="f-header__list flex-grow flex-basis-0 justify-end@md">
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Twitter">
+              <svg class="icon" viewBox="0 0 32 32"><g><path d="M32,6.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.7,3.8,24,3,22.2,3 c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,10.8,5.5,8.2,2.2,4.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5 c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1C2.9,27.9,6.4,29,10.1,29c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C30,8.5,31.1,7.4,32,6.1z"></path></g></svg>
+              <span class="margin-left-xxs">Follow us on Twitter</span>
+            </a>
+          </li>
+  
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Facebook">
+                <svg class="icon" viewBox="0 0 32 32"><path d="M32,16A16,16,0,1,0,13.5,31.806V20.625H9.438V16H13.5V12.475c0-4.01,2.389-6.225,6.043-6.225a24.644,24.644,0,0,1,3.582.312V10.5H21.107A2.312,2.312,0,0,0,18.5,13v3h4.438l-.71,4.625H18.5V31.806A16,16,0,0,0,32,16Z"></path></svg>
+              <span class="margin-left-xxs">Follow us on Facebook</span>
+            </a>
+          </li>
+  
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Youtube">
+              <svg class="icon" viewBox="0 0 32 32"><path d="M31.7,9.6c0,0-0.3-2.2-1.3-3.2c-1.2-1.3-2.6-1.3-3.2-1.4C22.7,4.7,16,4.7,16,4.7h0c0,0-6.7,0-11.2,0.3 c-0.6,0.1-2,0.1-3.2,1.4c-1,1-1.3,3.2-1.3,3.2S0,12.2,0,14.8v2.4c0,2.6,0.3,5.2,0.3,5.2s0.3,2.2,1.3,3.2c1.2,1.3,2.8,1.2,3.5,1.4 C7.7,27.2,16,27.3,16,27.3s6.7,0,11.2-0.3c0.6-0.1,2-0.1,3.2-1.4c1-1,1.3-3.2,1.3-3.2s0.3-2.6,0.3-5.2v-2.4 C32,12.2,31.7,9.6,31.7,9.6z M12.7,20.2l0-9l8.6,4.5L12.7,20.2z"></path></svg>
+              <span class="margin-left-xxs">Follow us on Youtube</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </header>
 
-  <main id="main-content" class="padding-y-xl js-reading-content">
-    <div class="container max-width-sm margin-bottom-lg">
-      <div class="margin-bottom-xxs">
-        <a href="blog.html">&larr; Back to Blog</a>
+  <article class="padding-y-xl">
+    <header class="container max-width-xs margin-bottom-lg">
+      <div class="text-component text-center line-height-lg text-space-y-md margin-bottom-md">
+        <h1>It was going to be a lonely trip back</h1>
+        <p class="color-contrast-medium text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni harum rerum amet.</p>
       </div>
-
-      <div class="text-component">
-        <h1>Understanding the CodyHouse Framework Gulp configuration file</h1>
-        <p class="color-contrast-medium text-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque velit quam voluptatem.</p>
-      </div>
-    </div>
-
-    <div class="container max-width-lg margin-bottom-lg">
-      <img class="width-100%" src="assets/img/blog-featured.jpg" alt="Blog featured image">
-    </div>
-
-    <div class="container max-width-sm">
-      <article class="article text-component">
-        <p class="drop-cap">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, temporibus, aut officia minus sequi quae <a href="#0">molestias beatae</a>, qui ipsa mollitia alias accusamus voluptate ratione provident numquam iure quia aliquam tempore possimus consequatur vel. Iure atque enim in? Magnam quis cupiditate quia labore quaerat, eligendi nobis, ab similique harum nostrum nulla aliquam dolore adipisci ut. Eaque doloremque iure veniam nobis asperiores!</p>
   
+      <div class="flex justify-center">
+        <div class="author author--meta">
+          <a href="#0" class="author__img-wrapper">
+            <img src="assets/img/article-gallery-v3-author-img-1.jpg" alt="Author picture">
+          </a>
+  
+          <div class="author__content text-component text-space-y-xxs">
+            <h4 class="text-base"><a href="#0" rel="author">Olivia Gribben</a></h4>
+            <p class="text-sm color-contrast-medium"><time>May 15</time> &mdash; 5 min read</p>
+          </div>
+        </div>
+      </div>
+    </header>
+  
+    <figure class="container max-width-lg margin-bottom-lg">
+      <img class="block width-100% radius-lg" src="assets/img/article-img-1.jpg" alt="Image description">
+    </figure>
+  
+    <div class="container max-width-adaptive-sm">
+      <div class="text-component article js-sticky-sharebar-target js-reading-content">
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, temporibus, aut officia minus sequi quae <a href="#0">molestias beatae</a>, qui ipsa mollitia alias accusamus voluptate ratione provident numquam iure quia aliquam tempore possimus consequatur vel. Iure atque enim in? Magnam quis cupiditate quia labore quaerat, eligendi nobis, ab similique harum nostrum nulla aliquam dolore adipisci ut. Eaque doloremque iure veniam nobis asperiores!</p>
+      
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis architecto doloribus perspiciatis.</p>
       
         <h2>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</h2>
@@ -82,16 +117,30 @@
       
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat fuga architecto accusamus?</p>
       
-        <ul>
-          <li>Lorem, ipsum.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem, ipsum.</li>
+        <ul class="list list--ul">
+          <li>Lorem, ipsum</li>
+          <li>
+            Lorem ipsum dolor sit amet
+            <ul class="list list--ul">
+              <li>Lorem, ipsum</li>
+              <li>Lorem, ipsum</li>
+            </ul>
+          </li>
+          <li>Lorem, ipsum</li>
         </ul>
       
-        <ol>
-          <li>Lorem, ipsum.</li>
-          <li>Lorem ipsum dolor sit amet.</li>
-          <li>Lorem, ipsum.</li>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas unde nihil alias culpa voluptas quibusdam aliquam, veniam nostrum. Vitae molestiae quia minima aut eligendi quidem expedita consequuntur recusandae ad itaque.</p>
+      
+        <ol class="list list--ol">
+          <li>Lorem, ipsum</li>
+          <li>
+            Lorem ipsum dolor sit amet
+            <ol class="list list--ol">
+              <li>Lorem, ipsum</li>
+              <li>Lorem, ipsum</li>
+            </ol>
+          </li>
+          <li>Lorem, ipsum</li>
         </ol>
       
         <hr>
@@ -103,21 +152,21 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat hic autem consequatur libero, impedit fugiat facere ex! Fugit, cumque minus!</p>
       
         <figure class="text-component__block">
-          <img src="assets/img/blog-placeholder-sm.svg" alt="Image description here">
+          <img src="assets/img/article-example-img-2.svg" alt="Image description here">
           <figcaption>Image caption</figcaption>
         </figure>
       
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto odit incidunt nobis cumque, assumenda quidem ducimus! Architecto, molestias reiciendis tempora pariatur nobis nam quibusdam, nemo repellendus rerum rem quam soluta.</p>
       
         <figure class="text-component__block text-component__block--left">
-          <img src="assets/img/blog-placeholder-sm.svg" alt="Image description here">
+          <img src="assets/img/article-example-img-2.svg" alt="Image description here">
           <figcaption>Image caption</figcaption>
         </figure>
       
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis incidunt minus vero deserunt illum perspiciatis sed sit. Officia, quia at? Nisi dolores quis culpa nulla eveniet? Rem vel numquam ipsa voluptatum voluptate illo minima, temporibus atque officia soluta magnam laborum neque alias consequuntur enim aliquid consequatur non accusamus exercitationem. Perspiciatis dolorem a commodi alias, ad corporis iusto magnam in quae deleniti incidunt facilis voluptatibus. Aliquid reprehenderit, provident, totam necessitatibus cumque vel veniam consequuntur maxime iure accusamus explicabo recusandae neque quas?</p>
       
         <figure class="text-component__block text-component__block--outset text-component__block--right">
-          <img src="assets/img/blog-placeholder-sm.svg" alt="Image description here">
+          <img src="assets/img/article-example-img-2.svg" alt="Image description here">
           <figcaption>Image caption</figcaption>
         </figure>
       
@@ -126,93 +175,149 @@
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos vitae, sequi officia dignissimos laboriosam atque esse omnis. Perspiciatis, ratione eius.</p>
       
         <div class="text-component__block text-component__block--outset">
-          <div class="grid grid-gap-xs">
+          <div class="grid gap-xs">
             <figure class="col">
-              <img src="assets/img/blog-placeholder.svg" alt="Image description here">
+              <img src="assets/img/article-example-img-1.svg" alt="Image description here">
               <figcaption>Image caption</figcaption>
             </figure>
       
             <figure class="col">
-              <img src="assets/img/blog-placeholder.svg" alt="Image description here">
+              <img src="assets/img/article-example-img-1.svg" alt="Image description here">
               <figcaption>Image caption</figcaption>
             </figure>
           </div>
         </div>
       
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam voluptatem dolore fugiat facilis sint quidem obcaecati voluptas ut quae aliquam dolorem omnis, odit nihil! Sint doloremque voluptates laborum illo excepturi eligendi asperiores corporis voluptatem iusto? Voluptatem repellendus consectetur exercitationem, quisquam corrupti rem reiciendis maiores aspernatur quaerat impedit aliquid minus voluptate, incidunt eveniet, et numquam non eligendi! Officiis suscipit ad illo.</p>
-      </article>
+  
+        <div class="text-component__block text-component__block--outset">
+          <figure class="aspect-ratio-16:9">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zAGVQLHvwOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </figure>
+        </div>
+  
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam voluptatem dolore fugiat facilis sint quidem obcaecati voluptas ut quae aliquam dolorem omnis, odit nihil! Sint doloremque voluptates laborum illo excepturi eligendi asperiores corporis voluptatem iusto? Voluptatem repellendus consectetur exercitationem, quisquam corrupti rem reiciendis maiores aspernatur quaerat impedit aliquid minus voluptate, incidunt eveniet, et numquam non eligendi! Officiis suscipit ad illo.</p>
+      </div>
     </div>
-  </main>
+  </article>
 
-  <footer class="main-footer padding-y-lg">
+  <div class="sticky-sharebar js-sticky-sharebar">
+    <ul class="sticky-sharebar__list">
+      <li>
+        <a class="sticky-sharebar__btn js-social-share" data-social="twitter" data-text="Hi there! https://codyhouse.co via @CodyWebHouse" data-hashtags="#nuggets, #dev" href="https://twitter.com/intent/tweet">
+          <svg class="icon" viewBox="0 0 32 32"><title>Share on Twitter</title><g><path d="M32,6.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.7,3.8,24,3,22.2,3 c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,10.8,5.5,8.2,2.2,4.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5 c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1C2.9,27.9,6.4,29,10.1,29c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C30,8.5,31.1,7.4,32,6.1z"></path></g></svg>
+        </a>
+      </li>
+    
+      <li>
+        <a class="sticky-sharebar__btn js-social-share" data-social="facebook" data-url="https://codyhouse.co" href="http://www.facebook.com/sharer.php">
+          <svg class="icon" viewBox="0 0 32 32"><title>Share on Facebook</title><path d="M32,16A16,16,0,1,0,13.5,31.806V20.625H9.438V16H13.5V12.475c0-4.01,2.389-6.225,6.043-6.225a24.644,24.644,0,0,1,3.582.312V10.5H21.107A2.312,2.312,0,0,0,18.5,13v3h4.438l-.71,4.625H18.5V31.806A16,16,0,0,0,32,16Z"></path></svg>
+        </a>
+      </li>
+    
+      <li>
+        <a class="sticky-sharebar__btn js-social-share" data-social="pinterest" data-description="Description for my Pinterest share" data-media="https://codyhouse.co/app/assets/img/social-sharing-img-1.jpg" href="http://pinterest.com/pin/create/button">
+          <svg class="icon" viewBox="0 0 32 32"><title>Share on Pinterest</title><g><path d="M16,0C7.2,0,0,7.2,0,16c0,6.8,4.2,12.6,10.2,14.9c-0.1-1.3-0.3-3.2,0.1-4.6c0.3-1.2,1.9-8,1.9-8 s-0.5-1-0.5-2.4c0-2.2,1.3-3.9,2.9-3.9c1.4,0,2,1,2,2.3c0,1.4-0.9,3.4-1.3,5.3c-0.4,1.6,0.8,2.9,2.4,2.9c2.8,0,5-3,5-7.3 c0-3.8-2.8-6.5-6.7-6.5c-4.6,0-7.2,3.4-7.2,6.9c0,1.4,0.5,2.8,1.2,3.7c0.1,0.2,0.1,0.3,0.1,0.5c-0.1,0.5-0.4,1.6-0.4,1.8 C9.5,21.9,9.3,22,9,21.8c-2-0.9-3.2-3.9-3.2-6.2c0-5,3.7-9.7,10.6-9.7c5.6,0,9.9,4,9.9,9.2c0,5.5-3.5,10-8.3,10 c-1.6,0-3.1-0.8-3.7-1.8c0,0-0.8,3.1-1,3.8c-0.4,1.4-1.3,3.1-2,4.2c1.5,0.5,3.1,0.7,4.7,0.7c8.8,0,16-7.2,16-16C32,7.2,24.8,0,16,0z "></path></g></svg>
+        </a>
+      </li>
+    
+      <li>
+        <a class="sticky-sharebar__btn js-social-share" data-social="linkedin" data-url="http://codyhouse.co" href="https://www.linkedin.com/shareArticle">
+          <svg class="icon" viewBox="0 0 32 32"><title>Share on Linkedin</title><g><path d="M29,1H3A2,2,0,0,0,1,3V29a2,2,0,0,0,2,2H29a2,2,0,0,0,2-2V3A2,2,0,0,0,29,1ZM9.887,26.594H5.374V12.25H9.887ZM7.63,10.281a2.625,2.625,0,1,1,2.633-2.625A2.624,2.624,0,0,1,7.63,10.281ZM26.621,26.594H22.2V19.656c0-1.687,0-3.75-2.35-3.75s-2.633,1.782-2.633,3.656v7.126H12.8V12.25h4.136v1.969h.094a4.7,4.7,0,0,1,4.231-2.344c4.513,0,5.359,3,5.359,6.844Z"></path></g></svg>
+        </a>
+      </li>
+    
+      <li>
+        <a class="sticky-sharebar__btn js-social-share" data-social="mail" data-subject="Email Subject" data-body="Content of my email." href="mailto:">
+          <svg class="icon" viewBox="0 0 32 32"><title>Share by Email</title><g><path d="M28,3H4A3.957,3.957,0,0,0,0,7V25a3.957,3.957,0,0,0,4,4H28a3.957,3.957,0,0,0,4-4V7A3.957,3.957,0,0,0,28,3Zm.6,6.8-12,9a1,1,0,0,1-1.2,0l-12-9A1,1,0,0,1,4.6,8.2L16,16.75,27.4,8.2a1,1,0,1,1,1.2,1.6Z"></path></g></svg>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <progress aria-hidden="true" class="reset reading-progressbar js-reading-progressbar" max="100" value="0">
+    <div class="reading-progressbar__fallback js-reading-progressbar__fallback"></div>
+  </progress>
+  
+  <footer class="main-footer position-relative z-index-1 padding-top-xl border-top js-sticky-sharebar-target-out">
     <div class="container max-width-lg">
-      <div class="main-footer__content">
-        <div class="main-footer__logo">
-          <a href="#0">
-            <svg width="130" height="32" viewBox="0 0 130 32"><title>Go to homepage</title><circle fill="var(--color-primary)" cx="16" cy="16" r="16"/><rect fill="var(--color-contrast-higher)" x="41" y="11" width="89" height="10"/></svg>
+      <div class="grid gap-lg">
+        <div class="col-3@lg order-2@lg text-right@lg">
+          <a class="main-footer__logo" href="#0">
+            <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" fill="var(--color-contrast-higher)"/><circle cx="15" cy="15" r="15" fill="var(--color-primary)"/></svg>
           </a>
         </div>
         
-        <nav class="main-footer__nav">
-          <ul class="main-footer__nav-list">
-            <li class="main-footer__nav-item">
-              <h4>Product</h4>
-              <div><a href="#0">Pricing</a></div>
-              <div><a href="#0">Teams</a></div>
-              <div><a href="#0">Updates</a></div>
-              <div><a href="#0">Features</a></div>
-              <div><a href="#0">Integrations</a></div>
-              <div><a href="#0">Support</a></div>
+        <nav class="col-9@lg order-1@lg">
+          <ul class="grid gap-lg">
+            <li class="col-6@xs col-3@md">
+              <h4 class="margin-bottom-sm">Product</h4>
+              <ul class="grid gap-xs">
+                <li><a href="#0" class="main-footer__link">Pricing</a></li>
+                <li><a href="#0" class="main-footer__link">Teams</a></li>
+                <li><a href="#0" class="main-footer__link">Updates</a></li>
+                <li><a href="#0" class="main-footer__link">Features</a></li>
+                <li><a href="#0" class="main-footer__link">Integrations</a></li>
+                <li><a href="#0" class="main-footer__link">Support</a></li>
+              </ul>
             </li>
   
-            <li class="main-footer__nav-item">
-              <h4>Developers</h4>
-              <div><a href="#0">Documentation</a></div>
-              <div><a href="#0">API reference</a></div>
-              <div><a href="#0">API status</a></div>
-              <div><a href="#0">Open source</a></div>
+            <li class="col-6@xs col-3@md">
+              <h4 class="margin-bottom-sm">Developers</h4>
+              <ul class="grid gap-xs">
+                <li><a href="#0" class="main-footer__link">Documentation</a></li>
+                <li><a href="#0" class="main-footer__link">API reference</a></li>
+                <li><a href="#0" class="main-footer__link">API status</a></li>
+                <li><a href="#0" class="main-footer__link">Open source</a></li>
+              </ul>
             </li>
   
-            <li class="main-footer__nav-item">
-              <h4>Resources</h4>
-              <div><a href="#0">Tutorials</a></div>
-              <div><a href="#0">Docs</a></div>
-              <div><a href="#0">Community</a></div>
-              <div><a href="#0">Case studies</a></div>
-              <div><a href="#0">Help center</a></div>
+            <li class="col-6@xs col-3@md">
+              <h4 class="margin-bottom-sm">Resources</h4>
+              <ul class="grid gap-xs">
+                <li><a href="#0" class="main-footer__link">Tutorials</a></li>
+                <li><a href="#0" class="main-footer__link">Docs</a></li>
+                <li><a href="#0" class="main-footer__link">Community</a></li>
+                <li><a href="#0" class="main-footer__link">Case studies</a></li>
+                <li><a href="#0" class="main-footer__link">Help center</a></li>
+              </ul>
             </li>
   
-            <li class="main-footer__nav-item">
-              <h4>About</h4>
-              <div><a href="#0">Company</a></div>
-              <div><a href="#0">Customers</a></div>
-              <div><a href="#0">Careers</a></div>
-              <div><a href="#0">Education</a></div>
-              <div><a href="#0">Our story</a></div>
-              <div><a href="#0">Press kit</a></div>
+            <li class="col-6@xs col-3@md">
+              <h4 class="margin-bottom-sm">About</h4>
+              <ul class="grid gap-xs">
+                <li><a href="#0" class="main-footer__link">Company</a></li>
+                <li><a href="#0" class="main-footer__link">Customers</a></li>
+                <li><a href="#0" class="main-footer__link">Careers</a></li>
+                <li><a href="#0" class="main-footer__link">Education</a></li>
+                <li><a href="#0" class="main-footer__link">Our story</a></li>
+                <li><a href="#0" class="main-footer__link">Press kit</a></li>
+              </ul>
             </li>
           </ul>
         </nav>
       </div>
     
-      <div class="main-footer__colophon">
-        <div class="main-footer__colophon-nav">
-          <span>&copy; myWebsite</span>
-          <a href="#0">Terms</a>
-          <a href="#0">Privacy</a>
+      <div class="flex flex-column border-top padding-y-xs margin-top-lg flex-row@md justify-between@md items-center@md">
+        <div class="margin-bottom-sm margin-bottom-0@md">
+          <div class="text-sm text-xs@md color-contrast-medium flex flex-wrap gap-xs">
+            <span>&copy; myWebsite</span>
+            <a href="#0" class="color-contrast-high">Terms</a>
+            <a href="#0" class="color-contrast-high">Privacy</a>
+          </div>
         </div>
   
-        <div class="main-footer__socials">
-          <a href="#0">
-            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Twitter</title><g><path d="M16,3c-0.6,0.3-1.2,0.4-1.9,0.5c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2.1,0.8c-0.6-0.6-1.5-1-2.4-1 C9.3,1.5,7.8,3,7.8,4.8c0,0.3,0,0.5,0.1,0.7C5.2,5.4,2.7,4.1,1.1,2.1c-0.3,0.5-0.4,1-0.4,1.7c0,1.1,0.6,2.1,1.5,2.7 c-0.5,0-1-0.2-1.5-0.4c0,0,0,0,0,0c0,1.6,1.1,2.9,2.6,3.2C3,9.4,2.7,9.4,2.4,9.4c-0.2,0-0.4,0-0.6-0.1c0.4,1.3,1.6,2.3,3.1,2.3 c-1.1,0.9-2.5,1.4-4.1,1.4c-0.3,0-0.5,0-0.8,0c1.5,0.9,3.2,1.5,5,1.5c6,0,9.3-5,9.3-9.3c0-0.1,0-0.3,0-0.4C15,4.3,15.6,3.7,16,3z"></path></g></svg>
+        <div class="flex items-center gap-xs">
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Twitter</title><g><path d="M16,3c-0.6,0.3-1.2,0.4-1.9,0.5c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2.1,0.8c-0.6-0.6-1.5-1-2.4-1 C9.3,1.5,7.8,3,7.8,4.8c0,0.3,0,0.5,0.1,0.7C5.2,5.4,2.7,4.1,1.1,2.1c-0.3,0.5-0.4,1-0.4,1.7c0,1.1,0.6,2.1,1.5,2.7 c-0.5,0-1-0.2-1.5-0.4c0,0,0,0,0,0c0,1.6,1.1,2.9,2.6,3.2C3,9.4,2.7,9.4,2.4,9.4c-0.2,0-0.4,0-0.6-0.1c0.4,1.3,1.6,2.3,3.1,2.3 c-1.1,0.9-2.5,1.4-4.1,1.4c-0.3,0-0.5,0-0.8,0c1.5,0.9,3.2,1.5,5,1.5c6,0,9.3-5,9.3-9.3c0-0.1,0-0.3,0-0.4C15,4.3,15.6,3.7,16,3z"></path></g></svg>
           </a>
   
-          <a href="#0">
-            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Youtube</title><g><path d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8 s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z M6,11V5l5,3L6,11z"></path></g></svg>
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Youtube</title><g><path d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8 s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z M6,11V5l5,3L6,11z"></path></g></svg>
           </a>
   
-          <a href="#0">
-            <svg class="icon" viewBox="0 0 16 16"><title>Follow us on Github</title><g><path  d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6 C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5 c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1 c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8 c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2 c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"></path></g></svg>
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Github</title><g><path  d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6 C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5 c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1 c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8 c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2 c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"></path></g></svg>
           </a>
         </div>
       </div>

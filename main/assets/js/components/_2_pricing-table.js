@@ -1,4 +1,5 @@
 // File#: _2_pricing-table
+// Usage: codyhouse.co/license
 (function() {
 	// NOTE: you need the js code only when using the --has-switch variation of the pricing table
 	// default version does not require js

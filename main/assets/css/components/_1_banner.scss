@@ -1,0 +1,105 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_banner
+Title: Banner
+Descr: A CTA banner containing text + media
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.banner {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+
+  background-color: var(--color-bg-light);
+  box-shadow: var(--inner-glow), var(--shadow-sm);
+  border-radius: var(--radius-md);
+
+  transition: .3s;
+
+  &:hover {
+    background-color: var(--color-bg-lighter);
+    box-shadow: var(--inner-glow), var(--shadow-md);
+
+    .banner__link {
+      transform: scale(1.3);
+    
+      i {
+        transform: scale(0.7); // reverse parent transformation
+      }
+    
+      &::after {
+        height: 100%;
+      }
+    }
+  
+    .banner__figure {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.banner__link {
+  position: relative;
+  text-decoration: none;
+  color: var(--color-primary-dark);
+  display: inline-block;
+  transition: .3s var(--ease-out);
+  transform-origin: left bottom;
+
+  i { // label
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    transition: .3s var(--ease-out);
+  }
+
+  &::after { // animated border
+    content: '';
+    background-color: currentColor;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    left: 0;
+    transition: .3s var(--ease-out);
+    opacity: 0.15;
+  }
+}
+
+.banner__figure {
+  height: 0;
+  padding-bottom: 50%;
+  transition: .3s var(--ease-out);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@include breakpoint(md) {  
+  .banner__figure {
+    height: 100%;
+    padding-bottom: 0;
+    clip-path: polygon(100px 0%, 100% 0%, 100% 100%, 50px 100%);
+  }
+
+  // invert variation
+  .banner--invert {
+    .banner__figure {
+      clip-path: polygon(0% 0%, calc(100% - 100px) 0%, calc(100% - 50px) 100%, 0% 100%);
+    }
+    
+    .banner__link {
+      transform-origin: right bottom;
+    }
+  }
+
+  .banner:hover .banner__figure { // clip animation - visible on big screens
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}

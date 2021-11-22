@@ -1,0 +1,78 @@
+@use '../base' as *;
+
+/* -------------------------------- 
+
+File#: _1_article-gallery-v3
+Title: Article Gallery v3
+Descr: A gallery of blog articles
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+.articles-v3 {}
+
+.articles-v3__img {
+  display: block;
+  transition: opacity .3s;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+  }
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.articles-v3__headline {
+  font-size: var(--text-xl);
+
+  a {
+    color: var(--color-contrast-higher);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.articles-v3__author {
+  display: grid;
+  grid-template-columns: 3em 1fr;
+  grid-gap: var(--space-xs);
+  align-items: center;
+  margin-top: var(--space-md);
+}
+
+.articles-v3__author-img {
+  display: block;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform .3s var(--ease-out-back);
+  
+  img {
+    display: block;
+    width: inherit;
+    height: inherit;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.articles-v3__author-name {
+  font-weight: bold;
+  color: var(--color-contrast-higher);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

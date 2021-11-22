@@ -1,0 +1,19 @@
+@use '../base' as *;
+@use '_1_google-maps.scss' as *;
+@use '_1_details-list.scss' as *;
+
+/* -------------------------------- 
+
+File#: _2_contact
+Title: Contact
+Descr: Contact block w/ info about how to get in touch
+Usage: codyhouse.co/license
+
+-------------------------------- */
+
+@include breakpoint(md) {
+  .contact .google-maps {
+    height: auto;
+    padding-bottom: 0;
+  }
+}

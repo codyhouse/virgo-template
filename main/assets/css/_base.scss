@@ -1,15 +1,1 @@
-@import 'base/reset';
-@import 'base/mixins';
-@import 'base/colors';
-@import 'base/breakpoints';
-@import 'base/spacing';
-@import 'base/grid-layout';
-@import 'base/shared-styles';
-@import 'base/typography';
-@import 'base/icons';
-@import 'base/buttons';
-@import 'base/forms';
-@import 'base/z-index';
-@import 'base/visibility';
-@import 'base/accessibility';
-@import 'base/util';
+@forward '../../../node_modules/codyhouse-framework/main/assets/css/base';

@@ -1,128 +1,50 @@
+@use '../base' as *;
+
 /* -------------------------------- 
 
 File#: _1_main-footer
 Title: Main Footer
 Descr: Footer navigation
+Usage: codyhouse.co/license
 
 -------------------------------- */
 
 .main-footer {}
 
-.main-footer__content {
-  @include breakpoint(md) { // align logo + nav
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
 .main-footer__logo {
-  flex-shrink: 0;
-  margin-bottom: var(--space-md);
+  display: inline-block;
 
-  a, svg, img {
-    width: 130px;
-    height: 32px;
+  svg, img {
     display: block;
   }
 }
 
-.main-footer__nav {
-  @include breakpoint(md) {
-    width: calc(100% - 420px);
-  }
+.main-footer__link {
+  color: var(--color-contrast-medium);
+  text-decoration: none;
 
-  @include breakpoint(lg) {
-    width: auto;
-  }
-}
-
-.main-footer__nav-list { // ul
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.main-footer__nav-item {
-  display: grid;
-  grid-gap: var(--space-xxs);
-  margin-bottom: var(--space-md);
-  width: 100%;
-  padding-right: var(--space-sm);
-
-  @include breakpoint(xs) {
-    width: 50%;
-  }
-
-  @include breakpoint(lg) {
-    grid-gap: var(--space-xs);
-    width: 240px;
+  &:hover {
+    color: var(--color-contrast-high);
+    text-decoration: underline;
   }
 }
 
-.main-footer__nav-item a { // footer nav link
+.main-footer__social {
+  text-decoration: none;
+  display: inline-block;
   color: var(--color-contrast-medium);
 
   &:hover {
     color: var(--color-contrast-high);
   }
 
-  @include breakpoint(lg) {
-    font-size: 0.9em;
-  }
-}
-
-// colophon
-.main-footer__colophon {
-  border-top: 1px solid var(--color-contrast-low);
-  padding-top: var(--space-xxxs);
-  margin-top: var(--space-md);
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.main-footer__colophon-nav {
-  font-size: var(--text-sm);
-  color: var(--color-contrast-medium);
-  margin-right: var(--space-sm);
-
-  > * {
-    margin-right: var(--space-xxs);
-  }
-
-  a {
-    color: inherit;
-
-    &:hover {
-      color: var(--color-contrast-high);
-    }
+  .icon {
+    font-size: 1.2em; // icon size
   }
 
   @include breakpoint(md) {
-    font-size: var(--text-xs);
-  }
-}
-
-.main-footer__socials {
-  display: flex;
-  margin: var(--space-xxs) 0;
-
-  a {
-    text-decoration: none;
-    display: inline-block;
-    margin-left: var(--space-xxs);
-    color: var(--color-contrast-medium);
-
-    &:hover {
-      color: var(--color-contrast-high);
-    }
-
-    svg {
-      display: block;
-      width: 1em;
-      height: 1em;
-      color: inherit;
+    .icon {
+      font-size: 1em;
     }
   }
 }
