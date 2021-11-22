@@ -1,5 +1,5 @@
 # Virgo Template by 🐞 CodyHouse
-Virgo is a free HTML, CSS, JS landing template built using the [CodyHouse Components](https://codyhouse.co/ds/components) and [Framework](https://codyhouse.co/ds/docs/get-started).
+Virgo is a free HTML, CSS, JS landing template built using the [CodyHouse Components](https://codyhouse.co/ds/components) and [Framework](https://codyhouse.co/ds/get-started).
 
 This template was created by copying and pasting 42 components, distributed across 6 unique pages. The global styles were defined using the Global Editors. The glue that holds the components together is CodyFrame. Nothing more - not a single extra line of CSS/JS! 🙌
 
