@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>document.getElementsByTagName("html")[0].className += " js";</script>
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <!-- end google fonts -->
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="stylesheet" href="../dist/output.css">
+  <title>Virgo Template by CodyHouse</title>
+</head>
+<body>
+  <header class="f-header absolute bg-transparent js-f-header" data-theme="dark">
+    <div class="f-header__mobile-content w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-7xl">
+      <a href="index.html" class="f-header__logo">
+        <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" class="fill-contrast-higher"/><circle cx="15" cy="15" r="15" class="fill-primary"/></svg>
+      </a>
+  
+      <button class="reset anim-menu-btn js-anim-menu-btn f-header__nav-control js-tab-focus" aria-label="Toggle menu">
+        <i class="anim-menu-btn__icon anim-menu-btn__icon--close" aria-hidden="true"></i>
+      </button>
+    </div>
+  
+    <div class="f-header__nav" role="navigation">
+      <div class="f-header__nav-grid lg:justify-between w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-7xl">
+        <div class="f-header__nav-logo-wrapper grow basis-0">
+          <a href="index.html" class="f-header__logo">
+            <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" class="fill-contrast-higher"/><circle cx="15" cy="15" r="15" class="fill-primary"/></svg>
+          </a>
+        </div>
+    
+        <ul class="f-header__list grow basis-0 lg:justify-center">
+          <li class="f-header__item">
+            <a href="solutions.html" class="f-header__link">
+              <span>Solutions</span>
+              <svg class="f-header__dropdown-icon icon" aria-hidden="true" viewBox="0 0 12 12"><path d="M9.943,4.269A.5.5,0,0,0,9.5,4h-7a.5.5,0,0,0-.41.787l3.5,5a.5.5,0,0,0,.82,0l3.5-5A.5.5,0,0,0,9.943,4.269Z"/></svg>
+            </a>
+  
+            <ul class="f-header__dropdown">
+              <li><a href="#0" class="f-header__dropdown-link leading-tight">Sub Nav Item One</a></li>
+              <li><a href="#0" class="f-header__dropdown-link leading-tight">Sub Nav Item Two</a></li>
+              <li><a href="#0" class="f-header__dropdown-link leading-tight">Sub Nav Item Three</a></li>
+            </ul>
+          </li>
+          <li class="f-header__item"><a href="pricing.html" class="f-header__link">Pricing</a></li>
+          <li class="f-header__item"><a href="blog.html" class="f-header__link">Blog</a></li>
+          <li class="f-header__item"><a href="blog-article.html" class="f-header__link">Article</a></li>
+          <li class="f-header__item"><a href="contact.html" class="f-header__link">Contact</a></li>
+        </ul>
+    
+        <ul class="f-header__list grow basis-0 lg:justify-end">
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Twitter">
+              <svg class="icon" viewBox="0 0 32 32"><g><path d="M32,6.1c-1.2,0.5-2.4,0.9-3.8,1c1.4-0.8,2.4-2.1,2.9-3.6c-1.3,0.8-2.7,1.3-4.2,1.6C25.7,3.8,24,3,22.2,3 c-3.6,0-6.6,2.9-6.6,6.6c0,0.5,0.1,1,0.2,1.5C10.3,10.8,5.5,8.2,2.2,4.2c-0.6,1-0.9,2.1-0.9,3.3c0,2.3,1.2,4.3,2.9,5.5 c-1.1,0-2.1-0.3-3-0.8c0,0,0,0.1,0,0.1c0,3.2,2.3,5.8,5.3,6.4c-0.6,0.1-1.1,0.2-1.7,0.2c-0.4,0-0.8,0-1.2-0.1 c0.8,2.6,3.3,4.5,6.1,4.6c-2.2,1.8-5.1,2.8-8.2,2.8c-0.5,0-1.1,0-1.6-0.1C2.9,27.9,6.4,29,10.1,29c12.1,0,18.7-10,18.7-18.7 c0-0.3,0-0.6,0-0.8C30,8.5,31.1,7.4,32,6.1z"></path></g></svg>
+              <span class="ml-1.5 lg:ml-2">Follow us on Twitter</span>
+            </a>
+          </li>
+  
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Facebook">
+                <svg class="icon" viewBox="0 0 32 32"><path d="M32,16A16,16,0,1,0,13.5,31.806V20.625H9.438V16H13.5V12.475c0-4.01,2.389-6.225,6.043-6.225a24.644,24.644,0,0,1,3.582.312V10.5H21.107A2.312,2.312,0,0,0,18.5,13v3h4.438l-.71,4.625H18.5V31.806A16,16,0,0,0,32,16Z"></path></svg>
+              <span class="ml-1.5 lg:ml-2">Follow us on Facebook</span>
+            </a>
+          </li>
+  
+          <li class="f-header__item">
+            <a href="#0" class="f-header__link f-header__link--icon" aria-label="Follow us on Youtube">
+              <svg class="icon" viewBox="0 0 32 32"><path d="M31.7,9.6c0,0-0.3-2.2-1.3-3.2c-1.2-1.3-2.6-1.3-3.2-1.4C22.7,4.7,16,4.7,16,4.7h0c0,0-6.7,0-11.2,0.3 c-0.6,0.1-2,0.1-3.2,1.4c-1,1-1.3,3.2-1.3,3.2S0,12.2,0,14.8v2.4c0,2.6,0.3,5.2,0.3,5.2s0.3,2.2,1.3,3.2c1.2,1.3,2.8,1.2,3.5,1.4 C7.7,27.2,16,27.3,16,27.3s6.7,0,11.2-0.3c0.6-0.1,2-0.1,3.2-1.4c1-1,1.3-3.2,1.3-3.2s0.3-2.6,0.3-5.2v-2.4 C32,12.2,31.7,9.6,31.7,9.6z M12.7,20.2l0-9l8.6,4.5L12.7,20.2z"></path></svg>
+              <span class="ml-1.5 lg:ml-2">Follow us on Youtube</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- diagonal hero -->
+  <section class="diagonal-section-bottom bg-contrast-lower/50" style="background-image: url('../assets/img/hero-diagonal-img-1.jpg');" data-theme="dark">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl py-20 lg:py-32">
+      <div class="text-center">
+        <div class="text-sm lg:text-base opacity-90 mb-1.5 lg:mb-2">Welcome</div>
+  
+        <div class="text-component mb-3 lg:mb-5">
+          <h1 class="text-shadow-sm text-4xl leading-tight lg:text-6xl lg:leading-tight"><em>CodyHouse UI</em> Starter Template</h1>
+          <p>Virgo is a free HTML, CSS, JS template powered by CodyHouse UI.</p>
+        </div>
+    
+        <div class="flex flex-wrap justify-center items-center gap-3 lg:gap-5">
+          <a class="btn btn--primary" href="https://github.com/CodyHouse/virgo-template">Download</a>
+
+          <a class="link-fx-1 text-contrast-higher" href="https://codyhouse.co/template/virgo">
+            <span>Learn more</span>
+            <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="15.5"/><line x1="10" y1="18" x2="16" y2="12"/><line x1="16" y1="12" x2="22" y2="18" /></g></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- testimonial -->
+  <section class="testimonial relative z-1 py-20 lg:py-32">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl">
+      <figure class="flex justify-center mb-5 lg:mb-8 reveal-fx reveal-fx--scale">
+        <img class="block w-24 h-24 rounded-full border-2 border-floor shadow-md" src="../assets/img/testimonial-img-1.jpg" alt="Testimonial picture">
+      </figure>
+  
+      <div class="testimonial__block-wrapper mb-8 lg:mb-12">
+        <blockquote class="text-xl lg:text-3xl text-center leading-snug lg:leading-snug">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi atque doloremque beatae! Doloremque perspiciatis aliquid repellat quasi praesentium, minima nobis assumenda ex?</blockquote>
+  
+        <svg class="icon w-[96px] h-[96px] text-contrast-higher opacity-10" aria-hidden="true" viewBox="0 0 64 64"><polygon fill="currentColor" points="2 36 17 2 26 2 15 36 26 36 26 62 2 62 2 36"/><polygon fill="currentColor" points="38 36 53 2 62 2 51 36 62 36 62 62 38 62 38 36"/></svg>
+      </div>
+      
+  
+      <div class="text-center">
+        <p class="uppercase letter-spacing-md"><strong>Emily Ewing</strong></p>
+        <p class="text-contrast-medium mt-0.5 lg:mt-1">Designer at CompanyX</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- text feature -->
+  <section class="relative z-1 pt-20 lg:pt-32" data-theme="secondary">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl relative z-2">
+      <div class="grid grid-cols-12 gap-5 lg:gap-8">
+        <div class="col-span-12 lg:col-span-4">
+            <div class="text-sm lg:text-base text-contrast-medium mb-1.5 lg:mb-2">This is a Label</div>
+            <h1 class="leading-tight">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+        </div>
+      
+        <div class="col-span-12 lg:col-span-8">
+          <div class="lg:pl-8">
+            <div class="text-component">
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint tempore repellat earum. Natus accusantium dolores quas porro delectus corporis explicabo, adipisci eaque, tempore beatae blanditiis totam iste alias ipsum. Asperiores, temporibus quo.</p>
+    
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis tempore officiis voluptatem et, sequi qui explicabo esse excepturi minus quisquam cupiditate cum recusandae ad dicta doloribus doloremque omnis inventore ipsa a veritatis laboriosam. Nostrum numquam nesciunt animi dolore. Sit earum vel illum obcaecati dolorem recusandae voluptates molestias iure repellendus blanditiis porro aspernatur tempora nam commodi ipsam ipsum minus nobis omnis pariatur sed dolor fugiat, nulla facilis! Ducimus quasi dolorum laudantium distinctio cum voluptatibus inventore nostrum, a qui deleniti odit dicta!</p>
+            </div>
+  
+            <div class="flex justify-end mt-3 lg:mt-5"><a class="btn btn--subtle" href="#0">Read more</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="bg-decoration z-1" aria-hidden="true">
+      <svg class="bg-decoration__svg text-contrast-higher opacity-40" viewBox="0 0 1920 450" fill="none">
+        <rect opacity="0.5" x="610.131" y="-440" width="128" height="836.003" transform="rotate(46.8712 610.131 -440)"
+          fill="url(#bg-decoration-v1-fx-5-linear-1)" />
+        <rect opacity="0.5" x="1899.13" y="-262" width="128" height="836.003" transform="rotate(46.8712 1899.13 -262)"
+          fill="url(#bg-decoration-v1-fx-5-linear-2)" />
+        <rect opacity="0.5" x="2076.13" y="-321" width="128" height="836.003" transform="rotate(46.8712 2076.13 -321)"
+          fill="url(#bg-decoration-v1-fx-5-linear-3)" />
+        <rect opacity="0.5" x="1294.5" y="40.3308" width="128" height="836.003"
+          transform="rotate(-132.518 1294.5 40.3308)" fill="url(#bg-decoration-v1-fx-5-linear-4)" />
+        <rect opacity="0.5" x="1866.13" y="-453" width="128" height="836.003" transform="rotate(46.8712 1866.13 -453)"
+          fill="url(#bg-decoration-v1-fx-5-linear-5)" />
+        <rect opacity="0.5" x="800.131" y="-418" width="128" height="836.003" transform="rotate(46.8712 800.131 -418)"
+          fill="url(#bg-decoration-v1-fx-5-linear-5)" />
+        <rect opacity="0.5" x="436.448" y="-251" width="76.1734" height="340.424" transform="rotate(46.8712 436.448 -251)"
+          fill="url(#bg-decoration-v1-fx-5-linear-7)" />
+        <defs>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-1" x1="674.131" y1="-440" x2="674.131" y2="396.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-2" x1="1963.13" y1="-262" x2="1963.13" y2="574.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-3" x1="2140.13" y1="-321" x2="2140.13" y2="515.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-4" x1="1358.5" y1="40.3308" x2="1358.5" y2="876.334"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-5" x1="1930.13" y1="-453" x2="1930.13" y2="383.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-5" x1="864.131" y1="-418" x2="864.131" y2="418.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-7" x1="474.534" y1="-251" x2="474.534" y2="89.4236"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" stop-opacity="0" />
+            <stop offset="1" stop-color="currentColor" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </figure>
+  </section>
+
+  <!-- bi-color feature -->
+  <section class="feature-v10 ">
+    <div class="py-12 lg:py-20 lg:pt-32 lg:pb-0" data-theme="secondary">
+      <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+        <div class="grid grid-cols-12">
+          <figure class="col-span-12 lg:col-span-6 reveal-fx reveal-fx--clip-x">
+            <img class="block w-full object-cover" src="../assets/img/feature-v10-img-1.jpg" alt="Image description">
+          </figure>
+  
+          <div class="bg-contrast-lower/50 col-span-12 lg:col-span-6">
+            <div class="text-component text-space-y-md h-full flex flex-col p-5 lg:p-8">
+              <h2>Abstract</h2>
+              <p class="mt-auto"><a href="#0" class="feature-v10__link"><i class="not-italic">Shop Now</i></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="bg-floor py-12 lg:py-20 lg:pb-32 lg:pt-0" data-theme="dark">
+      <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+        <div class="grid grid-cols-12">
+          <figure class="col-span-12 lg:col-span-6 lg:order-2 reveal-fx reveal-fx--clip-x">
+            <img class="block w-full object-cover" src="../assets/img/feature-v10-img-2.jpg" alt="Image description">
+          </figure>
+  
+          <div class="bg-floor-dark col-span-12 lg:col-span-6 lg:order-1">
+            <div class="text-component text-space-y-md h-full flex flex-col p-5 lg:p-8">
+              <h2>Geometry</h2>
+              <p class="mt-auto"><a href="#0" class="feature-v10__link"><i class="not-italic">Shop Now</i></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- devices -->
+  <section class="relative z-1 py-12 lg:py-20" data-theme="dark">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl relative z-2">
+      <div class="grid grid-cols-12 gap-y-8 lg:gap-12 items-center">
+        <div class="col-span-12 lg:col-span-5">
+          <div class="text-component">
+            <p class="text-sm lg:text-base text-contrast-medium">How it works</p>
+            <h1>Lorem ipsum</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, rem neque doloribus impedit explicabo.</p>
+          </div>
+  
+          <div class="mt-3 lg:mt-5">
+            <div class="flex flex-wrap gap-3 lg:gap-5 items-center">
+              <a class="btn btn--primary" href="#0">Download</a>
+            </div>
+          </div>
+        </div>
+  
+        <div class="col-span-12 lg:col-span-7">
+          <div class="device-group-3">
+  
+            <div class="dev-phone dev-phone--top-light" aria-label="Image description">
+              <div class="dev-phone__body">
+                <div class="dev-phone__media">
+                  <div class="dev-phone__notch"></div>
+                  <svg viewBox="0 0 750 1334">
+                    <rect width="750" height="1334" class="fill-contrast-lower" />
+                    <path d="M130 850.633L436.4 544.233L620.24 850.633H130Z" class="fill-contrast-medium" />
+                    <path d="M192.328 606.56C226.172 606.56 253.608 579.124 253.608 545.28C253.608 511.436 226.172 484 192.328 484C158.484 484 131.048 511.436 131.048 545.28C131.048 579.124 158.484 606.56 192.328 606.56Z" class="fill-contrast-medium" />
+                  </svg>
+                </div>
+              </div>
+              <div class="dev-phone__shadow"></div>
+            </div>
+  
+            <div class="dev-desktop " aria-label="Image description">
+              <div class="dev-desktop__body">
+                <div class="dev-desktop__media">
+                  <svg viewBox="0 0 1920 1200">
+                    <rect width="1920" height="1200" class="fill-contrast-lower" />
+                    <path d="M639.76 839.094L1039.91 438.944L1280 839.094H639.76Z" class="fill-contrast-medium" />
+                    <path d="M721.158 520.342C765.357 520.342 801.188 484.511 801.188 440.312C801.188 396.113 765.357 360.282 721.158 360.282C676.959 360.282 641.128 396.113 641.128 440.312C641.128 484.511 676.959 520.342 721.158 520.342Z" class="fill-contrast-medium" />
+                  </svg>
+                </div>
+              </div>
+              <div class="dev-desktop__base">
+                <div class="dev-desktop__base-top"></div>
+                <div class="dev-desktop__base-bottom"></div>
+                <div class="dev-desktop__shadow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <figure class="bg-decoration z-1 -scale-x-100 -scale-y-100" aria-hidden="true">
+      <svg class="bg-decoration__svg text-contrast-low" viewBox="0 0 1920 450" fill="none">
+        <rect opacity="0.5" x="1952.45" y="45.1172" width="175.38" height="1451.58"
+          transform="rotate(99.6416 1952.45 45.1172)" fill="url(#bg-decoration-v1-fx-6-linear-1)" />
+        <circle opacity="0.5" r="38" transform="matrix(-1 0 0 1 1583 171)" fill="url(#bg-decoration-v1-fx-6-radial-1)" />
+        <path opacity="0.5" d="M1338 187L1679.53 -0.113281L1416.47 -78.0066L1338 187Z" fill="url(#bg-decoration-v1-fx-6-linear-2)" />
+        <path opacity="0.5" d="M1683.59 291L1612.88 413.475L1709.47 387.593L1683.59 291Z" fill="url(#bg-decoration-v1-fx-6-linear-3)" />
+        <defs>
+          <linearGradient id="bg-decoration-v1-fx-6-linear-1" x1="2040.14" y1="45.1172" x2="2040.14" y2="1496.7"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" stop-opacity="0" />
+            <stop offset="1" stop-color="currentColor" />
+          </linearGradient>
+          <radialGradient id="bg-decoration-v1-fx-6-radial-1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+            gradientTransform="scale(38)">
+            <stop stop-color="hsl(var(--color-primary))" stop-opacity="0" />
+            <stop offset="1" stop-color="hsl(var(--color-primary))" />
+          </radialGradient>
+          <linearGradient id="bg-decoration-v1-fx-6-linear-2" x1="1640.29" y1="132.39" x2="1377.23" y2="54.4967"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-6-linear-3" x1="1599.94" y1="365.178" x2="1696.53" y2="339.296"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </figure>
+  </section>
+
+  <!-- CTA -->
+  <section class="relative z-1 pt-12 lg:pt-20">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-lg md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+      <h1 class="sr-only">Join us</h1>
+  
+      <div class="text-2xl sm:text-3xl lg:text-5xl leading-tight sm:leading-tight lg:leading-tight font-bold">
+        <p class="text-contrast-higher font-secondary">Be better,</p>
+        <p class="mb-1.5 lg:mb-2 text-contrast-higher font-secondary">Be stronger.</p>
+  
+        <a class="td-text-block font-secondary" href="#0" aria-label="Join our club">
+          <span class="td-text-block__wrapper">
+            <em class="not-italic td-text-block__front-text">Join Our Club &rarr;</em>
+            <em class="not-italic td-text-block__final-text">Join Our Club &rarr;</em>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- list -->
+  <section class="my-12 lg:my-20">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-3xl">
+      <ol class="list-v2 list-v2--ol">
+        <li>
+          <div class="mb-2 lg:mb-3">
+            <h4 class="list-v2__title font-sans">
+              <div class="list-v2__bullet"></div>CSS Framework
+            </h4>
+          </div>
+      
+          <div class="list-v2__content">
+            <div class="text-component">
+              <p class="text-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio voluptatum rerum repudiandae nobis quae, autem minima eius doloribus recusandae minus?</p>
+            </div>
+          </div>
+        </li>
+      
+        <li>
+          <div class="mb-2 lg:mb-3">
+            <h4 class="list-v2__title font-sans">
+              <div class="list-v2__bullet"></div>Components
+            </h4>
+          </div>
+      
+          <div class="list-v2__content">
+            <div class="text-component">
+              <p class="text-contrast-medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita eum tempora maxime, praesentium veritatis consectetur quia laudantium pariatur.</p>
+              <p class="text-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente unde explicabo natus consequuntur laborum dolores, asperiores sint, eveniet deserunt porro illum aut ab earum non ducimus, cumque nam qui minima itaque ipsam ad esse. Atque architecto molestiae assumenda inventore dignissimos.</p>
+            </div>
+          </div>
+        </li>
+      
+        <li>
+          <div class="mb-2 lg:mb-3">
+            <h4 class="list-v2__title font-sans">
+              <div class="list-v2__bullet"></div>Global Editors
+            </h4>
+          </div>
+      
+          <div class="list-v2__content">
+            <div class="text-component">
+              <p class="text-contrast-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt natus totam deleniti corporis cupiditate non aperiam adipisci quasi repellendus possimus.</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+  
+  <!-- sticky hero -->
+  <section class="sticky-hero sticky-hero--scale mb-12 lg:mb-20 js-sticky-hero">
+    <div class="sticky-hero__media" style="background-image: url('../assets/img/sticky-hero-img-1.jpg');" aria-hidden="true"></div>
+  
+    <div class="sticky-hero__content bg-transparent" data-theme="dark">
+      <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-3xl text-component">
+        <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor expedita sequi nostrum quibusdam possimus, vero aliquam ut debitis illum optio alias veniam error voluptatum.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="mb-12 lg:mb-20">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-3xl">
+      <article class="text-component article">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum odit ea aliquid reiciendis eum quo eligendi sapiente molestiae recusandae autem dolore cupiditate dicta enim illo, dolorem accusamus doloremque.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore illum eos accusantium atque aspernatur repellat rem illo earum nihil. Earum eligendi error tenetur ullam id dolores fugiat necessitatibus placeat. Omnis, ad! Ipsam consequuntur officiis iusto praesentium voluptatibus nulla quidem dolores! Debitis laudantium libero maiores porro velit distinctio neque earum architecto tenetur, doloremque sit ad dolores consequatur corrupti quae culpa? Officia!</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- newsletter -->
+  <section class="newsletter py-20 lg:py-32 text-center" data-theme="soft">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-xl relative z-2">
+      <div class="text-component mb-5 lg:mb-8">
+        <h2>Join <em>our</em> Newsletter</h2>
+        <p>Get our monthly recap with the latest news.</p>
+      </div>
+  
+      <form class="flex gap-1.5 lg:gap-2">
+        <div class="sm:grow min-w-0">
+          <input class="form-control w-full h-full" aria-label="Email" type="email" placeholder="Email address">
+        </div>
+  
+        <div class="sm:grow-0">
+          <button class="btn btn--primary w-full h-full">Subscribe</button>
+        </div>
+      </form>
+  
+      <div class="mt-2 lg:mt-3">
+        <small class="text-xs text-contrast-medium">By subscribing you agree to our <a class="text-contrast-high" href="#0">privacy policy</a>.</small>
+      </div>
+    </div>
+
+    <figure class="bg-decoration z-1" aria-hidden="true">
+      <svg class="bg-decoration__svg text-contrast-higher opacity-70" viewBox="0 0 1920 450" fill="none">
+        <rect opacity="0.5" x="610.131" y="-440" width="128" height="836.003" transform="rotate(46.8712 610.131 -440)"
+          fill="url(#bg-decoration-v1-fx-5-linear-1)" />
+        <rect opacity="0.5" x="1899.13" y="-262" width="128" height="836.003" transform="rotate(46.8712 1899.13 -262)"
+          fill="url(#bg-decoration-v1-fx-5-linear-2)" />
+        <rect opacity="0.5" x="2076.13" y="-321" width="128" height="836.003" transform="rotate(46.8712 2076.13 -321)"
+          fill="url(#bg-decoration-v1-fx-5-linear-3)" />
+        <rect opacity="0.5" x="1294.5" y="40.3308" width="128" height="836.003"
+          transform="rotate(-132.518 1294.5 40.3308)" fill="url(#bg-decoration-v1-fx-5-linear-4)" />
+        <rect opacity="0.5" x="1866.13" y="-453" width="128" height="836.003" transform="rotate(46.8712 1866.13 -453)"
+          fill="url(#bg-decoration-v1-fx-5-linear-5)" />
+        <rect opacity="0.5" x="800.131" y="-418" width="128" height="836.003" transform="rotate(46.8712 800.131 -418)"
+          fill="url(#bg-decoration-v1-fx-5-linear-5)" />
+        <rect opacity="0.5" x="436.448" y="-251" width="76.1734" height="340.424" transform="rotate(46.8712 436.448 -251)"
+          fill="url(#bg-decoration-v1-fx-5-linear-7)" />
+        <defs>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-1" x1="674.131" y1="-440" x2="674.131" y2="396.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-2" x1="1963.13" y1="-262" x2="1963.13" y2="574.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-3" x1="2140.13" y1="-321" x2="2140.13" y2="515.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-4" x1="1358.5" y1="40.3308" x2="1358.5" y2="876.334"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-5" x1="1930.13" y1="-453" x2="1930.13" y2="383.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-5" x1="864.131" y1="-418" x2="864.131" y2="418.003"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" />
+            <stop offset="1" stop-color="currentColor" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="bg-decoration-v1-fx-5-linear-7" x1="474.534" y1="-251" x2="474.534" y2="89.4236"
+            gradientUnits="userSpaceOnUse">
+            <stop stop-color="currentColor" stop-opacity="0" />
+            <stop offset="1" stop-color="currentColor" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </figure>
+  </section>
+
+  <!-- footer -->
+  <footer class="main-footer relative z-1 pt-12 lg:pt-20">
+    <div class="w-[calc(100%_-_2.5rem)] lg:w-[calc(100%_-_4rem)] mx-auto max-w-7xl">
+      <div class="grid grid-cols-12 gap-y-8 lg:gap-12">
+        <div class="col-span-12 xl:col-span-3 xl:order-2 xl:text-right">
+          <a class="main-footer__logo" href="#0">
+            <svg width="104" height="30" viewBox="0 0 104 30"><title>Go to homepage</title><path d="M37.54 24.08V3.72h4.92v16.37h8.47v4zM60.47 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8 8 0 015.64-2.18 8.07 8.07 0 015.68 2.2 8.49 8.49 0 012 5.69 8.63 8.63 0 01-1.78 5.38 7.6 7.6 0 01-5.89 2.49zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.79 3-2.79 4.26.32 4.23 2.82 4.23zM95.49 24.37a7.82 7.82 0 01-5.73-2.25 8.36 8.36 0 01-2-5.62 8.32 8.32 0 012.08-5.71 8.4 8.4 0 0111.31 0 8.43 8.43 0 012 5.69 8.6 8.6 0 01-1.77 5.38 7.6 7.6 0 01-5.89 2.51zm0-3.67c2.42 0 2.73-3 2.73-4.23s-.31-4.26-2.73-4.26-2.8 3-2.8 4.26.31 4.23 2.83 4.23zM77.66 30c-5.74 0-7-3.25-7.23-4.52l4.6-.26c.41.91 1.17 1.41 2.76 1.41a2.45 2.45 0 002.82-2.53v-2.68a7 7 0 01-1.7 1.75 6.12 6.12 0 01-5.85-.08c-2.41-1.37-3-4.25-3-6.66 0-.89.12-3.67 1.45-5.42a5.67 5.67 0 014.64-2.4c1.2 0 3 .25 4.46 2.82V8.81h4.85v15.33a5.2 5.2 0 01-2.12 4.32A9.92 9.92 0 0177.66 30zm.15-9.66c2.53 0 2.81-2.69 2.81-3.91s-.31-4-2.81-4-2.81 2.8-2.81 4 .27 3.91 2.81 3.91zM55.56 3.72h9.81v2.41h-9.81z" class="fill-contrast-higher"/><circle cx="15" cy="15" r="15" class="fill-primary"/></svg>
+          </a>
+        </div>
+        
+        <nav class="col-span-12 xl:col-span-9 xl:order-1">
+          <ul class="grid grid-cols-12 gap-y-8 sm:gap-8 lg:gap-12">
+            <li class="col-span-12 sm:col-span-6 lg:col-span-3">
+              <h4 class="mb-3 lg:mb-5">Product</h4>
+              <ul class="grid grid-cols-12 gap-2 lg:gap-3">
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Pricing</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Teams</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Updates</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Features</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Integrations</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Support</a></li>
+              </ul>
+            </li>
+  
+            <li class="col-span-12 sm:col-span-6 lg:col-span-3">
+              <h4 class="mb-3 lg:mb-5">Developers</h4>
+              <ul class="grid grid-cols-12 gap-2 lg:gap-3">
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Documentation</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">API reference</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">API status</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Open source</a></li>
+              </ul>
+            </li>
+  
+            <li class="col-span-12 sm:col-span-6 lg:col-span-3">
+              <h4 class="mb-3 lg:mb-5">Resources</h4>
+              <ul class="grid grid-cols-12 gap-2 lg:gap-3">
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Tutorials</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Docs</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Community</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Case studies</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Help center</a></li>
+              </ul>
+            </li>
+  
+            <li class="col-span-12 sm:col-span-6 lg:col-span-3">
+              <h4 class="mb-3 lg:mb-5">About</h4>
+              <ul class="grid grid-cols-12 gap-2 lg:gap-3">
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Company</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Customers</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Careers</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Education</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Our story</a></li>
+                <li class="col-span-12"><a href="#0" class="main-footer__link">Press kit</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    
+      <div class="flex flex-col border-t border-contrast-lower py-2 lg:py-3 mt-8 lg:mt-12 lg:flex-row lg:justify-between lg:items-center">
+        <div class="mb-3 lg:mb-0">
+          <div class="text-sm lg:text-xs text-contrast-medium flex flex-wrap gap-2 lg:gap-3">
+            <span>&copy; myWebsite</span>
+            <a href="#0" class="text-contrast-high">Terms</a>
+            <a href="#0" class="text-contrast-high">Privacy</a>
+          </div>
+        </div>
+  
+        <div class="flex items-center gap-2 lg:gap-3">
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Twitter</title><g><path d="M16,3c-0.6,0.3-1.2,0.4-1.9,0.5c0.7-0.4,1.2-1,1.4-1.8c-0.6,0.4-1.3,0.6-2.1,0.8c-0.6-0.6-1.5-1-2.4-1 C9.3,1.5,7.8,3,7.8,4.8c0,0.3,0,0.5,0.1,0.7C5.2,5.4,2.7,4.1,1.1,2.1c-0.3,0.5-0.4,1-0.4,1.7c0,1.1,0.6,2.1,1.5,2.7 c-0.5,0-1-0.2-1.5-0.4c0,0,0,0,0,0c0,1.6,1.1,2.9,2.6,3.2C3,9.4,2.7,9.4,2.4,9.4c-0.2,0-0.4,0-0.6-0.1c0.4,1.3,1.6,2.3,3.1,2.3 c-1.1,0.9-2.5,1.4-4.1,1.4c-0.3,0-0.5,0-0.8,0c1.5,0.9,3.2,1.5,5,1.5c6,0,9.3-5,9.3-9.3c0-0.1,0-0.3,0-0.4C15,4.3,15.6,3.7,16,3z"></path></g></svg>
+          </a>
+  
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Youtube</title><g><path d="M15.8,4.8c-0.2-1.3-0.8-2.2-2.2-2.4C11.4,2,8,2,8,2S4.6,2,2.4,2.4C1,2.6,0.3,3.5,0.2,4.8C0,6.1,0,8,0,8 s0,1.9,0.2,3.2c0.2,1.3,0.8,2.2,2.2,2.4C4.6,14,8,14,8,14s3.4,0,5.6-0.4c1.4-0.3,2-1.1,2.2-2.4C16,9.9,16,8,16,8S16,6.1,15.8,4.8z M6,11V5l5,3L6,11z"></path></g></svg>
+          </a>
+  
+          <a href="#0" class="main-footer__social">
+            <svg class="icon block" viewBox="0 0 16 16"><title>Follow us on Github</title><g><path  d="M8,0.2c-4.4,0-8,3.6-8,8c0,3.5,2.3,6.5,5.5,7.6 C5.9,15.9,6,15.6,6,15.4c0-0.2,0-0.7,0-1.4C3.8,14.5,3.3,13,3.3,13c-0.4-0.9-0.9-1.2-0.9-1.2c-0.7-0.5,0.1-0.5,0.1-0.5 c0.8,0.1,1.2,0.8,1.2,0.8C4.4,13.4,5.6,13,6,12.8c0.1-0.5,0.3-0.9,0.5-1.1c-1.8-0.2-3.6-0.9-3.6-4c0-0.9,0.3-1.6,0.8-2.1 c-0.1-0.2-0.4-1,0.1-2.1c0,0,0.7-0.2,2.2,0.8c0.6-0.2,1.3-0.3,2-0.3c0.7,0,1.4,0.1,2,0.3c1.5-1,2.2-0.8,2.2-0.8 c0.4,1.1,0.2,1.9,0.1,2.1c0.5,0.6,0.8,1.3,0.8,2.1c0,3.1-1.9,3.7-3.7,3.9C9.7,12,10,12.5,10,13.2c0,1.1,0,1.9,0,2.2 c0,0.2,0.1,0.5,0.6,0.4c3.2-1.1,5.5-4.1,5.5-7.6C16,3.8,12.4,0.2,8,0.2z"></path></g></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="https://unpkg.com/codyhouse-framework/main/assets/js/util.js"></script>
+  <script src="js/components.js"></script>
+</body>
+</html>
